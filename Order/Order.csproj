@@ -89,6 +89,67 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="html-Verson1\masterPage.html" />
+    <Content Include="html-Verson1\productClass.html" />
+    <Content Include="html-Verson1\~\css\all.css" />
+    <Content Include="html-Verson1\~\css\animate.css" />
+    <Content Include="html-Verson1\~\css\aos.css" />
+    <Content Include="html-Verson1\~\css\bootstrap.min.css" />
+    <Content Include="html-Verson1\~\css\flaticon.css" />
+    <Content Include="html-Verson1\~\css\font-awesome.min.css" />
+    <Content Include="html-Verson1\~\css\gijgo.min.css" />
+    <Content Include="html-Verson1\~\css\index.css" />
+    <Content Include="html-Verson1\~\css\magnific-popup.css" />
+    <Content Include="html-Verson1\~\css\master.css" />
+    <Content Include="html-Verson1\~\css\nice-select.css" />
+    <Content Include="html-Verson1\~\css\owl.carousel.min.css" />
+    <Content Include="html-Verson1\~\css\product.css" />
+    <Content Include="html-Verson1\~\css\productClass.css" />
+    <Content Include="html-Verson1\~\css\slick.css" />
+    <Content Include="html-Verson1\~\css\style.css" />
+    <Content Include="html-Verson1\~\css\swiper.min.css" />
+    <Content Include="html-Verson1\~\css\themify-icons.css" />
+    <Content Include="html-Verson1\~\img\1.jpg" />
+    <Content Include="html-Verson1\~\img\2.jpg" />
+    <Content Include="html-Verson1\~\img\3.jpg" />
+    <Content Include="html-Verson1\~\img\44-1.jpg" />
+    <Content Include="html-Verson1\~\img\food_menu\single_food_1.png" />
+    <Content Include="html-Verson1\~\img\food_menu\single_food_2.png" />
+    <Content Include="html-Verson1\~\img\food_menu\single_food_3.png" />
+    <Content Include="html-Verson1\~\img\food_menu\single_food_4.png" />
+    <Content Include="html-Verson1\~\img\food_menu\single_food_5.png" />
+    <Content Include="html-Verson1\~\img\food_menu\single_food_6.png" />
+    <Content Include="html-Verson1\~\img\icon\play.svg" />
+    <Content Include="html-Verson1\~\img\logo.png" />
+    <Content Include="html-Verson1\~\img\logo2.jpg" />
+    <Content Include="html-Verson1\~\js\aos.js" />
+    <Content Include="html-Verson1\~\js\bootstrap.min.js" />
+    <Content Include="html-Verson1\~\js\contact.js" />
+    <Content Include="html-Verson1\~\js\custom.js" />
+    <Content Include="html-Verson1\~\js\gijgo.min.js" />
+    <Content Include="html-Verson1\~\js\gmaps.min.js" />
+    <Content Include="html-Verson1\~\js\jquery-1.12.1.min.js" />
+    <Content Include="html-Verson1\~\js\jquery-3.3.1.slim.min.js" />
+    <Content Include="html-Verson1\~\js\jquery.ajaxchimp.min.js" />
+    <Content Include="html-Verson1\~\js\jquery.easing.min.js" />
+    <Content Include="html-Verson1\~\js\jquery.form.js" />
+    <Content Include="html-Verson1\~\js\jquery.magnific-popup.js" />
+    <Content Include="html-Verson1\~\js\jquery.nice-select.min.js" />
+    <Content Include="html-Verson1\~\js\jquery.validate.min.js" />
+    <Content Include="html-Verson1\~\js\mail-script.js" />
+    <Content Include="html-Verson1\~\js\masonry.pkgd.js" />
+    <Content Include="html-Verson1\~\js\masonry.pkgd.min.js" />
+    <Content Include="html-Verson1\~\js\masterPage.js" />
+    <Content Include="html-Verson1\~\js\owl.carousel.min.js" />
+    <Content Include="html-Verson1\~\js\particles.min.js" />
+    <Content Include="html-Verson1\~\js\popper.min.js" />
+    <Content Include="html-Verson1\~\js\slick.min.js" />
+    <Content Include="html-Verson1\~\js\swiper.min.js" />
+    <Content Include="html-Verson1\~\js\swiper_custom.js" />
+    <Content Include="html-Verson1\待修-product.html" />
+    <Content Include="html-Verson1\未完-index.html" />
+    <Content Include="html-Verson1\未完-member.html" />
+    <Content Include="html-Verson1\重要-備註.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="html-Verson1\~\css\style.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

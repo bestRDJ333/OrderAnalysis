@@ -1,0 +1,231 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Didact Gothic", Arial, 文泉驛正黑, "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", 微軟正黑體, "Microsoft JhengHei", 標楷體, DFKai-SB, sans-serif !important;
+
+    color: #1a1a1a;
+}
+
+/*--餐點細項--*/
+.food_menu .single_food_item {
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+div .single_food_item:hover {
+    animation: scaleLarge 0.5s ease;
+    /*動畫結束後，停在最後一個(影格) */
+    animation-fill-mode: forwards;
+}
+
+
+/*--- sing-food上的按鈕 ---*/
+.footItemIconGruop {}
+
+.footItemIconGruop li {
+    display: inline-block;
+}
+
+.footItemIconGruop li a {
+    border-radius: 3rem;
+    width: 40px;
+    height: 40px;
+    padding: 8px 0px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    text-align: center;
+}
+
+.footItemIconGruop li a:hover {
+    color: white !important;
+}
+
+/*-- btn加入最愛 --*/
+.footItemIconGruop .addLoveBtn {
+    border: 1px solid #ff5050;
+    color: #ff5050;
+}
+
+.footItemIconGruop .addLoveBtn:hover {
+    background-color: #ff5050;
+}
+
+/*-- btn加入購物車 --*/
+.footItemIconGruop .addCartBtn {
+    border: 1px solid #8CC540;
+    color: #8CC540;
+}
+
+.footItemIconGruop .addCartBtn:hover {
+    background-color: #8CC540;
+}
+
+/*-- btn查看大圖 --*/
+.footItemIconGruop .seePicBtn {
+    border: 1px solid #FBAA19;
+    color: #FBAA19;
+    border-radius: 3rem;
+    width: 40px;
+    height: 40px;
+    padding: 8px 0px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    text-align: center;
+
+}
+
+.footItemIconGruop .seePicBtn:hover {
+    background-color: #FBAA19;
+    color: white;
+}
+
+
+
+/* 放大原圖0.95倍 */
+@keyframes scaleLarge {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+
+@-webkit-keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+
+/* width>1024 */
+@media (min-width: 1025px) {
+    .food_menu {
+        padding-top: 4.5rem;
+    }
+
+    .section_tittle {
+        margin-bottom: 35px;
+    }
+
+    /*-- 餐點種類 --*/
+    .food_menu .nav-tabs a {
+        font-size: 1.2rem;
+        text-align: center;
+/*        padding: 45px 20px 25px;*/
+        padding: 45px 10px 25px;
+
+    }
+
+    /*被選到的 Tabitem*/
+    .food_menu .nav-tabs .active {
+        /*        font-size: 1.2rem;*/
+    }
+
+    /*--- sing-food上的按鈕 ---*/
+    .footItemIconGruop {
+        padding-left: 11rem;
+    }
+}
+
+
+/*--- 特效 ----*/
+.swing-in-top-fwd {
+    -webkit-animation: swing-in-top-fwd 1s ease-in-out both;
+    animation: swing-in-top-fwd 1s ease-in-out both;
+}
+
+@-webkit-keyframes swing-in-top-fwd {
+    0% {
+        -webkit-transform: rotateX(-100deg);
+        transform: rotateX(-100deg);
+        -webkit-transform-origin: top;
+        transform-origin: top;
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+        -webkit-transform-origin: top;
+        transform-origin: top;
+        opacity: 1;
+    }
+}
+
+@keyframes swing-in-top-fwd {
+    0% {
+        -webkit-transform: rotateX(-100deg);
+        transform: rotateX(-100deg);
+        -webkit-transform-origin: top;
+        transform-origin: top;
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+        -webkit-transform-origin: top;
+        transform-origin: top;
+        opacity: 1;
+    }
+}
+
+/*特2*/
+.scale-in-center {
+    -webkit-animation: scale-in-center 0.5s ease-out both;
+    animation: scale-in-center 0.5s ease-out both;
+}
+
+@-webkit-keyframes scale-in-center {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scale-in-center {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}

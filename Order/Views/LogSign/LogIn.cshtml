@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/_LogSignLayout.cshtml";
+}
+
+<div class="login100-form-title" style="background-image: url(../img/login_signup/login_signup.jpg);">
+
+    <span class="login100-form-title-1">
+       LOG IN
+    </span>
+</div>
+
+<form class="login100-form validate-form">
+    <div class="wrap-input100 validate-input m-b-26" data-validate="UserID is required">
+        <span class="label-input100">UserID</span>
+        <input class="input100" type="text" name="UserID" placeholder="Enter UserID">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100 validate-input m-b-50" data-validate="Password is required">
+        <span class="label-input100">Password</span>
+        <input class="input100" type="password" name="pass" placeholder="Enter password">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="container-login100-form-btn m-b-50">
+        <button class="btn btn-success login100-form-btn ">
+            LOG IN
+        </button>
+        <a href="/LogSign/SignUp" class="btn btn-info login100-form-btn">SIGN UP</a>
+    </div>
+    <div class="w-75 text-center">
+        <!--首頁連結-->
+        <a href="/home">
+            <img src="~/img/login_signup/favicon.ico" style="height:30%;" /> HOME
+        </a>
+    </div>
+</form>

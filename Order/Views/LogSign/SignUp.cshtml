@@ -12,7 +12,7 @@
     </span>
 </div>
 
-<form class="login100-form validate-form">
+<form class="login100-form validate-form" method="post">
     <!--名字-->
     <div class="wrap-input100 validate-input m-b-26" data-validate="MemberName is required">
         <span class="label-input100">MemberName</span>
@@ -29,14 +29,14 @@
     <div class="wrap-input100 validate-input m-b-26" data-validate="Password is required">
         <span class="label-input100">Password</span>
         <!--密碼至少一個小寫英文，一個數字，最少6碼，最多10碼-->
-        <input class="input100" type="password" name="pass" placeholder="Enter password" pattern="^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,10}">
+        <input class="input100" type="password" name="password" placeholder="Enter password" pattern="^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,10}">
         <span class="focus-input100"></span>
     </div>
     <!--性別-->
     <div class="wrap-input100 m-b-26">
         <span class="label-input100">Gender</span>
-        <input type="radio" name="gender" value="male" required> Male<br>
-        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" value="m" required> Male<br>
+        <input type="radio" name="gender" value="f"> Female<br>
     </div>
     <!--年齡-->
     <div class="wrap-input100 validate-input m-b-26" data-validate="Age is required">
@@ -79,3 +79,14 @@
         </a>
     </div>
 </form>
+
+@{
+    var message = TempData["errorMessage"];
+}
+@if (TempData["errorMessage"] != null)
+{
+    <script type="text/javascript">
+        var message = '@message'
+        alert(message);
+    </script>
+}

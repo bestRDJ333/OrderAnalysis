@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_LogSignLayout.cshtml";
+}
+
+
+<div class="login100-form-title" style="background-image: url(../img/login_signup/login_signup.jpg);">
+
+    <span class="login100-form-title-1">
+        SIGN UP
+    </span>
+</div>
+
+<form class="login100-form validate-form">
+    <!--名字-->
+    <div class="wrap-input100 validate-input m-b-26" data-validate="MemberName is required">
+        <span class="label-input100">MemberName</span>
+        <input class="input100" type="text" name="MemberName" placeholder="Enter MemberName">
+        <span class="focus-input100"></span>
+    </div>
+    <!--帳號-->
+    <div class="wrap-input100 validate-input m-b-26" data-validate="UserID is required">
+        <span class="label-input100">UserID</span>
+        <input class="input100" type="text" name="UserID" placeholder="Enter UserID">
+        <span class="focus-input100"></span>
+    </div>
+    <!--密碼-->
+    <div class="wrap-input100 validate-input m-b-26" data-validate="Password is required">
+        <span class="label-input100">Password</span>
+        <!--密碼至少一個小寫英文，一個數字，最少6碼，最多10碼-->
+        <input class="input100" type="password" name="pass" placeholder="Enter password" pattern="^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,10}">
+        <span class="focus-input100"></span>
+    </div>
+    <!--性別-->
+    <div class="wrap-input100 m-b-26">
+        <span class="label-input100">Gender</span>
+        <input type="radio" name="gender" value="male" required> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+    </div>
+    <!--年齡-->
+    <div class="wrap-input100 validate-input m-b-26" data-validate="Age is required">
+        <span class="label-input100">Age</span>
+        <input class="input100" type="number" name="Age" placeholder="Enter Age. ex:38">
+        <span class="focus-input100"></span>
+    </div>
+    <!--email 格式XXX@XXX.XXX-->
+    @{
+        string str = @"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$";
+    }
+    <div class="wrap-input100 m-b-26">
+        <span class="label-input100">Email</span>
+        <input class="input100" type="text" name="Email" placeholder="Enter Email" pattern="@str">
+        <span class="focus-input100"></span>
+    </div>
+    <!--電話 十碼-->
+    <div class="wrap-input100 m-b-26">
+        <span class="label-input100">Phone</span>
+        <input class="input100" type="number" name="Phone" placeholder="Enter Phone. ex:0912345678" pattern="\d{10}">
+        <span class="focus-input100"></span>
+    </div>
+    <!--地址-->
+    <div class="wrap-input100 m-b-50">
+        <span class="label-input100">Address</span>
+        <input class="input100" type="text" name="Address" placeholder="Enter Address">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="container-login100-form-btn m-b-50">
+        <button class="btn btn-success login100-form-btn ">
+            SIGN UP
+        </button>
+        <a href="/LogSign/LogIn" class="m-l-20">Already have an account?<br /> LOG IN</a>
+    </div>
+    <div class="w-75 text-center">
+        <!--首頁連結-->
+        <a href="/home">
+            <img src="~/img/login_signup/favicon.ico" style="height:30%;" /> HOME
+        </a>
+    </div>
+</form>

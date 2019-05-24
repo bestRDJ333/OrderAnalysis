@@ -94,7 +94,7 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-lg-6">
                                         <div class="single_food_item media">
-                                            <img src="~/img/food_menu/3.jpg" class="mr-3" alt="...">
+                                            <img src="~/img/food_menu/3.jpg" class="mr-3 seeFoodDetail" onclick="currentSlide(1)"  alt="...">
                                             <div class="media-body align-self-center">
                                                 <h3>Pork Sandwich</h3>
                                                 <p>They're wherein heaven seed hath nothing</p>
@@ -104,7 +104,7 @@
                                                 <ul class="footItemIconGruop">
                                                        <li>
                                                         <!--連結到imagemodal-->
-                                                           <span class="seePicBtn" onclick="currentSlide(1)">
+                                                           <span class="seePicBtn seeFoodDetail" onclick="currentSlide(1)">
                                                                <i class="fas fa-search"></i>
                                                            </span>
                                                        </li>    
@@ -122,7 +122,7 @@
                                             </div>
                                         </div>
                                         <div class="single_food_item media">
-                                            <img src="~/img/food_menu/single_food_2.png" class="mr-3" alt="...">
+                                            <img src="~/img/food_menu/single_food_2.png" class="mr-3 seeFoodDetail" onclick="currentSlide(2)" alt="...">
                                             <div class="media-body align-self-center">
                                                 <h3>Roasted Marrow</h3>
                                                 <p>They're wherein heaven seed hath nothing</p>
@@ -131,7 +131,7 @@
                                                 <ul class="footItemIconGruop">
                                                        <li>
                                                         <!--連結到imagemodal-->
-                                                           <span class="seePicBtn" onclick="currentSlide(2)">
+                                                           <span class="seePicBtn seeFoodDetail" onclick="currentSlide(2)">
                                                                <i class="fas fa-search"></i>
                                                            </span>
                                                        </li>    
@@ -149,7 +149,7 @@
                                             </div>
                                         </div>
                                         <div class="single_food_item media">
-                                            <img src="~/img/food_menu/single_food_3.png" class="mr-3" alt="...">
+                                            <img src="~/img/food_menu/single_food_3.png" class="mr-3 seeFoodDetail"  onclick="currentSlide(3)" alt="...">
                                             <div class="media-body align-self-center">
                                                 <h3>Summer Cooking</h3>
                                                 <p>They're wherein heaven seed hath nothing</p>
@@ -158,7 +158,7 @@
                                                 <ul class="footItemIconGruop">
                                                        <li>
                                                         <!--連結到imagemodal-->
-                                                           <span class="seePicBtn" onclick="currentSlide(3)">
+                                                           <span class="seePicBtn seeFoodDetail" onclick="currentSlide(3)">
                                                                <i class="fas fa-search"></i>
                                                            </span>
                                                        </li>    
@@ -178,7 +178,7 @@
                                     </div>
                                     <div class="col-sm-6 col-lg-6">
                                         <div class="single_food_item media">
-                                            <img src="~/img/food_menu/single_food_4.png" class="mr-3" alt="...">
+                                            <img src="~/img/food_menu/single_food_4.png" class="mr-3 seeFoodDetail" onclick="currentSlide(4)" alt="...">
                                             <div class="media-body align-self-center">
                                                 <h3>Easter Delight</h3>
                                                 <p>They're wherein heaven seed hath nothing</p>
@@ -187,7 +187,7 @@
                                                 <ul class="footItemIconGruop">
                                                     <li>
                                                         <!--連結到imagemodal-->
-                                                        <span class="seePicBtn" onclick="currentSlide(4)">
+                                                        <span class="seePicBtn seeFoodDetail" onclick="currentSlide(4)">
                                                             <i class="fas fa-search"></i>
                                                         </span>
                                                     </li>
@@ -205,7 +205,7 @@
                                             </div>
                                         </div>
                                         <div class="single_food_item media">
-                                            <img src="~/img/food_menu/single_food_5.png" class="mr-3" alt="...">
+                                            <img src="~/img/food_menu/single_food_5.png" class="mr-3 seeFoodDetail" onclick="currentSlide(5)" alt="...">
                                             <div class="media-body align-self-center">
                                                 <h3>Tiener Schnitze</h3>
                                                 <p>They're wherein heaven seed hath nothing</p>
@@ -214,7 +214,7 @@
                                                 <ul class="footItemIconGruop">
                                                     <li>
                                                         <!--連結到imagemodal-->
-                                                        <span class="seePicBtn" onclick="currentSlide(5)">
+                                                        <span class="seePicBtn seeFoodDetail" onclick="currentSlide(5)">
                                                             <i class="fas fa-search"></i>
                                                         </span>
                                                     </li>
@@ -232,18 +232,19 @@
                                             </div>
                                         </div>
                                         <div class="single_food_item media">
-                                            <img src="~/img/food_menu/single_food_6.png" class="mr-3" alt="...">
+                                            <img src="~/img/food_menu/single_food_6.png" class="mr-3 seeFoodDetail" onclick="currentSlide(6)" alt="...">
                                             <div class="media-body align-self-center">
                                                 <h3>Chicken Roast</h3>
                                                 <p>They're wherein heaven seed hath nothing</p>
                                                 <h5>$40.00</h5>
                                                 <!--按鈕集合-->
                                                 <ul class="footItemIconGruop">
-                                                       <li>                                                       
-                                                           <span class="seePicBtn">
-                                                               <i class="fas fa-search"></i>
-                                                           </span>
-                                                       </li>    
+                                                    <li>
+                                                        <!--連結到imagemodal-->
+                                                        <span class="seePicBtn seeFoodDetail" onclick="currentSlide(6)">
+                                                            <i class="fas fa-search"></i>
+                                                        </span>
+                                                    </li>    
                                                        <li>
                                                            <a class="addCartBtn" href="#">
                                                                <i class="fas fa-cart-plus"></i>
@@ -754,7 +755,7 @@
     
     <script>
 
-        $('.seePicBtn').click(function () {
+        $('.seeFoodDetail').click(function () {
             //顯示 food modal
             $('#imagemodal').modal();
 

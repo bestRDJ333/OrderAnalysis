@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>菜單內容-t2</title>
+    <title>菜單內容</title>
 
     <!--   RWD-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -94,7 +94,7 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-lg-6">
                                         <div class="single_food_item media">
-                                            <img src="~/img/food_menu/single_food_1.png" class="mr-3" alt="...">
+                                            <img src="~/img/food_menu/3.jpg" class="mr-3" alt="...">
                                             <div class="media-body align-self-center">
                                                 <h3>Pork Sandwich</h3>
                                                 <p>They're wherein heaven seed hath nothing</p>
@@ -104,7 +104,7 @@
                                                 <ul class="footItemIconGruop">
                                                        <li>
                                                         <!--連結到imagemodal-->
-                                                           <span class="seePicBtn" data-toggle="modal" data-target="#imagemodal">
+                                                           <span class="seePicBtn" onclick="currentSlide(1)">
                                                                <i class="fas fa-search"></i>
                                                            </span>
                                                        </li>    
@@ -131,7 +131,7 @@
                                                 <ul class="footItemIconGruop">
                                                        <li>
                                                         <!--連結到imagemodal-->
-                                                           <span class="seePicBtn" data-toggle="modal" data-target="#imagemodal">
+                                                           <span class="seePicBtn" onclick="currentSlide(2)">
                                                                <i class="fas fa-search"></i>
                                                            </span>
                                                        </li>    
@@ -158,7 +158,7 @@
                                                 <ul class="footItemIconGruop">
                                                        <li>
                                                         <!--連結到imagemodal-->
-                                                           <span class="seePicBtn" data-toggle="modal" data-target="#imagemodal">
+                                                           <span class="seePicBtn" onclick="currentSlide(3)">
                                                                <i class="fas fa-search"></i>
                                                            </span>
                                                        </li>    
@@ -185,23 +185,23 @@
                                                 <h5>$40.00</h5>
                                                 <!--按鈕集合-->
                                                 <ul class="footItemIconGruop">
-                                                       <li>
-                                                        <!--不確定是否使用modal，product-modal未寫-->
-                                                           <span class="seePicBtn" data-toggle="modal" data-target="#product-modal">
-                                                               <i class="fas fa-search"></i>
-                                                           </span>
-                                                       </li>    
-                                                       <li>
-                                                           <a class="addCartBtn" href="#">
-                                                               <i class="fas fa-cart-plus"></i>
-                                                           </a>
-                                                       </li>
-                                                       <li>
-                                                           <a class="addLoveBtn" href="#">
-                                                               <i class="fas fa-heart"></i>
-                                                           </a>
-                                                       </li>
-                                                   </ul> 
+                                                    <li>
+                                                        <!--連結到imagemodal-->
+                                                        <span class="seePicBtn" onclick="currentSlide(4)">
+                                                            <i class="fas fa-search"></i>
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <a class="addCartBtn" href="#">
+                                                            <i class="fas fa-cart-plus"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="addLoveBtn" href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul> 
                                             </div>
                                         </div>
                                         <div class="single_food_item media">
@@ -212,23 +212,23 @@
                                                 <h5>$40.00</h5>
                                                 <!--按鈕集合-->
                                                 <ul class="footItemIconGruop">
-                                                       <li>
-                                                        <!--不確定是否使用modal，product-modal未寫-->
-                                                           <span class="seePicBtn" data-toggle="modal" data-target="#product-modal">
-                                                               <i class="fas fa-search"></i>
-                                                           </span>
-                                                       </li>    
-                                                       <li>
-                                                           <a class="addCartBtn" href="#">
-                                                               <i class="fas fa-cart-plus"></i>
-                                                           </a>
-                                                       </li>
-                                                       <li>
-                                                           <a class="addLoveBtn" href="#">
-                                                               <i class="fas fa-heart"></i>
-                                                           </a>
-                                                       </li>
-                                                   </ul> 
+                                                    <li>
+                                                        <!--連結到imagemodal-->
+                                                        <span class="seePicBtn" onclick="currentSlide(5)">
+                                                            <i class="fas fa-search"></i>
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <a class="addCartBtn" href="#">
+                                                            <i class="fas fa-cart-plus"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="addLoveBtn" href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul> 
                                             </div>
                                         </div>
                                         <div class="single_food_item media">
@@ -239,9 +239,8 @@
                                                 <h5>$40.00</h5>
                                                 <!--按鈕集合-->
                                                 <ul class="footItemIconGruop">
-                                                       <li>
-                                                        <!--不確定是否使用modal，product-modal未寫-->
-                                                           <span class="seePicBtn" data-toggle="modal" data-target="#product-modal">
+                                                       <li>                                                       
+                                                           <span class="seePicBtn">
                                                                <i class="fas fa-search"></i>
                                                            </span>
                                                        </li>    
@@ -274,8 +273,7 @@
                                                 <!--按鈕集合-->
                                                 <ul class="footItemIconGruop">
                                                        <li>
-                                                        <!--不確定是否使用modal，product-modal未寫-->
-                                                           <span class="seePicBtn" data-toggle="modal" data-target="#product-modal">
+                                                           <span class="seePicBtn">
                                                                <i class="fas fa-search"></i>
                                                            </span>
                                                        </li>    
@@ -574,49 +572,130 @@
         </section>
         <!-- food_menu part end-->
 
-        <!--start-食物modal細節-->
-    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!--start-food modal細節-->
+        <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+            <div class="mySlides modal-dialog modal-dialog-centered">
+                <div class="modal-content">
 
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-          </div>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    </div>
 
-          <div class="modal-body row">
-             <div class="col-md-12 modalImgContent">
-                 <img src="~/img/food_menu/lg/3.jpg" id="imagepreview">
-             </div>              
-              <a href="#" class="modal-control previous" id="show-previous-image">Previous</a>
-              <a href="#" class="modal-control next" id="show-next-image">Next</a>
+                    <div class="modal-body row">
+                        <div class="col-md-12 modalImgContent">
+                            <img src="~/img/food_menu/lg/3.jpg">
+                        </div>
+                        <a href="#" class="modal-control previous" onclick="plusSlides(-1)">Previous</a>
+                        <a href="#" class="modal-control next" onclick="plusSlides(1)">Next</a>
 
-              <div class='col-md-12 modalContent'>
-                  <h2>油醋燻鮭魚</h2>
-                  <p>以蘿蔓生菜為基底，鋪上肥美鮮嫩的燻鮭魚</p>
-                  <p>再淋上義式油醋醬，適合2-3人分享</p>
-                  <h5>$346</h5>
-                  <ul class="footItemIconGruop">
+                        <div class='col-md-12 modalContent'>
+                            <h2>油醋燻鮭魚</h2>
+                            <p>以蘿蔓生菜為基底，鋪上肥美鮮嫩的燻鮭魚</p>
+                            <p>再淋上義式油醋醬，適合2-3人分享</p>
+                            <h5>$346</h5>
+                            <ul class="footItemIconGruop">
 
-                      <li>
-                          <a class="addCartBtn" href="#">
-                              <i class="fas fa-cart-plus"></i>
-                          </a>
-                      </li>
-                      <li>
-                          <a class="addLoveBtn" href="#">
-                              <i class="fas fa-heart"></i>
-                          </a>
-                      </li>
-                  </ul>
-                  <br>
-                 
-              </div>
-          </div>
+                                <li>
+                                    <a class="addCartBtn" href="#">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="addLoveBtn" href="#">
+                                        <i class="fas fa-heart"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <br>
 
-          </div>
-          </div>
-    </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mySlides modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    </div>
+
+                    <div class="modal-body row">
+                        <div class="col-md-12 modalImgContent">
+                            <img src="~/img/food_menu/single_food_2.png">
+                        </div>
+                        <a href="#" class="modal-control previous" onclick="plusSlides(-1)">Previous</a>
+                        <a href="#" class="modal-control next" onclick="plusSlides(1)">Next</a>
+
+                        <div class='col-md-12 modalContent'>
+                            <h2>T2油醋燻鮭魚</h2>
+                            <p>以蘿蔓生菜為基底，鋪上肥美鮮嫩的燻鮭魚</p>
+                            <p>再淋上義式油醋醬，適合2-3人分享</p>
+                            <h5>$346</h5>
+                            <ul class="footItemIconGruop">
+
+                                <li>
+                                    <a class="addCartBtn" href="#">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="addLoveBtn" href="#">
+                                        <i class="fas fa-heart"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <br>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mySlides modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    </div>
+
+                    <div class="modal-body row">
+                        <div class="col-md-12 modalImgContent">
+                            <img src="~/img/food_menu/single_food_3.png">
+                        </div>
+                        <a href="#" class="modal-control previous" onclick="plusSlides(-1)">Previous</a>
+                        <a href="#" class="modal-control next"  onclick="plusSlides(1)">Next</a>
+
+                        <div class='col-md-12 modalContent'>
+                            <h2>T3---</h2>
+                            <p>以蘿蔓生菜為基底，鋪上肥美鮮嫩的燻鮭魚</p>
+                            <p>再淋上義式油醋醬，適合2-3人分享</p>
+                            <h5>$346</h5>
+                            <ul class="footItemIconGruop">
+
+                                <li>
+                                    <a class="addCartBtn" href="#">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="addLoveBtn" href="#">
+                                        <i class="fas fa-heart"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <br>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
     <!--end-食物modal細節-->
 
 
@@ -674,7 +753,47 @@
     <script src="~/js/masterPage.js"></script>
     
     <script>
-    
+
+        $('.seePicBtn').click(function () {
+            //顯示 food modal
+            $('#imagemodal').modal();
+
+        })
+
+
+        //food modal上一頁與下一頁的切換===============
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);            
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+
+                      
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+           
+            slides[slideIndex - 1].style.display = "block";    
+            
+        }
+
  
     
     

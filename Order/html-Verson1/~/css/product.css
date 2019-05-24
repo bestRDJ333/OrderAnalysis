@@ -237,7 +237,9 @@ div .single_food_item:hover {
 
 
 /*=========================食物細節 modal==================================*/
-
+.mySlides {
+    /*display: none;*/
+}
 
 .modalContent .footItemIconGruop li a {
     width: 60px;
@@ -360,6 +362,7 @@ div .single_food_item:hover {
     cursor: pointer;
     opacity: 0.7;
     transition: all .4s ease;
+    z-index:1;
 }
 
 .modal-control:hover {

@@ -145,6 +145,7 @@
     <Content Include="html-Verson1\~\img\2.jpg" />
     <Content Include="html-Verson1\~\img\3.jpg" />
     <Content Include="html-Verson1\~\img\44-1.jpg" />
+    <Content Include="html-Verson1\~\img\food_menu\3.jpg" />
     <Content Include="html-Verson1\~\img\food_menu\lg\3.jpg" />
     <Content Include="html-Verson1\~\img\food_menu\single_food_1.png" />
     <Content Include="html-Verson1\~\img\food_menu\single_food_2.png" />
@@ -179,7 +180,7 @@
     <Content Include="html-Verson1\~\js\slick.min.js" />
     <Content Include="html-Verson1\~\js\swiper.min.js" />
     <Content Include="html-Verson1\~\js\swiper_custom.js" />
-    <Content Include="html-Verson1\待修-product.html" />
+    <Content Include="html-Verson1\product.html" />
     <Content Include="html-Verson1\未完-index.html" />
     <Content Include="html-Verson1\未完-member.html" />
     <Content Include="html-Verson1\重要-備註.txt" />

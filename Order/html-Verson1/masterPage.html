@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,20 +16,78 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--     此網站的css-->
     <link rel="stylesheet" href="~/css/master.css">
+
+    <style>
+        /*---購物車---*/
+        .shopCart {
+            position: absolute;
+            display: none;
+            top: 3rem;
+            right: 0;
+            background-color: white;
+            width: 25%;
+            height: auto;
+            /*box-shadow: -12px 12px 20px -12px rgba(0, 0, 0, 0.35);*/
+            box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.25);
+            font-size: 1.1rem;
+        }
+
+        .shopCartItem {
+            display:flex;
+            flex:6;
+            padding: 0.5rem 0.5rem;
+            width: 100%;
+            margin:0 auto;
+        }
+
+        .shopCartItem a {
+                display:flex;
+                flex:5;
+                color: gray;
+        }
+
+            .shopCartItem a:hover {
+                /*background-color: #ffffe6;*/
+                text-decoration: none;
+            }
+            .shopCartItem div{
+                padding-left:1rem;
+                
+            }
+            .shopCartItem div > span {
+                color: #FF6426;
+            }            
+
+            .shopCartItem img {
+                width:80px;
+                height:80px;
+            }
+
+            .shopCartItem .DelBtn {
+                font-size: 0.8rem;
+                height: 30px;
+                width: 30px;
+                padding-right: 1.4rem;
+            }
+            
+
+    </style>
+
+
 </head>
 
 <body>
-        
+
     <!--start  navbar-->
-    <div class="topMenu" >
+    <div class="topMenu">
         <div id="navLogo">
             <a href="#index"><img src="~/img/logo.png" alt=""></a>
-            
+
         </div>
         <p id="navTitleFont">Restaurant</p>
         <div class="navlinkGroup" id="myTopMenu">
             <a class="a-trigger" href="" id="navTitle">&nbsp;</a>
-            <a class="a-trigger" href="#"><i class="fas fa-shopping-cart"></i>[0]</a>            
+            <a class="a-trigger" href="#" id="navShopCart"><i class="fas fa-shopping-cart"></i>[0]</a>
             <a class="a-trigger" href="#"><i class="fas fa-user"></i>會員</a>
             <a class="a-trigger" href="productClass.html"><i class="fas fa-utensils"></i>菜單</a>
             <a class="a-trigger" href="#"><i class="fas fa-store"></i>簡介</a>
@@ -41,35 +99,75 @@
     </div>
     <!--end  navbar-->
 
-<div class="wrapper">
-    <!--start content -->
-    
-    <!--end content-->
-    
-    
-    <!--必要! 為了把footer置底用-->
-    <div class="push"></div>
-</div>
+    <div class="wrapper">
 
-<!--start Footer -->
-<footer class="bs-footer">
-  <!-- Copyright -->
-  <div class="py-3">© 2019 Copyright
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Big Champion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <!--社群icon連結-->
-    <ul class="social-network social-circle">
-          <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-          <li><a href="#" class="icoInstagram" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="#" class="icoYoutube" title="Youtube"><i class="fab fa-youtube"></i></a></li>
-      </ul>
-  </div>
-  
-  
-</footer>
-<!--end Footer -->
+        <!--start 購物車-->
+        <div class="container-fluid">
+            <div class="shopCart">
+                <p></p>
+                <!--購物內容 1-->
+                <div class="shopCartItem">
+                    <a href="#">
+                        <img src="~/img/food_menu/3.jpg" />
+                        <div>
+                            <p>油醋燻鮭魚</p>
+                            <span>$270</span>
+                        </div>
+                    </a>
+                    <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
+                </div>
+
+                <!--購物內容 2-->
+                <div class="shopCartItem">
+                    <a href="#">
+                        <img src="~/img/food_menu/single_food_1.png" />
+                        <div>
+                            <p>天使巧克力蛋糕</p>
+                            <span>$120</span>
+                        </div>
+                    </a>
+                    <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
+                </div>
+
+                <!--購物內容 3-->
+                <div class="shopCartItem">
+                    <a href="#">
+                        <img src="~/img/food_menu/single_food_1.png" />
+                        <div>
+                            <p>天使巧克力蛋糕</p>
+                            <span>$120</span>
+                        </div>
+                    </a>
+                    <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
+                </div>
+            </div>
+
+        </div>
+        <!--end 購物車-->
+        <!--start content -->
+        <!--end content-->
+        <!--必要! 為了把footer置底用-->
+        <div class="push"></div>
+    </div>
+
+    <!--start Footer -->
+    <footer class="bs-footer">
+        <!-- Copyright -->
+        <div class="py-3">
+            © 2019 Copyright
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Big Champion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <!--社群icon連結-->
+            <ul class="social-network social-circle">
+                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" class="icoInstagram" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" class="icoYoutube" title="Youtube"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+        </div>
 
 
+    </footer>
+    <!--end Footer -->
     <!-- jquery plugins here-->
     <!-- jquery -->
     <script src="~/js/jquery-1.12.1.min.js"></script>
@@ -91,9 +189,32 @@
     <script src="~/js/jquery.nice-select.min.js"></script>
     <!-- custom js -->
     <script src="~/js/custom.js"></script>
-    
+
     <!--此網站的js-->
     <script src="~/js/masterPage.js"></script>
+
+
+    <script>
+
+        $('#navShopCart').hover(function () {
+            $('.shopCart').show('slow');
+        });
+
+        $('.shopCart').hover(function () {
+            //滑鼠移入事件
+
+        }, function () {
+            //滑鼠移出事件--------
+
+            //隱藏購物車
+            $('.shopCart').hide();
+
+        });
+
+
+
+    </script>
+
 
 </body>
 

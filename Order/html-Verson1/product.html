@@ -10,12 +10,12 @@
 
     <!--    線上bootstrap 4.0-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        
+
     <!--    iconfont-->
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<!--start  此頁增加的css，其他頁暫不用 -->
+    <!--start  此頁增加的css，其他頁暫不用 -->
     <!-- animate CSS -->
     <link rel="stylesheet" href="~/css/animate.css">
     <!-- owl carousel CSS -->
@@ -33,10 +33,12 @@
     <link rel="stylesheet" href="~/css/all.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="~/css/style.css">
+    <!--Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!--     此網站的css-->
     <link rel="stylesheet" href="~/css/master.css">
     <link rel="stylesheet" href="~/css/product.css">
-<!--end  此頁增加的css，其他頁暫不用 -->    
+    <!--end  此頁增加的css，其他頁暫不用 -->
 </head>
 
 <body>
@@ -803,11 +805,23 @@
 
     <script>
 
+        
+        $('.addCartBtn').click(function () {
+            //使用 Sweet alert.js
+            swal("加入購物車成功", {
+                icon: "success",
+                buttons: false,
+                timer: 1000,
+            });
+
+        });
+
+
         $('.seeFoodDetail').click(function () {
             //顯示 food modal
             $('#imagemodal').modal();
 
-        })
+        });
 
 
         //food modal上一頁與下一頁的切換===============

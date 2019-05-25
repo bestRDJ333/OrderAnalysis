@@ -44,13 +44,13 @@
     <!--start  navbar-->
     <div class="topMenu">
         <div id="navLogo">
-            <a href="#index"><img src="~/img/logo.png" alt=""></a>
+            <a href="masterPage.html"><img src="~/img/logo.png" alt=""></a>
 
         </div>
         <p id="navTitleFont">Restaurant</p>
         <div class="navlinkGroup" id="myTopMenu">
             <a class="a-trigger" href="" id="navTitle">&nbsp;</a>
-            <a class="a-trigger" href="#"><i class="fas fa-shopping-cart"></i>[0]</a>
+            <a class="a-trigger" href="#" id="navShopCart"><i class="fas fa-shopping-cart"></i>[0]</a>
             <a class="a-trigger" href="#"><i class="fas fa-user"></i>會員</a>
             <a class="a-trigger" href="productClass.html"><i class="fas fa-utensils"></i>菜單</a>
             <a class="a-trigger" href="#"><i class="fas fa-store"></i>簡介</a>
@@ -63,6 +63,62 @@
     <!--end  navbar-->
 
     <div class="wrapper">
+        <!--start 購物車-->
+        <div class="container-fluid">
+            <div class="shopCart">
+                <p></p>
+                <div id="shopCartContent">
+                    <p class="noItem">購物車內目前沒有商品</p>
+                    <!--購物內容 1-->
+                    <div class="shopCartItem">
+                        <a href="#">
+                            <img src="~/img/food_menu/3.jpg" />
+                            <div>
+                                <p>油醋燻鮭魚</p>
+                                <span>$270</span>
+                            </div>
+                        </a>
+                        <span class="ItemQuantity">1份</span>
+                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
+                    </div>
+
+                    <!--購物內容 2-->
+                    <div class="shopCartItem">
+                        <a href="#">
+                            <img src="~/img/food_menu/single_food_1.png" />
+                            <div>
+                                <p>天使巧克力蛋糕</p>
+                                <span>$120</span>
+                            </div>
+                        </a>
+                        <span class="ItemQuantity">1份</span>
+                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
+                    </div>
+
+                    <!--購物內容 3-->
+                    <div class="shopCartItem">
+                        <a href="#">
+                            <img src="~/img/food_menu/single_food_1.png" />
+                            <div>
+                                <p>天使巧克力蛋糕</p>
+                                <span>$120</span>
+                            </div>
+                        </a>
+                        <span class="ItemQuantity">1份</span>
+                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
+                    </div>
+                </div>
+
+
+                <div class="shopCartFooter row">
+                    <p>合計：$510</p>
+                    <a href="#">前往結帳</a>
+                </div>
+            </div>
+
+        </div>
+        <!--end 購物車-->
+
         <!--start content 菜單內容-->
         <!-- food_menu start-->
         <section class="food_menu gray_bg">
@@ -94,31 +150,31 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-lg-6">
                                         <div class="single_food_item media">
-                                            <img src="~/img/food_menu/3.jpg" class="mr-3 seeFoodDetail" onclick="currentSlide(1)"  alt="...">
+                                            <img src="~/img/food_menu/3.jpg" class="mr-3 seeFoodDetail" onclick="currentSlide(1)" alt="...">
                                             <div class="media-body align-self-center">
                                                 <h3>油醋燻鮭魚</h3>
                                                 <p>傳統義式油醋醬佐挪威頂級鮭魚片</p>
                                                 <h5>$270</h5>
-                                            
-                                               <!--按鈕集合-->
+
+                                                <!--按鈕集合-->
                                                 <ul class="footItemIconGruop">
-                                                       <li>
+                                                    <li>
                                                         <!--連結到imagemodal-->
-                                                           <span class="seePicBtn seeFoodDetail" onclick="currentSlide(1)">
-                                                               <i class="fas fa-search"></i>
-                                                           </span>
-                                                       </li>    
-                                                       <li>
-                                                           <a class="addCartBtn" href="#">
-                                                               <i class="fas fa-cart-plus"></i>
-                                                           </a>
-                                                       </li>
-                                                       <li>
-                                                           <a class="addLoveBtn" href="#">
-                                                               <i class="fas fa-heart"></i>
-                                                           </a>
-                                                       </li>
-                                                   </ul>                                                  
+                                                        <span class="seePicBtn seeFoodDetail" onclick="currentSlide(1)">
+                                                            <i class="fas fa-search"></i>
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <a class="addCartBtn" href="#">
+                                                            <i class="fas fa-cart-plus"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="addLoveBtn" href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="single_food_item media">
@@ -129,50 +185,50 @@
                                                 <h5>$40.00</h5>
                                                 <!--按鈕集合-->
                                                 <ul class="footItemIconGruop">
-                                                       <li>
+                                                    <li>
                                                         <!--連結到imagemodal-->
-                                                           <span class="seePicBtn seeFoodDetail" onclick="currentSlide(2)">
-                                                               <i class="fas fa-search"></i>
-                                                           </span>
-                                                       </li>    
-                                                       <li>
-                                                           <a class="addCartBtn" href="#">
-                                                               <i class="fas fa-cart-plus"></i>
-                                                           </a>
-                                                       </li>
-                                                       <li>
-                                                           <a class="addLoveBtn" href="#">
-                                                               <i class="fas fa-heart"></i>
-                                                           </a>
-                                                       </li>
-                                                   </ul>   
+                                                        <span class="seePicBtn seeFoodDetail" onclick="currentSlide(2)">
+                                                            <i class="fas fa-search"></i>
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <a class="addCartBtn" href="#">
+                                                            <i class="fas fa-cart-plus"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="addLoveBtn" href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="single_food_item media">
-                                            <img src="~/img/food_menu/single_food_3.png" class="mr-3 seeFoodDetail"  onclick="currentSlide(3)" alt="...">
+                                            <img src="~/img/food_menu/single_food_3.png" class="mr-3 seeFoodDetail" onclick="currentSlide(3)" alt="...">
                                             <div class="media-body align-self-center">
                                                 <h3>Summer Cooking</h3>
                                                 <p>They're wherein heaven seed hath nothing</p>
                                                 <h5>$40.00</h5>
                                                 <!--按鈕集合-->
                                                 <ul class="footItemIconGruop">
-                                                       <li>
+                                                    <li>
                                                         <!--連結到imagemodal-->
-                                                           <span class="seePicBtn seeFoodDetail" onclick="currentSlide(3)">
-                                                               <i class="fas fa-search"></i>
-                                                           </span>
-                                                       </li>    
-                                                       <li>
-                                                           <a class="addCartBtn" href="#">
-                                                               <i class="fas fa-cart-plus"></i>
-                                                           </a>
-                                                       </li>
-                                                       <li>
-                                                           <a class="addLoveBtn" href="#">
-                                                               <i class="fas fa-heart"></i>
-                                                           </a>
-                                                       </li>
-                                                   </ul>  
+                                                        <span class="seePicBtn seeFoodDetail" onclick="currentSlide(3)">
+                                                            <i class="fas fa-search"></i>
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <a class="addCartBtn" href="#">
+                                                            <i class="fas fa-cart-plus"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="addLoveBtn" href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -201,7 +257,7 @@
                                                             <i class="fas fa-heart"></i>
                                                         </a>
                                                     </li>
-                                                </ul> 
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="single_food_item media">
@@ -228,7 +284,7 @@
                                                             <i class="fas fa-heart"></i>
                                                         </a>
                                                     </li>
-                                                </ul> 
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="single_food_item media">
@@ -244,18 +300,18 @@
                                                         <span class="seePicBtn seeFoodDetail" onclick="currentSlide(6)">
                                                             <i class="fas fa-search"></i>
                                                         </span>
-                                                    </li>    
-                                                       <li>
-                                                           <a class="addCartBtn" href="#">
-                                                               <i class="fas fa-cart-plus"></i>
-                                                           </a>
-                                                       </li>
-                                                       <li>
-                                                           <a class="addLoveBtn" href="#">
-                                                               <i class="fas fa-heart"></i>
-                                                           </a>
-                                                       </li>
-                                                   </ul> 
+                                                    </li>
+                                                    <li>
+                                                        <a class="addCartBtn" href="#">
+                                                            <i class="fas fa-cart-plus"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="addLoveBtn" href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -273,22 +329,22 @@
                                                 <h5>$40.00</h5>
                                                 <!--按鈕集合-->
                                                 <ul class="footItemIconGruop">
-                                                       <li>
-                                                           <span class="seePicBtn">
-                                                               <i class="fas fa-search"></i>
-                                                           </span>
-                                                       </li>    
-                                                       <li>
-                                                           <a class="addCartBtn" href="#">
-                                                               <i class="fas fa-cart-plus"></i>
-                                                           </a>
-                                                       </li>
-                                                       <li>
-                                                           <a class="addLoveBtn" href="#">
-                                                               <i class="fas fa-heart"></i>
-                                                           </a>
-                                                       </li>
-                                                   </ul> 
+                                                    <li>
+                                                        <span class="seePicBtn">
+                                                            <i class="fas fa-search"></i>
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <a class="addCartBtn" href="#">
+                                                            <i class="fas fa-cart-plus"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="addLoveBtn" href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="single_food_item media">
@@ -572,8 +628,7 @@
             </div>
         </section>
         <!-- food_menu part end-->
-
-    <!--start-food modal細節-->
+        <!--start-food modal細節-->
         <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
             <div class="mySlides modal-dialog modal-dialog-centered">
@@ -668,7 +723,7 @@
                             <img src="~/img/food_menu/single_food_3.png">
                         </div>
                         <a href="#" class="modal-control previous" onclick="plusSlides(-1)">Previous</a>
-                        <a href="#" class="modal-control next"  onclick="plusSlides(1)">Next</a>
+                        <a href="#" class="modal-control next" onclick="plusSlides(1)">Next</a>
 
                         <div class='col-md-12 modalContent'>
                             <h2>T3---</h2>
@@ -697,37 +752,30 @@
             </div>
 
         </div>
-    <!--end-食物modal細節-->
-
-
+        <!--end-食物modal細節-->
         <!--end content-->
-
-
         <!--必要! 為了把footer置底用-->
         <div class="push"></div>
     </div>
 
-<!--start Footer -->
-<footer class="bs-footer">
-  <!-- Copyright -->
-  <div class="py-3">© 2019 Copyright
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Big Champion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <!--社群icon連結-->
-    <ul class="social-network social-circle">
-          <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-          <li><a href="#" class="icoInstagram" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="#" class="icoYoutube" title="Youtube"><i class="fab fa-youtube"></i></a></li>
-      </ul>
-  </div>
-  
-  
-</footer>
-<!--end Footer -->
+    <!--start Footer -->
+    <footer class="bs-footer">
+        <!-- Copyright -->
+        <div class="py-3">
+            © 2019 Copyright
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Big Champion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <!--社群icon連結-->
+            <ul class="social-network social-circle">
+                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" class="icoInstagram" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" class="icoYoutube" title="Youtube"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+        </div>
 
 
-
-
+    </footer>
+    <!--end Footer -->
     <!-- jquery plugins here-->
     <!-- jquery -->
     <script src="~/js/jquery-1.12.1.min.js"></script>
@@ -752,7 +800,7 @@
 
     <!--此網站的js-->
     <script src="~/js/masterPage.js"></script>
-    
+
     <script>
 
         $('.seeFoodDetail').click(function () {
@@ -768,7 +816,7 @@
 
         // Next/previous controls
         function plusSlides(n) {
-            showSlides(slideIndex += n);            
+            showSlides(slideIndex += n);
         }
 
         // Thumbnail image controls
@@ -780,7 +828,7 @@
             var i;
             var slides = document.getElementsByClassName("mySlides");
 
-                      
+
             if (n > slides.length) {
                 slideIndex = 1
             }
@@ -790,14 +838,14 @@
             for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
-           
-            slides[slideIndex - 1].style.display = "block";    
-            
+
+            slides[slideIndex - 1].style.display = "block";
+
         }
 
- 
-    
-    
+
+
+
     </script>
 
 </body>

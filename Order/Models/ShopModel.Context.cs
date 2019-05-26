@@ -13,10 +13,10 @@ namespace Order.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SMIT09Entities1 : DbContext
+    public partial class SMIT09Entities : DbContext
     {
-        public SMIT09Entities1()
-            : base("name=SMIT09Entities1")
+        public SMIT09Entities()
+            : base("name=SMIT09Entities")
         {
         }
     

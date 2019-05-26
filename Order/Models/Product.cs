@@ -17,10 +17,12 @@ namespace Order.Models
         public int ProductID { get; set; }
         public string ProductName { get; set; }
         public Nullable<int> UnitPrice { get; set; }
-        public string ProductPhoto { get; set; }
+        public string ProductPhotoS { get; set; }
+        public string ProductPhotoL { get; set; }
         public Nullable<int> Rating { get; set; }
         public Nullable<int> ClickRate { get; set; }
         public string Discontinued { get; set; }
         public string ProductIntroduction { get; set; }
+        public string ProductDescription { get; set; }
     }
 }

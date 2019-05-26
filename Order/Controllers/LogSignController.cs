@@ -9,7 +9,7 @@ namespace Order.Controllers
 {
     public class LogSignController : Controller
     {
-        Models.SMIT09Entities1 db = new SMIT09Entities1();
+        Models.SMIT09Entities db = new SMIT09Entities();
         public ActionResult LogIn()
         {
             return View();

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SMIT09Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SMIT09Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Members">
           <Key>
             <PropertyRef Name="MemberID" />
@@ -51,11 +51,13 @@
           <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductName" Type="nvarchar" MaxLength="30" />
           <Property Name="UnitPrice" Type="int" />
-          <Property Name="ProductPhoto" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProductPhotoS" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProductPhotoL" Type="nvarchar" MaxLength="100" />
           <Property Name="Rating" Type="int" />
           <Property Name="ClickRate" Type="int" />
           <Property Name="Discontinued" Type="varchar" MaxLength="1" />
           <Property Name="ProductIntroduction" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProductDescription" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityContainer Name="SMIT09ModelStoreContainer">
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
@@ -114,13 +116,15 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="UnitPrice" Type="Int32" />
-          <Property Name="ProductPhoto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProductPhotoS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProductPhotoL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Rating" Type="Int32" />
           <Property Name="ClickRate" Type="Int32" />
           <Property Name="Discontinued" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="ProductIntroduction" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProductDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="SMIT09Entities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SMIT09Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Members" EntityType="Self.Member" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
@@ -131,7 +135,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SMIT09ModelStoreContainer" CdmEntityContainer="SMIT09Entities1">
+        <EntityContainerMapping StorageEntityContainer="SMIT09ModelStoreContainer" CdmEntityContainer="SMIT09Entities">
           <EntitySetMapping Name="Members">
             <EntityTypeMapping TypeName="SMIT09Model.Member">
               <MappingFragment StoreEntitySet="Members">
@@ -180,11 +184,13 @@
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
-                <ScalarProperty Name="ProductPhoto" ColumnName="ProductPhoto" />
+                <ScalarProperty Name="ProductPhotoS" ColumnName="ProductPhotoS" />
+                <ScalarProperty Name="ProductPhotoL" ColumnName="ProductPhotoL" />
                 <ScalarProperty Name="Rating" ColumnName="Rating" />
                 <ScalarProperty Name="ClickRate" ColumnName="ClickRate" />
                 <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
                 <ScalarProperty Name="ProductIntroduction" ColumnName="ProductIntroduction" />
+                <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

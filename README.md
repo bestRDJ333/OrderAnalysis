@@ -16,5 +16,6 @@ html-Verson資料夾是「HTML的前端畫面」
 
 
 ## [未完成]
-* 未完-index.html    首頁
-* 未完-member.html   會員
+* 未完-checkOut.html   結帳
+* 未完-index.html      首頁
+

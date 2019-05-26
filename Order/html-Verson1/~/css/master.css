@@ -302,3 +302,111 @@ ul.social-network li {
 
 
 }
+
+
+/*---購物車---*/
+/*購物車無商品*/
+.noItem {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.shopCart {
+    padding-top:1rem;
+    position: fixed;
+    display: none;
+    top: 2.8rem;
+    right: 0;
+    background-color: white;
+    width: 25%;
+    /*min-height: 100%;*/
+    height:auto;
+    box-shadow: -12px 12px 20px -12px rgba(0, 0, 0, 0.35);
+    /*box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.25);*/
+    font-size: 1.1rem;
+    z-index:3;
+}
+
+.shopCartItem {
+    display: flex;
+    flex: 6;
+    padding: 0.5rem 0.5rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+    .shopCartItem a {
+        display: flex;
+        flex: 5;
+        color: gray;
+    }
+
+        .shopCartItem a:hover {
+            /*background-color: #ffffe6;*/
+            text-decoration: none;
+        }
+
+    .shopCartItem div {
+        padding-left: 1rem;
+        font-size: 1.1rem;
+        line-height: 1rem;
+        padding-top: 5px;
+    }
+
+        .shopCartItem div > span {
+            color: #FF6426;
+        }
+
+    .shopCartItem img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .shopCartItem .ItemQuantity{
+        flex:1;
+    }
+
+    .shopCartItem .DelBtn {
+        font-size: 0.8rem;
+        height: 30px;
+        width: 30px;
+        padding-right: 1.4rem;
+    }
+
+/*--前往結帳--*/
+.shopCartFooter {
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+    margin-left: 2px;
+    border-top: 1px solid #bfbfbf;
+}
+
+    .shopCartFooter p {
+        flex: 2;
+        text-align: center;
+        padding-top: 2px;
+        color: #ff1a1a;
+    }
+
+.shopCartFooter a {
+    flex: 2;
+    background-color: #ff1a1a;
+    color: white;
+    text-decoration: none;
+    border-radius: 2rem;
+    width: 8rem;
+    height: 2rem;
+    padding-top: 2px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.shopCartFooter a:hover {
+    text-decoration: none;
+    background-color: #ff4d4d;
+    color: white !important;
+}
+        
+           

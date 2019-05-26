@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -22,17 +22,17 @@
 </head>
 
 <body>
-        
+
     <!--start  navbar-->
-    <div class="topMenu" >
+    <div class="topMenu">
         <div id="navLogo">
-            <a href="#index"><img src="~/img/logo.png" alt=""></a>
-            
+            <a href="masterPage.html"><img src="~/img/logo.png" alt=""></a>
+
         </div>
         <p id="navTitleFont">Restaurant</p>
         <div class="navlinkGroup" id="myTopMenu">
             <a class="a-trigger" href="" id="navTitle">&nbsp;</a>
-            <a class="a-trigger" href="#"><i class="fas fa-shopping-cart"></i>[0]</a>            
+            <a class="a-trigger" href="#" id="navShopCart"><i class="fas fa-shopping-cart"></i>[0]</a>
             <a class="a-trigger" href="#"><i class="fas fa-user"></i>會員</a>
             <a class="a-trigger" href="productClass.html"><i class="fas fa-utensils"></i>菜單</a>
             <a class="a-trigger" href="#"><i class="fas fa-store"></i>簡介</a>
@@ -44,119 +44,173 @@
     </div>
     <!--end  navbar-->
 
-<div class="wrapper">
-    <!--start content 菜單-->
-    <section>        
-        <div class="menu container-fluid">
-            <div class="row">
-                <div class="menuItem">
-                   <a href="product.html">
-                    <img src="~/img/1.jpg" alt="">
-                    <div class="fontdiv">
-                        <p class="pTitle">套餐&nbsp;<span>Set Menu</span></p>
-                        <div class="pList">
-                            <p>主廚推薦 Chef's Special</p>
-                            <p>雙人共享餐</p>
-                            <p>四人同樂餐</p>
-                        </div>
-
+    <div class="wrapper">
+        <!--start 購物車-->
+        <div class="container-fluid">
+            <div class="shopCart">
+                <p></p>
+                <div id="shopCartContent">
+                    <p class="noItem">購物車內目前沒有商品</p>
+                    <!--購物內容 1-->
+                    <div class="shopCartItem">
+                        <a href="#">
+                            <img src="~/img/food_menu/3.jpg" />
+                            <div>
+                                <p>油醋燻鮭魚</p>
+                                <span>$270</span>
+                            </div>
+                        </a>
+                        <span class="ItemQuantity">1份</span>
+                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
                     </div>
-                    </a>
-                </div>
-                <div class="menuItem">
-                   <a href="product.html">
-                    <img src="~/img/1.jpg" alt="">
-                    <div class="fontdiv">
-                        <p class="pTitle">前菜&nbsp;<span>Appetizer</span></p>
-                        <div class="pList">
-                            <p>沙拉 Salad</p>
-                            <p>前菜 Appetizer</p>
-                        </div>
 
+                    <!--購物內容 2-->
+                    <div class="shopCartItem">
+                        <a href="#">
+                            <img src="~/img/food_menu/single_food_1.png" />
+                            <div>
+                                <p>天使巧克力蛋糕</p>
+                                <span>$120</span>
+                            </div>
+                        </a>
+                        <span class="ItemQuantity">1份</span>
+                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
                     </div>
-                    </a>
-                </div>
-                <div class="menuItem">
-                   <a href="product.html">
-                    <img src="~/img/1.jpg" alt="">
-                    <div class="fontdiv">
-                        <p class="pTitle">湯品&nbsp;<span>Soup</span></p>
-                        <div class="pList">
-                            <p>濃湯 Puree</p>
-                            <p>清湯 Clear Soup</p>
-                            <p>巧達湯 Chowder</p>
-                        </div>
 
+                    <!--購物內容 3-->
+                    <div class="shopCartItem">
+                        <a href="#">
+                            <img src="~/img/food_menu/single_food_1.png" />
+                            <div>
+                                <p>天使巧克力蛋糕</p>
+                                <span>$120</span>
+                            </div>
+                        </a>
+                        <span class="ItemQuantity">1份</span>
+                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
                     </div>
-                    </a>
-                </div>
-                <div class="menuItem">
-                   <a href="product.html">
-                    <img src="~/img/1.jpg" alt="">
-                    <div class="fontdiv">
-                        <p class="pTitle">主菜&nbsp;<span>Main course</span></p>
-                        <div class="pList">
-                            <p>牛排 Steaks</p>
-                            <p>肉類 Meat</p>
-                            <p>海鮮 Seafood</p>
-                        </div>
-
-                    </div>
-                    </a>
-                </div>
-                <div class="menuItem">
-                   <a href="product.html">
-                    <img src="~/img/1.jpg" alt="">
-                    <div class="fontdiv">
-                        <p class="pTitle">甜點&nbsp;<span>Dessert</span></p>
-                        <div class="pList">
-                            <p>乳酪 Cheese</p>
-                            <p>蛋糕 Cake</p>
-                            <p>冰淇淋 Ice cream</p>
-                        </div>
-
-                    </div>
-                    </a>
-                </div>
-                <div class="menuItem">
-                   <a href="product.html">
-                    <img src="~/img/1.jpg" alt="">
-                    <div class="fontdiv">
-                        <p class="pTitle">飲料&nbsp;<span>Beverage</span></p>
-                        <div class="pList">
-                            <p>咖啡 Coffee</p>
-                            <p>茶 Tea</p>
-                            <p>汽泡飲料 Soft Drinks</p>
-                        </div>
-
-                    </div>
-                    </a>
                 </div>
 
+
+                <div class="shopCartFooter row">
+                    <p>合計：$510</p>
+                    <a href="#">立即結帳</a>
+                </div>
             </div>
 
-
-
         </div>
-    </section>
-    <!--end content-->
-    
-    <!--必要! 為了把footer置底用-->
-    <div class="push"></div>
-</div>
+        <!--end 購物車-->
 
-<!--start Footer -->
-<footer class="bs-footer">
-  <!-- Copyright -->
-  <div class="py-3">© 2019 Copyright
-    <span>Big Champion</span>
-  </div>
+        <!--start content 菜單-->
+        <section>
+            <div class="menu container-fluid">
+                <div class="row">
+                    <div class="menuItem">
+                        <a href="product.html">
+                            <img src="~/img/1.jpg" alt="">
+                            <div class="fontdiv">
+                                <p class="pTitle">套餐&nbsp;<span>Set Menu</span></p>
+                                <div class="pList">
+                                    <p>主廚推薦 Chef's Special</p>
+                                    <p>雙人共享餐</p>
+                                    <p>四人同樂餐</p>
+                                </div>
 
-</footer>
-<!--end Footer -->
+                            </div>
+                        </a>
+                    </div>
+                    <div class="menuItem">
+                        <a href="product.html">
+                            <img src="~/img/1.jpg" alt="">
+                            <div class="fontdiv">
+                                <p class="pTitle">前菜&nbsp;<span>Appetizer</span></p>
+                                <div class="pList">
+                                    <p>沙拉 Salad</p>
+                                    <p>前菜 Appetizer</p>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                    <div class="menuItem">
+                        <a href="product.html">
+                            <img src="~/img/1.jpg" alt="">
+                            <div class="fontdiv">
+                                <p class="pTitle">湯品&nbsp;<span>Soup</span></p>
+                                <div class="pList">
+                                    <p>濃湯 Puree</p>
+                                    <p>清湯 Clear Soup</p>
+                                    <p>巧達湯 Chowder</p>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                    <div class="menuItem">
+                        <a href="product.html">
+                            <img src="~/img/1.jpg" alt="">
+                            <div class="fontdiv">
+                                <p class="pTitle">主菜&nbsp;<span>Main course</span></p>
+                                <div class="pList">
+                                    <p>牛排 Steaks</p>
+                                    <p>肉類 Meat</p>
+                                    <p>海鮮 Seafood</p>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                    <div class="menuItem">
+                        <a href="product.html">
+                            <img src="~/img/1.jpg" alt="">
+                            <div class="fontdiv">
+                                <p class="pTitle">甜點&nbsp;<span>Dessert</span></p>
+                                <div class="pList">
+                                    <p>乳酪 Cheese</p>
+                                    <p>蛋糕 Cake</p>
+                                    <p>冰淇淋 Ice cream</p>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                    <div class="menuItem">
+                        <a href="product.html">
+                            <img src="~/img/1.jpg" alt="">
+                            <div class="fontdiv">
+                                <p class="pTitle">飲料&nbsp;<span>Beverage</span></p>
+                                <div class="pList">
+                                    <p>咖啡 Coffee</p>
+                                    <p>茶 Tea</p>
+                                    <p>汽泡飲料 Soft Drinks</p>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
 
 
- <!-- jquery plugins here-->
+
+            </div>
+        </section>
+        <!--end content-->
+        <!--必要! 為了把footer置底用-->
+        <div class="push"></div>
+    </div>
+
+    <!--start Footer -->
+    <footer class="bs-footer">
+        <!-- Copyright -->
+        <div class="py-3">
+            © 2019 Copyright
+            <span>Big Champion</span>
+        </div>
+
+    </footer>
+    <!--end Footer -->
+    <!-- jquery plugins here-->
     <!-- jquery -->
     <script src="~/js/jquery-1.12.1.min.js"></script>
     <!-- popper js -->

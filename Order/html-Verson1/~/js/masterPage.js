@@ -1,47 +1,44 @@
-//topMenu className的切換----------------
-        function toggleClass() {
-            var x = document.getElementById("myTopMenu");
 
-            var navlogo = document.getElementById("navLogo");
-            var navTitle = document.getElementById("navTitle");
+//購物車==================================================================
 
+//行動裝置：當視窗小於374時運作----
+if ($(window).width() < 376) {
 
-            //切換RWD的css
-            if (x.className === "navlinkGroup") {
-                x.className += " responsive";
-                navTitle.style.display = "block";
-            } else {
-                x.className = "navlinkGroup";
-                navTitle.style.display = "none";
-            }
-        }
+    //位置在下，刪除top的樣式
+    $('.shopCart').css({
+        "bottom": "3rem",
+        "top": "",
+    });
 
-        //navbar點選超連結後，自動收合---------------
-        $(function() {
-            if ($(window).width() < 769) { //當視窗小於768時才運作
-                $(".a-trigger").click(function() {
-                    $("#rwdMenu").click();
-                });
-            }
-});
+}
+else {
 
-//購物車---------------------------------------
-//$(function () {
-//    main();
-//});
+    //位置在上，刪除bottom樣式
+    $('.shopCart').css({
+        "top": "2.8rem",
+        "bottom": "",
+    });
 
-main();
-
-function main() {
-
-    ShowShopCart();
-    NoItemCart();
 }
 
-//顯示 購物車
-function ShowShopCart() {
-    //滑出 購物車
-    $('#navShopCart').hover(function () {
+
+
+
+
+$(function () {  
+    
+    //行動裝置：當視窗小於1024時運作---- 
+    if ($(window).width() < 1025) {
+
+        //購物車顯示/隱藏
+        $('.navShopCart').click(function () {
+            $('.shopCart').toggle('slow');
+        });
+    }
+    
+
+    //網頁版：
+    $('.navShopCart').hover(function () {
         $('.shopCart').show('slow');
     });
 
@@ -55,8 +52,18 @@ function ShowShopCart() {
         $('.shopCart').hide();
 
     });
+    
+    
+});
 
+main();
+
+function main() { 
+
+    NoItemCart();
 }
+
+
 
 //無商品的購物車--------------------------------
 function NoItemCart() {

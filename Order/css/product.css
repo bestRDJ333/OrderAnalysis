@@ -438,6 +438,23 @@ div .single_food_item:hover {
     
 }
 
+/*modal內的文字描述區*/
+.modalContent {
+    padding-top: 1rem;
+}
+
+    .modalContent p {
+        font-size: 1.2rem;
+        line-height: 2.5rem;
+    }
+
+    .modalContent h5 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #ff6426;
+    }
+
+
 /* width>1024 */
 @media(min-width:1025px) {
 
@@ -474,16 +491,3 @@ div .single_food_item:hover {
 }
 */
 
-/*modal內的文字描述區*/
-.modalContent {
-    padding-top: 1rem;
-}
-.modalContent p{
-    font-size: 1.2rem;
-    line-height: 2.5rem;
-}
-.modalContent h5{
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #ff6426;
-}

@@ -43,15 +43,15 @@
 <body>
 
     <!--start  navbar-->
+    <!--網頁版的nav-->
     <div class="topMenu">
         <div id="navLogo">
             <a href="masterPage.html"><img src="~/img/logo.png" alt=""></a>
-
         </div>
         <p id="navTitleFont">Restaurant</p>
-        <div class="navlinkGroup" id="myTopMenu">
+        <div class="navlinkGroup">
             <a class="a-trigger" href="" id="navTitle">&nbsp;</a>
-            <a class="a-trigger" href="#" id="navShopCart"><i class="fas fa-shopping-cart"></i>[0]</a>
+            <a class="navShopCart a-trigger" href="#"><i class="fas fa-shopping-cart"></i>[0]</a>
             <a class="a-trigger" href="#"><i class="fas fa-user"></i>會員</a>
             <a class="a-trigger" href="productClass.html"><i class="fas fa-utensils"></i>菜單</a>
             <a class="a-trigger" href="#"><i class="fas fa-store"></i>簡介</a>
@@ -59,7 +59,16 @@
                 <span>menu</span>
             </button>
         </div>
+    </div>
 
+    <!--行動裝置的nav-->
+    <div class="bottomMenu">
+        <div class="row">
+            <a class="a-trigger col-sm-3" href="#"><i class="fas fa-store"></i>簡介</a>
+            <a class="a-trigger col-sm-3" href="productClass.html"><i class="fas fa-utensils"></i>菜單</a>
+            <a class="a-trigger col-sm-3" href="#"><i class="fas fa-user"></i>會員</a>
+            <a class="navShopCart a-trigger col-sm-3" href="#"><i class="fas fa-shopping-cart"></i>[0]</a>
+        </div>
     </div>
     <!--end  navbar-->
 
@@ -119,7 +128,6 @@
 
         </div>
         <!--end 購物車-->
-
         <!--start content 菜單內容-->
         <!-- food_menu start-->
         <section class="food_menu gray_bg">
@@ -853,7 +861,7 @@
                 // Stop acting like a button
                 e.preventDefault();
                 // Get the field name
-                var quantity = parseInt($('.quantityTextbox').val());               
+                var quantity = parseInt($('.quantityTextbox').val());
 
                 // 增加
                 $('.quantityTextbox').val(quantity + 1);
@@ -876,7 +884,7 @@
 
 
 
-        
+
         $('.addCartBtn').click(function () {
             //使用 Sweet alert.js
             swal("加入購物車成功", {

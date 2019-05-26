@@ -131,36 +131,6 @@ div .single_food_item:hover {
 }
 
 
-/* width>1024 */
-@media (min-width: 1025px) {
-    .food_menu {
-        padding-top: 4.5rem;
-    }
-
-    .section_tittle {
-        margin-bottom: 35px;
-    }
-
-    /*-- 餐點種類 --*/
-    .food_menu .nav-tabs a {
-        font-size: 1.2rem;
-        text-align: center;
-        /*        padding: 45px 20px 25px;*/
-        padding: 45px 10px 25px;
-    }
-
-    /*被選到的 Tabitem*/
-    .food_menu .nav-tabs .active {
-        /*        font-size: 1.2rem;*/
-    }
-
-    /*--- sing-food上的按鈕 ---*/
-    .footItemIconGruop {
-        padding-left: 11rem;
-    }
-}
-
-
 /*--- 特效 ----*/
 .swing-in-top-fwd {
     -webkit-animation: swing-in-top-fwd 1s ease-in-out both;
@@ -294,13 +264,7 @@ div .single_food_item:hover {
     transition: all .4s ease;
 }
 
-/* width>991 */
-@media (min-width: 992px) {
-    .modal .close {
-        right: -18px;
-        top: 15px;
-    }
-}
+
 
 .modal .close:hover {
     opacity: 1;
@@ -442,33 +406,6 @@ div .single_food_item:hover {
     border-radius: 1.2rem;
 }
 
-/* width>1024 */
-@media(min-width:1025px) {
-
-    /*food按鈕*/
-    .modalContent .footItemIconGruop {
-        position: absolute;
-        top: 1rem;
-        right: 12rem;
-    }
-}
-
-
-/* width<1024 */
-@media (max-width: 1025px) {
-
-    /*modal內的圖片*/
-    .modal-body img {
-        width: 100%;
-    }
-
-    .modal-content {
-        border-radius: 0.5rem;
-        min-width: 300px;
-        margin: 0 auto;
-    }
-}
-
 /*
 .modalImgContent{
     margin: 0 auto;
@@ -490,3 +427,78 @@ div .single_food_item:hover {
         font-weight: 700;
         color: #ff6426;
     }
+
+
+/*--選擇數量按鈕--*/
+.selectNumGruop{    
+    padding-top:1rem;
+}
+
+.quantityTextbox {
+    text-align: center;
+    width: 5rem;
+}
+
+
+/* width>1024 */
+@media (min-width: 1025px) {
+    .food_menu {
+        padding-top: 4.5rem;
+    }
+
+    .section_tittle {
+        margin-bottom: 35px;
+    }
+
+    /*-- 餐點種類 --*/
+    .food_menu .nav-tabs a {
+        font-size: 1.2rem;
+        text-align: center;
+        /*        padding: 45px 20px 25px;*/
+        padding: 45px 10px 25px;
+    }
+
+    /*被選到的 Tabitem*/
+    .food_menu .nav-tabs .active {
+        /*        font-size: 1.2rem;*/
+    }
+
+    /*--- sing-food上的按鈕 ---*/
+    .footItemIconGruop {
+        padding-left: 11rem;
+    }
+
+    /*----food modal細節---*/
+    
+    /*選擇數量按鈕*/
+    .selectNumGruop {
+        position: absolute;
+        bottom: 2.5rem;
+        right: 5rem;
+    }
+
+}
+
+/* width<1024 */
+@media (max-width: 1025px) {
+
+    /*--- modal ---*/
+    .modal-body img {
+        width: 100%;
+    }
+
+    .modal-content {
+        border-radius: 0.5rem;
+        min-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+/* width>991 */
+@media (min-width: 992px) {
+    /*-- modal --*/
+    .modal .close {
+        right: -18px;
+        top: 15px;
+    }
+}

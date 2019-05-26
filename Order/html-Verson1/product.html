@@ -10,7 +10,6 @@
 
     <!--    線上bootstrap 4.0-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <!--    iconfont-->
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -114,7 +113,7 @@
 
                 <div class="shopCartFooter row">
                     <p>合計：$510</p>
-                    <a href="#">前往結帳</a>
+                    <a href="#">立即結帳</a>
                 </div>
             </div>
 
@@ -653,7 +652,6 @@
                             <p>再淋上義式油醋醬，適合2-3人分享</p>
                             <h5>$346</h5>
                             <ul class="footItemIconGruop">
-
                                 <li>
                                     <a class="addCartBtn" href="#">
                                         <i class="fas fa-cart-plus"></i>
@@ -665,6 +663,20 @@
                                     </a>
                                 </li>
                             </ul>
+                            <!--選取數量-->
+                            <div class="selectNumGruop col-md-12">
+                                <span>
+                                    <button type="button" class="quantity-left-minus btn" data-type="minus">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </span>
+                                <input type="text" class="quantityTextbox" value="1" min="1" max="100">
+                                <span>
+                                    <button type="button" class="quantity-right-plus btn" data-type="plus">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </span>
+                            </div>
                             <br>
 
                         </div>
@@ -705,6 +717,20 @@
                                     </a>
                                 </li>
                             </ul>
+                            <!--選取數量-->
+                            <div class="selectNumGruop col-md-12">
+                                <span>
+                                    <button type="button" class="quantity-left-minus btn" data-type="minus">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </span>
+                                <input type="text" class="quantityTextbox" value="1" min="1" max="100">
+                                <span>
+                                    <button type="button" class="quantity-right-plus btn" data-type="plus">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </span>
+                            </div>
                             <br>
 
                         </div>
@@ -745,8 +771,21 @@
                                     </a>
                                 </li>
                             </ul>
+                            <!--選取數量-->
+                            <div class="selectNumGruop col-md-12">
+                                <span>
+                                    <button type="button" class="quantity-left-minus btn" data-type="minus">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </span>
+                                <input type="text" class="quantityTextbox" value="1" min="1" max="100">
+                                <span>
+                                    <button type="button" class="quantity-right-plus btn" data-type="plus">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </span>
+                            </div>
                             <br>
-
                         </div>
                     </div>
 
@@ -804,6 +843,38 @@
     <script src="~/js/masterPage.js"></script>
 
     <script>
+
+        //數量鍵的使用=======================================
+        $(document).ready(function () {
+
+            var quantitiy = 0;
+            $('.quantity-right-plus').click(function (e) {
+
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('.quantityTextbox').val());               
+
+                // 增加
+                $('.quantityTextbox').val(quantity + 1);
+
+            });
+
+            $('.quantity-left-minus').click(function (e) {
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('.quantityTextbox').val());
+
+                // 減少
+                if (quantity > 0) {
+                    $('.quantityTextbox').val(quantity - 1);
+                }
+            });
+
+        });
+
+
 
         
         $('.addCartBtn').click(function () {

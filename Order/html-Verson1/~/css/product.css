@@ -469,12 +469,14 @@ div .single_food_item:hover {
     }
 
     /*----food modal細節---*/
+    .modalContent .footItemIconGruop{
+        width:auto;
+        padding-left:0;
+    }
     
     /*選擇數量按鈕*/
     .selectNumGruop {
-        position: absolute;
-        bottom: 2.5rem;
-        right: 5rem;
+        
     }
 
 }

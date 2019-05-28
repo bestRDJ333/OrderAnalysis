@@ -5,7 +5,6 @@ h4,
 h5,
 h6 {
     font-family: "Didact Gothic", Arial, 文泉驛正黑, "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", 微軟正黑體, "Microsoft JhengHei", 標楷體, DFKai-SB, sans-serif !important;
-
     color: #1a1a1a;
 }
 
@@ -20,6 +19,10 @@ p {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.food_menu .single_food_item img {
+        cursor: pointer;
+}
+
 div .single_food_item:hover {
     animation: scaleLarge 0.5s ease;
     /*動畫結束後，停在最後一個(影格) */
@@ -28,66 +31,66 @@ div .single_food_item:hover {
 
 
 /*--- sing-food上的按鈕 ---*/
-.footItemIconGruop {}
-
-.footItemIconGruop li {
-    display: inline-block;
+.footItemIconGruop {
 }
 
-.footItemIconGruop li a {
-    border-radius: 3rem;
-    width: 40px;
-    height: 40px;
-    padding: 8px 0px;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 18px;
-    text-align: center;
-}
+    .footItemIconGruop li {
+        display: inline-block;
+    }
 
-.footItemIconGruop li a:hover {
-    color: white !important;
-}
+        .footItemIconGruop li a {
+            border-radius: 3rem;
+            width: 40px;
+            height: 40px;
+            padding: 8px 0px;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 18px;
+            text-align: center;
+        }
 
-/*-- btn加入最愛 --*/
-.footItemIconGruop .addLoveBtn {
-    border: 1px solid #ff5050;
-    color: #ff5050;
-}
+            .footItemIconGruop li a:hover {
+                color: white !important;
+            }
 
-.footItemIconGruop .addLoveBtn:hover {
-    background-color: #ff5050;
-}
+    /*-- btn加入最愛 --*/
+    .footItemIconGruop .addLoveBtn {
+        border: 1px solid #ff5050;
+        color: #ff5050;
+    }
 
-/*-- btn加入購物車 --*/
-.footItemIconGruop .addCartBtn {
-    border: 1px solid #8CC540;
-    color: #8CC540;
-}
+        .footItemIconGruop .addLoveBtn:hover {
+            background-color: #ff5050;
+        }
 
-.footItemIconGruop .addCartBtn:hover {
-    background-color: #8CC540;
-}
+    /*-- btn加入購物車 --*/
+    .footItemIconGruop .addCartBtn {
+        border: 1px solid #8CC540;
+        color: #8CC540;
+    }
 
-/*-- btn查看大圖 --*/
-.footItemIconGruop .seePicBtn {
-    border: 1px solid #FBAA19;
-    color: #FBAA19;
-    border-radius: 3rem;
-    width: 40px;
-    height: 40px;
-    padding: 8px 0px;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 18px;
-    text-align: center;
+        .footItemIconGruop .addCartBtn:hover {
+            background-color: #8CC540;
+        }
 
-}
+    /*-- btn查看大圖 --*/
+    .footItemIconGruop .seePicBtn {
+        border: 1px solid #FBAA19;
+        color: #FBAA19;
+        border-radius: 3rem;
+        width: 40px;
+        height: 40px;
+        padding: 8px 0px;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 18px;
+        text-align: center;
+    }
 
-.footItemIconGruop .seePicBtn:hover {
-    background-color: #FBAA19;
-    color: white;
-}
+        .footItemIconGruop .seePicBtn:hover {
+            background-color: #FBAA19;
+            color: white;
+        }
 
 
 
@@ -124,37 +127,6 @@ div .single_food_item:hover {
     100% {
         -webkit-transform: scale(1);
         transform: scale(1);
-    }
-}
-
-
-/* width>1024 */
-@media (min-width: 1025px) {
-    .food_menu {
-        padding-top: 4.5rem;
-    }
-
-    .section_tittle {
-        margin-bottom: 35px;
-    }
-
-    /*-- 餐點種類 --*/
-    .food_menu .nav-tabs a {
-        font-size: 1.2rem;
-        text-align: center;
-        /*        padding: 45px 20px 25px;*/
-        padding: 45px 10px 25px;
-
-    }
-
-    /*被選到的 Tabitem*/
-    .food_menu .nav-tabs .active {
-        /*        font-size: 1.2rem;*/
-    }
-
-    /*--- sing-food上的按鈕 ---*/
-    .footItemIconGruop {
-        padding-left: 11rem;
     }
 }
 
@@ -237,7 +209,9 @@ div .single_food_item:hover {
 
 
 /*=========================食物細節 modal==================================*/
-
+.mySlides {
+    /*display: none;*/
+}
 
 .modalContent .footItemIconGruop li a {
     width: 60px;
@@ -253,9 +227,9 @@ div .single_food_item:hover {
     transition: opacity 0.15s linear;
 }
 
-.fade.show {
-    opacity: 1;
-}
+    .fade.show {
+        opacity: 1;
+    }
 
 .modal-backdrop {
     background: rgba(2, 53, 86, 0.7);
@@ -274,10 +248,10 @@ div .single_food_item:hover {
     min-height: inherit !important;
 }
 
-.modal .modal-body img {
-    max-width: 100%;
-    max-height: -webkit-fill-available;
-}
+    .modal .modal-body img {
+        max-width: 100%;
+        max-height: -webkit-fill-available;
+    }
 
 .modal .close {
     right: 15px;
@@ -290,13 +264,7 @@ div .single_food_item:hover {
     transition: all .4s ease;
 }
 
-/* width>991 */
-@media (min-width: 992px) {
-    .modal .close {
-        right: -18px;
-        top: 15px;
-    }
-}
+
 
 .modal .close:hover {
     opacity: 1;
@@ -360,39 +328,41 @@ div .single_food_item:hover {
     cursor: pointer;
     opacity: 0.7;
     transition: all .4s ease;
+    z-index: 1;
 }
 
-.modal-control:hover {
-    opacity: 1;
-}
-.modal-control:after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 15px;
-    height: 15px;
-    box-shadow: 3px -3px 0 0 #fff inset;
-}
+    .modal-control:hover {
+        opacity: 1;
+    }
 
-.modal-control.previous {
-    left: 10px;
-}
+    .modal-control:after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 15px;
+        height: 15px;
+        box-shadow: 3px -3px 0 0 #fff inset;
+    }
 
-.modal-control.previous:after {
-    transform: translate(-50%, -50%) rotate(45deg);
-    margin-left: 3px;
-}
+    .modal-control.previous {
+        left: 10px;
+    }
 
-.modal-control.next:after {
-    transform: translate(-50%, -50%) rotate(-135deg);
-    margin-right: 3px;
-}
+        .modal-control.previous:after {
+            transform: translate(-50%, -50%) rotate(45deg);
+            margin-left: 3px;
+        }
 
-.modal-control.next {
-    right: 10px;
-}
+    .modal-control.next:after {
+        transform: translate(-50%, -50%) rotate(-135deg);
+        margin-right: 3px;
+    }
+
+    .modal-control.next {
+        right: 10px;
+    }
 
 /* modal control END*/
 
@@ -406,37 +376,41 @@ div .single_food_item:hover {
     text-align: center;
 }
 
-#imagemodal.modal .modal-dialog {
-    margin: 28px auto !important;
-}
+    #imagemodal.modal .modal-dialog {
+        margin: 28px auto !important;
+    }
 
-#imagemodal .modal-dialog {
-    display: -moz-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    max-width: calc(100% - (2.75rem * 2));
-    height: calc(100% - (1.75rem * 2));
-}
+    #imagemodal .modal-dialog {
+        display: -moz-inline-box;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        max-width: calc(100% - (2.75rem * 2));
+        height: calc(100% - (1.75rem * 2));
+    }
 
-#imagemodal .modal-content {
-    width: auto;
-}
+    #imagemodal .modal-content {
+        width: auto;
+    }
 
-#imagemodal .modal-body img {
-    max-width: calc(100vw - (2.75rem * 2));
-    max-height: calc(100vh - (1.75rem * 2));
-}
+    #imagemodal .modal-body img {
+        max-width: calc(100vw - (2.75rem * 2));
+        max-height: calc(100vh - (1.75rem * 2));
+    }
 
 /*image modal centered end*/
 
 
 /*modal內的圖片*/
-.modal-body img{
+.modal-body img {
     border-radius: 1.2rem;
-    
-    
 }
+
+/*
+.modalImgContent{
+    margin: 0 auto;
+}
+*/
 
 /*modal內的文字描述區*/
 .modalContent {
@@ -455,39 +429,78 @@ div .single_food_item:hover {
     }
 
 
-/* width>1024 */
-@media(min-width:1025px) {
-
-    /*food按鈕*/
-    .modalContent .footItemIconGruop {
-        position: absolute;
-        top: 1rem;
-        right: 12rem;
-
-
-    }
+/*--選擇數量按鈕--*/
+.selectNumGruop{    
+    padding-top:1rem;
 }
 
+.quantityTextbox {
+    text-align: center;
+    width: 5rem;
+}
+
+
+/* width>1024 */
+@media (min-width: 1025px) {
+    .food_menu {
+        padding-top: 4.5rem;
+    }
+
+    .section_tittle {
+        margin-bottom: 35px;
+    }
+
+    /*-- 餐點種類 --*/
+    .food_menu .nav-tabs a {
+        font-size: 1.2rem;
+        text-align: center;
+        /*        padding: 45px 20px 25px;*/
+        padding: 45px 10px 25px;
+    }
+
+    /*被選到的 Tabitem*/
+    .food_menu .nav-tabs .active {
+        /*        font-size: 1.2rem;*/
+    }
+
+    /*--- sing-food上的按鈕 ---*/
+    .footItemIconGruop {
+        padding-left: 11rem;
+    }
+
+    /*----food modal細節---*/
+    .modalContent .footItemIconGruop{
+        width:auto;
+        padding-left:0;
+    }
+    
+    /*選擇數量按鈕*/
+    .selectNumGruop {
+        
+    }
+
+}
 
 /* width<1024 */
 @media (max-width: 1025px) {
 
-    /*modal內的圖片*/
+    /*--- modal ---*/
     .modal-body img {
         width: 100%;
-
     }
 
     .modal-content {
-    border-radius: 0.5rem;
-    min-width: 300px;
-    margin: 0 auto;
-}
+        border-radius: 0.5rem;
+        min-width: 300px;
+        margin: 0 auto;
+    }
 }
 
-/*
-.modalImgContent{
-    margin: 0 auto;
+/* width>991 */
+@media (min-width: 992px) {
+    /*-- modal --*/
+    .modal .close {
+        right: -18px;
+        top: 15px;
+    }
 }
-*/
-

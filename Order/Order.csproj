@@ -173,7 +173,6 @@
     <Content Include="html-Verson1\~\js\mail-script.js" />
     <Content Include="html-Verson1\~\js\masonry.pkgd.js" />
     <Content Include="html-Verson1\~\js\masonry.pkgd.min.js" />
-    <Content Include="html-Verson1\~\js\masterPage - 複製.js" />
     <Content Include="html-Verson1\~\js\masterPage.js" />
     <Content Include="html-Verson1\~\js\owl.carousel.min.js" />
     <Content Include="html-Verson1\~\js\particles.min.js" />
@@ -189,6 +188,8 @@
     <Content Include="img\2.jpg" />
     <Content Include="img\3.jpg" />
     <Content Include="img\44-1.jpg" />
+    <Content Include="img\food_menu\3.jpg" />
+    <Content Include="img\food_menu\lg\3.jpg" />
     <Content Include="img\food_menu\single_food_1.png" />
     <Content Include="img\food_menu\single_food_2.png" />
     <Content Include="img\food_menu\single_food_3.png" />
@@ -330,6 +331,7 @@
     <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Views\LogSign\LogIn.cshtml" />
     <Content Include="Views\LogSign\SignUp.cshtml" />
+    <Content Include="Views\Shop\Product.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -20,7 +20,8 @@ namespace Order.Controllers
         // GET: Product
         public ActionResult Product()
         {
-            return View();
+            var product = db.Products.ToList();
+            return View(product);
         }
     }
 }

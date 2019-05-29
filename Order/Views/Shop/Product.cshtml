@@ -94,16 +94,16 @@
 
                 <div class="modal-body row">
                     <div class="col-md-12 modalImgContent">
-                        <img src="~/img/food_menu/lg/3.jpg">
+                        <img src="@Model.LastOrDefault().ProductPhotoL">
                     </div>
                     <a href="#" class="modal-control previous" onclick="plusSlides(-1)">Previous</a>
                     <a href="#" class="modal-control next" onclick="plusSlides(1)">Next</a>
 
                     <div class='col-md-12 modalContent'>
-                        <h2>油醋燻鮭魚</h2>
-                        <p>以蘿蔓生菜為基底，鋪上肥美鮮嫩的燻鮭魚</p>
-                        <p>再淋上義式油醋醬，適合2-3人分享</p>
-                        <h5>$346</h5>
+                        <h2>@Model.LastOrDefault().ProductName</h2>
+                        <p>@Model.LastOrDefault().ProductDescription.Substring(0, Model.LastOrDefault().ProductDescription.IndexOf("！"))</p>
+                        <p>@Model.LastOrDefault().ProductDescription.Substring(Model.LastOrDefault().ProductDescription.IndexOf("！") + 1, Model.LastOrDefault().ProductDescription.Length - Model.LastOrDefault().ProductDescription.IndexOf("！") - 1)</p>
+                        <h5>$ @Model.LastOrDefault().UnitPrice</h5>
                         <ul class="footItemIconGruop">
                             <li>
                                 <a class="addCartBtn" href="#">

@@ -35,11 +35,11 @@
                         <div class="row">
                             <div class="col-sm-6 col-lg-6">
                                 <div class="single_food_item media">
-                                    <img src="~/img/food_menu/3.jpg" class="mr-3 seeFoodDetail" onclick="currentSlide(1)" alt="...">
+                                    <img src="@Model.FirstOrDefault().ProductPhotoS" class="mr-3 seeFoodDetail" onclick="currentSlide(1)" alt="...">
                                     <div class="media-body align-self-center">
-                                        <h3>油醋燻鮭魚</h3>
-                                        <p>傳統義式油醋醬佐挪威頂級鮭魚片</p>
-                                        <h5>$270</h5>
+                                        <h3>@Model.FirstOrDefault().ProductName</h3>
+                                        <p>@Model.FirstOrDefault().ProductIntroduction</p>
+                                        <h5>$ @Model.FirstOrDefault().UnitPrice</h5>
 
                                         <!--按鈕集合-->
                                         <ul class="footItemIconGruop">

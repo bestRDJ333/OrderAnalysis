@@ -1,507 +1,520 @@
 ﻿@model List<Order.Models.Product>
+@using System.Text.RegularExpressions;
 @{
     ViewBag.Title = "Product";
 }
 
+@functions{
+    string getClass(string imgPath)
+    {
+        Regex reg = new Regex("img/(.+?)/");
+        Match m = reg.Match(imgPath);
+        Group g = m.Groups[1];
 
-<!--start content 菜單內容-->
-<!-- food_menu start-->
-<section class="food_menu gray_bg">
-    <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-lg-3">
-                <div class="section_tittle">
-                    <h2>探索饗宴</h2><span>Menu Discovery</span>
+        return g.Value;
+    }
+
+}
+
+@{
+    <!--start content 菜單內容-->
+    <!-- food_menu start-->
+    <section class="food_menu gray_bg">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-3">
+                    <div class="section_tittle">
+                        <h2>探索饗宴</h2><span>Menu Discovery</span>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Tab種類 -->
-            <div class="col-md-9">
-                <div class="nav nav-tabs food_menu_nav" id="myTab" role="tablist">
-                    <a class="active" id="Special-tab" data-toggle="tab" href="#Special" role="tab" aria-controls="Special" aria-selected="false">推薦&nbsp;Special <img src="~/img/icon/play.svg" alt="play"></a>
-                    <a id="Breakfast-tab" data-toggle="tab" href="#Breakfast" role="tab" aria-controls="Breakfast" aria-selected="false">前菜&nbsp;Appetizer<img src="~/img/icon/play.svg" alt="play"></a>
-                    <a id="Launch-tab" data-toggle="tab" href="#Launch" role="tab" aria-controls="Launch" aria-selected="false">湯品&nbsp;Soup<img src="~/img/icon/play.svg" alt="play"></a>
-                    <a id="Dinner-tab" data-toggle="tab" href="#Dinner" role="tab" aria-controls="Dinner" aria-selected="false">主菜&nbsp;Main course<img src="~/img/icon/play.svg" alt="play"> </a>
-                    <a id="Sneaks-tab" data-toggle="tab" href="#Sneaks" role="tab" aria-controls="Sneaks" aria-selected="false">甜點&nbsp;Dessert<img src="~/img/icon/play.svg" alt="play"></a>
-                    <a id="tab6-tab" data-toggle="tab" href="#tab6" role="tab" aria-controls="tab6" aria-selected="false">飲料&nbsp;Beverage<img src="~/img/icon/play.svg" alt="play"></a>
+                <!-- Tab種類 -->
+                <div class="col-md-9">
+                    <div class="nav nav-tabs food_menu_nav" id="myTab" role="tablist">
+                        <a class="active" id="Special-tab" data-toggle="tab" href="#Special" role="tab" aria-controls="Special" aria-selected="false">推薦&nbsp;Special <img src="~/img/icon/play.svg" alt="play"></a>
+                        <a id="Breakfast-tab" data-toggle="tab" href="#Breakfast" role="tab" aria-controls="Breakfast" aria-selected="false">前菜&nbsp;Appetizer<img src="~/img/icon/play.svg" alt="play"></a>
+                        <a id="Launch-tab" data-toggle="tab" href="#Launch" role="tab" aria-controls="Launch" aria-selected="false">湯品&nbsp;Soup<img src="~/img/icon/play.svg" alt="play"></a>
+                        <a id="Dinner-tab" data-toggle="tab" href="#Dinner" role="tab" aria-controls="Dinner" aria-selected="false">主菜&nbsp;Main course<img src="~/img/icon/play.svg" alt="play"> </a>
+                        <a id="Sneaks-tab" data-toggle="tab" href="#Sneaks" role="tab" aria-controls="Sneaks" aria-selected="false">甜點&nbsp;Dessert<img src="~/img/icon/play.svg" alt="play"></a>
+                        <a id="tab6-tab" data-toggle="tab" href="#tab6" role="tab" aria-controls="tab6" aria-selected="false">飲料&nbsp;Beverage<img src="~/img/icon/play.svg" alt="play"></a>
+                    </div>
                 </div>
-            </div>
+                <!-- TabContent -->
+                <div class="col-lg-12">
+                    <div class="tab-content" id="myTabContent">
+                        <!-- Tab1 -->
+                        <div class="tab-pane show active single-member" id="Special" role="tabpanel" aria-labelledby="Special-tab">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="single_food_item media">
+                                        <img src="@Model.FirstOrDefault().ProductPhotoS" class="mr-3 seeFoodDetail" onclick="currentSlide(1)" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>@Model.FirstOrDefault().ProductName</h3>
+                                            <p>@Model.FirstOrDefault().ProductIntroduction</p>
+                                            <h5>$ @Model.FirstOrDefault().UnitPrice</h5>
 
-            <!-- TabContent -->
-            <div class="col-lg-12">
-                <div class="tab-content" id="myTabContent">
-                    <!-- Tab1 -->
-                    <div class="tab-pane show active single-member" id="Special" role="tabpanel" aria-labelledby="Special-tab">
-                        <div class="row">
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="single_food_item media">
-                                    <img src="@Model.FirstOrDefault().ProductPhotoS" class="mr-3 seeFoodDetail" onclick="currentSlide(1)" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>@Model.FirstOrDefault().ProductName</h3>
-                                        <p>@Model.FirstOrDefault().ProductIntroduction</p>
-                                        <h5>$ @Model.FirstOrDefault().UnitPrice</h5>
+                                            <!--按鈕集合-->
+                                            <ul class="footItemIconGruop">
+                                                <li>
+                                                    <!--連結到imagemodal-->
+                                                    <span class="seePicBtn seeFoodDetail" onclick="currentSlide(1)">
+                                                        <i class="fas fa-search"></i>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <a class="addCartBtn" href="#">
+                                                        <i class="fas fa-cart-plus"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="addLoveBtn" href="#">
+                                                        <i class="fas fa-heart"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_2.png" class="mr-3 seeFoodDetail" onclick="currentSlide(2)" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Roasted Marrow</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                            <!--按鈕集合-->
+                                            <ul class="footItemIconGruop">
+                                                <li>
+                                                    <!--連結到imagemodal-->
+                                                    <span class="seePicBtn seeFoodDetail" onclick="currentSlide(2)">
+                                                        <i class="fas fa-search"></i>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <a class="addCartBtn" href="#">
+                                                        <i class="fas fa-cart-plus"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="addLoveBtn" href="#">
+                                                        <i class="fas fa-heart"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_3.png" class="mr-3 seeFoodDetail" onclick="currentSlide(3)" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Summer Cooking</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                            <!--按鈕集合-->
+                                            <ul class="footItemIconGruop">
+                                                <li>
+                                                    <!--連結到imagemodal-->
+                                                    <span class="seePicBtn seeFoodDetail" onclick="currentSlide(3)">
+                                                        <i class="fas fa-search"></i>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <a class="addCartBtn" href="#">
+                                                        <i class="fas fa-cart-plus"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="addLoveBtn" href="#">
+                                                        <i class="fas fa-heart"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_4.png" class="mr-3 seeFoodDetail" onclick="currentSlide(4)" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Easter Delight</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                            <!--按鈕集合-->
+                                            <ul class="footItemIconGruop">
+                                                <li>
+                                                    <!--連結到imagemodal-->
+                                                    <span class="seePicBtn seeFoodDetail" onclick="currentSlide(4)">
+                                                        <i class="fas fa-search"></i>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <a class="addCartBtn" href="#">
+                                                        <i class="fas fa-cart-plus"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="addLoveBtn" href="#">
+                                                        <i class="fas fa-heart"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_5.png" class="mr-3 seeFoodDetail" onclick="currentSlide(5)" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Tiener Schnitze</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                            <!--按鈕集合-->
+                                            <ul class="footItemIconGruop">
+                                                <li>
+                                                    <!--連結到imagemodal-->
+                                                    <span class="seePicBtn seeFoodDetail" onclick="currentSlide(5)">
+                                                        <i class="fas fa-search"></i>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <a class="addCartBtn" href="#">
+                                                        <i class="fas fa-cart-plus"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="addLoveBtn" href="#">
+                                                        <i class="fas fa-heart"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_6.png" class="mr-3 seeFoodDetail" onclick="currentSlide(6)" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Chicken Roast</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                            <!--按鈕集合-->
+                                            <ul class="footItemIconGruop">
+                                                <li>
+                                                    <!--連結到imagemodal-->
+                                                    <span class="seePicBtn seeFoodDetail" onclick="currentSlide(6)">
+                                                        <i class="fas fa-search"></i>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <a class="addCartBtn" href="#">
+                                                        <i class="fas fa-cart-plus"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="addLoveBtn" href="#">
+                                                        <i class="fas fa-heart"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tab2 -->
+                        <div class="tab-pane single-member" id="Breakfast" role="tabpanel" aria-labelledby="Breakfast-tab">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_4.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Easter Delight</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                            <!--按鈕集合-->
+                                            <ul class="footItemIconGruop">
+                                                <li>
+                                                    <span class="seePicBtn">
+                                                        <i class="fas fa-search"></i>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <a class="addCartBtn" href="#">
+                                                        <i class="fas fa-cart-plus"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="addLoveBtn" href="#">
+                                                        <i class="fas fa-heart"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_5.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Tiener Schnitze</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_6.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Chicken Roast</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_1.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Pork Sandwich</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_2.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Roasted Marrow</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_3.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Summer Cooking</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tab3 -->
+                        <div class="tab-pane single-member" id="Launch" role="tabpanel" aria-labelledby="Launch-tab">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_1.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Pork Sandwich</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_2.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Roasted Marrow</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_3.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Summer Cooking</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_4.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Easter Delight</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_5.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Tiener Schnitze</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_6.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Chicken Roast</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                        <!--按鈕集合-->
-                                        <ul class="footItemIconGruop">
-                                            <li>
-                                                <!--連結到imagemodal-->
-                                                <span class="seePicBtn seeFoodDetail" onclick="currentSlide(1)">
-                                                    <i class="fas fa-search"></i>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <a class="addCartBtn" href="#">
-                                                    <i class="fas fa-cart-plus"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="addLoveBtn" href="#">
-                                                    <i class="fas fa-heart"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_2.png" class="mr-3 seeFoodDetail" onclick="currentSlide(2)" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Roasted Marrow</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                        <!--按鈕集合-->
-                                        <ul class="footItemIconGruop">
-                                            <li>
-                                                <!--連結到imagemodal-->
-                                                <span class="seePicBtn seeFoodDetail" onclick="currentSlide(2)">
-                                                    <i class="fas fa-search"></i>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <a class="addCartBtn" href="#">
-                                                    <i class="fas fa-cart-plus"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="addLoveBtn" href="#">
-                                                    <i class="fas fa-heart"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_3.png" class="mr-3 seeFoodDetail" onclick="currentSlide(3)" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Summer Cooking</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                        <!--按鈕集合-->
-                                        <ul class="footItemIconGruop">
-                                            <li>
-                                                <!--連結到imagemodal-->
-                                                <span class="seePicBtn seeFoodDetail" onclick="currentSlide(3)">
-                                                    <i class="fas fa-search"></i>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <a class="addCartBtn" href="#">
-                                                    <i class="fas fa-cart-plus"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="addLoveBtn" href="#">
-                                                    <i class="fas fa-heart"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_4.png" class="mr-3 seeFoodDetail" onclick="currentSlide(4)" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Easter Delight</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                        <!--按鈕集合-->
-                                        <ul class="footItemIconGruop">
-                                            <li>
-                                                <!--連結到imagemodal-->
-                                                <span class="seePicBtn seeFoodDetail" onclick="currentSlide(4)">
-                                                    <i class="fas fa-search"></i>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <a class="addCartBtn" href="#">
-                                                    <i class="fas fa-cart-plus"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="addLoveBtn" href="#">
-                                                    <i class="fas fa-heart"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_5.png" class="mr-3 seeFoodDetail" onclick="currentSlide(5)" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Tiener Schnitze</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                        <!--按鈕集合-->
-                                        <ul class="footItemIconGruop">
-                                            <li>
-                                                <!--連結到imagemodal-->
-                                                <span class="seePicBtn seeFoodDetail" onclick="currentSlide(5)">
-                                                    <i class="fas fa-search"></i>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <a class="addCartBtn" href="#">
-                                                    <i class="fas fa-cart-plus"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="addLoveBtn" href="#">
-                                                    <i class="fas fa-heart"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_6.png" class="mr-3 seeFoodDetail" onclick="currentSlide(6)" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Chicken Roast</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                        <!--按鈕集合-->
-                                        <ul class="footItemIconGruop">
-                                            <li>
-                                                <!--連結到imagemodal-->
-                                                <span class="seePicBtn seeFoodDetail" onclick="currentSlide(6)">
-                                                    <i class="fas fa-search"></i>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <a class="addCartBtn" href="#">
-                                                    <i class="fas fa-cart-plus"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="addLoveBtn" href="#">
-                                                    <i class="fas fa-heart"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Tab2 -->
-                    <div class="tab-pane single-member" id="Breakfast" role="tabpanel" aria-labelledby="Breakfast-tab">
-                        <div class="row">
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_4.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Easter Delight</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                        <!--按鈕集合-->
-                                        <ul class="footItemIconGruop">
-                                            <li>
-                                                <span class="seePicBtn">
-                                                    <i class="fas fa-search"></i>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <a class="addCartBtn" href="#">
-                                                    <i class="fas fa-cart-plus"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="addLoveBtn" href="#">
-                                                    <i class="fas fa-heart"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
+                        <!-- Tab4 -->
+                        <div class="tab-pane single-member" id="Dinner" role="tabpanel" aria-labelledby="Dinner-tab">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_4.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Easter Delight</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_5.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Tiener Schnitze</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_6.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Chicken Roast</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_5.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Tiener Schnitze</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_1.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Pork Sandwich</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_2.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Roasted Marrow</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_3.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Summer Cooking</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_6.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Chicken Roast</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_1.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Pork Sandwich</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_2.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Roasted Marrow</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_3.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Summer Cooking</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tab3 -->
-                    <div class="tab-pane single-member" id="Launch" role="tabpanel" aria-labelledby="Launch-tab">
-                        <div class="row">
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_1.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Pork Sandwich</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_2.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Roasted Marrow</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_3.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Summer Cooking</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_4.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Easter Delight</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_5.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Tiener Schnitze</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_6.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Chicken Roast</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                            </div>
 
+                            </div>
                         </div>
-                    </div>
-                    <!-- Tab4 -->
-                    <div class="tab-pane single-member" id="Dinner" role="tabpanel" aria-labelledby="Dinner-tab">
-                        <div class="row">
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_4.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Easter Delight</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
+                        <!-- Tab5 -->
+                        <div class="tab-pane single-member" id="Sneaks" role="tabpanel" aria-labelledby="Sneaks-tab">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_1.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Pork Sandwich</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_2.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Roasted Marrow</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_3.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Summer Cooking</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_5.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Tiener Schnitze</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_4.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Easter Delight</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_6.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Chicken Roast</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_5.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Tiener Schnitze</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_1.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Pork Sandwich</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_2.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Roasted Marrow</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_3.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Summer Cooking</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- Tab5 -->
-                    <div class="tab-pane single-member" id="Sneaks" role="tabpanel" aria-labelledby="Sneaks-tab">
-                        <div class="row">
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_1.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Pork Sandwich</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_2.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Roasted Marrow</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_3.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Summer Cooking</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_4.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Easter Delight</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_5.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Tiener Schnitze</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_6.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Chicken Roast</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_6.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Chicken Roast</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Tab6 -->
-                    <div class="tab-pane single-member" id="tab6" role="tabpanel" aria-labelledby="Breakfast-tab">
-                        <div class="row">
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_4.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Easter Delight</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
+                        <!-- Tab6 -->
+                        <div class="tab-pane single-member" id="tab6" role="tabpanel" aria-labelledby="Breakfast-tab">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_4.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Easter Delight</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_5.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Tiener Schnitze</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
+                                    </div>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_6.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Chicken Roast</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_5.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Tiener Schnitze</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_1.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Pork Sandwich</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_6.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Chicken Roast</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_2.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Roasted Marrow</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_1.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Pork Sandwich</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_2.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Roasted Marrow</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
-                                    </div>
-                                </div>
-                                <div class="single_food_item media">
-                                    <img src="~/img/food_menu/single_food_3.png" class="mr-3" alt="...">
-                                    <div class="media-body align-self-center">
-                                        <h3>Summer Cooking</h3>
-                                        <p>They're wherein heaven seed hath nothing</p>
-                                        <h5>$40.00</h5>
+                                    <div class="single_food_item media">
+                                        <img src="~/img/food_menu/single_food_3.png" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>Summer Cooking</h3>
+                                            <p>They're wherein heaven seed hath nothing</p>
+                                            <h5>$40.00</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -510,172 +523,172 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- food_menu part end-->
-<!--start-food modal細節-->
-<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    </section>
+    <!-- food_menu part end-->
+    <!--start-food modal細節-->
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-    <div class="mySlides modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="mySlides modal-dialog modal-dialog-centered">
+            <div class="modal-content">
 
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-            </div>
-
-            <div class="modal-body row">
-                <div class="col-md-12 modalImgContent">
-                    <img src="~/img/food_menu/lg/3.jpg">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <a href="#" class="modal-control previous" onclick="plusSlides(-1)">Previous</a>
-                <a href="#" class="modal-control next" onclick="plusSlides(1)">Next</a>
 
-                <div class='col-md-12 modalContent'>
-                    <h2>油醋燻鮭魚</h2>
-                    <p>以蘿蔓生菜為基底，鋪上肥美鮮嫩的燻鮭魚</p>
-                    <p>再淋上義式油醋醬，適合2-3人分享</p>
-                    <h5>$346</h5>
-                    <ul class="footItemIconGruop">
-                        <li>
-                            <a class="addCartBtn" href="#">
-                                <i class="fas fa-cart-plus"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="addLoveBtn" href="#">
-                                <i class="fas fa-heart"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!--選取數量-->
-                    <div class="selectNumGruop">
-                        <span>
-                            <button type="button" class="quantity-left-minus btn" data-type="minus">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                        </span>
-                        <input type="text" class="quantityTextbox" value="1" min="1" max="100">
-                        <span>
-                            <button type="button" class="quantity-right-plus btn" data-type="plus">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </span>
+                <div class="modal-body row">
+                    <div class="col-md-12 modalImgContent">
+                        <img src="~/img/food_menu/lg/3.jpg">
                     </div>
-                    <br>
+                    <a href="#" class="modal-control previous" onclick="plusSlides(-1)">Previous</a>
+                    <a href="#" class="modal-control next" onclick="plusSlides(1)">Next</a>
 
-                </div>
-            </div>
+                    <div class='col-md-12 modalContent'>
+                        <h2>油醋燻鮭魚</h2>
+                        <p>以蘿蔓生菜為基底，鋪上肥美鮮嫩的燻鮭魚</p>
+                        <p>再淋上義式油醋醬，適合2-3人分享</p>
+                        <h5>$346</h5>
+                        <ul class="footItemIconGruop">
+                            <li>
+                                <a class="addCartBtn" href="#">
+                                    <i class="fas fa-cart-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="addLoveBtn" href="#">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!--選取數量-->
+                        <div class="selectNumGruop">
+                            <span>
+                                <button type="button" class="quantity-left-minus btn" data-type="minus">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </span>
+                            <input type="text" class="quantityTextbox" value="1" min="1" max="100">
+                            <span>
+                                <button type="button" class="quantity-right-plus btn" data-type="plus">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <br>
 
-        </div>
-    </div>
-
-    <div class="mySlides modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-            </div>
-
-            <div class="modal-body row">
-                <div class="col-md-12 modalImgContent">
-                    <img src="~/img/food_menu/single_food_2.png">
-                </div>
-                <a href="#" class="modal-control previous" onclick="plusSlides(-1)">Previous</a>
-                <a href="#" class="modal-control next" onclick="plusSlides(1)">Next</a>
-
-                <div class='col-md-12 modalContent'>
-                    <h2>T2油醋燻鮭魚</h2>
-                    <p>以蘿蔓生菜為基底，鋪上肥美鮮嫩的燻鮭魚</p>
-                    <p>再淋上義式油醋醬，適合2-3人分享</p>
-                    <h5>$346</h5>
-                    <ul class="footItemIconGruop">
-
-                        <li>
-                            <a class="addCartBtn" href="#">
-                                <i class="fas fa-cart-plus"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="addLoveBtn" href="#">
-                                <i class="fas fa-heart"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!--選取數量-->
-                    <div class="selectNumGruop col-md-12">
-                        <span>
-                            <button type="button" class="quantity-left-minus btn" data-type="minus">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                        </span>
-                        <input type="text" class="quantityTextbox" value="1" min="1" max="100">
-                        <span>
-                            <button type="button" class="quantity-right-plus btn" data-type="plus">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </span>
                     </div>
-                    <br>
-
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
 
-    <div class="mySlides modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="mySlides modal-dialog modal-dialog-centered">
+            <div class="modal-content">
 
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-            </div>
-
-            <div class="modal-body row">
-                <div class="col-md-12 modalImgContent">
-                    <img src="~/img/food_menu/single_food_3.png">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <a href="#" class="modal-control previous" onclick="plusSlides(-1)">Previous</a>
-                <a href="#" class="modal-control next" onclick="plusSlides(1)">Next</a>
 
-                <div class='col-md-12 modalContent'>
-                    <h2>T3---</h2>
-                    <p>以蘿蔓生菜為基底，鋪上肥美鮮嫩的燻鮭魚</p>
-                    <p>再淋上義式油醋醬，適合2-3人分享</p>
-                    <h5>$346</h5>
-                    <ul class="footItemIconGruop">
-
-                        <li>
-                            <a class="addCartBtn" href="#">
-                                <i class="fas fa-cart-plus"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="addLoveBtn" href="#">
-                                <i class="fas fa-heart"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!--選取數量-->
-                    <div class="selectNumGruop col-md-12">
-                        <span>
-                            <button type="button" class="quantity-left-minus btn" data-type="minus">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                        </span>
-                        <input type="text" class="quantityTextbox" value="1" min="1" max="100">
-                        <span>
-                            <button type="button" class="quantity-right-plus btn" data-type="plus">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </span>
+                <div class="modal-body row">
+                    <div class="col-md-12 modalImgContent">
+                        <img src="~/img/food_menu/single_food_2.png">
                     </div>
-                    <br>
+                    <a href="#" class="modal-control previous" onclick="plusSlides(-1)">Previous</a>
+                    <a href="#" class="modal-control next" onclick="plusSlides(1)">Next</a>
+
+                    <div class='col-md-12 modalContent'>
+                        <h2>T2油醋燻鮭魚</h2>
+                        <p>以蘿蔓生菜為基底，鋪上肥美鮮嫩的燻鮭魚</p>
+                        <p>再淋上義式油醋醬，適合2-3人分享</p>
+                        <h5>$346</h5>
+                        <ul class="footItemIconGruop">
+
+                            <li>
+                                <a class="addCartBtn" href="#">
+                                    <i class="fas fa-cart-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="addLoveBtn" href="#">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!--選取數量-->
+                        <div class="selectNumGruop col-md-12">
+                            <span>
+                                <button type="button" class="quantity-left-minus btn" data-type="minus">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </span>
+                            <input type="text" class="quantityTextbox" value="1" min="1" max="100">
+                            <span>
+                                <button type="button" class="quantity-right-plus btn" data-type="plus">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <br>
+
+                    </div>
                 </div>
+
             </div>
-
         </div>
-    </div>
 
-</div>
-<!--end-食物modal細節-->
-<!--end content-->
+        <div class="mySlides modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+
+                <div class="modal-body row">
+                    <div class="col-md-12 modalImgContent">
+                        <img src="~/img/food_menu/single_food_3.png">
+                    </div>
+                    <a href="#" class="modal-control previous" onclick="plusSlides(-1)">Previous</a>
+                    <a href="#" class="modal-control next" onclick="plusSlides(1)">Next</a>
+
+                    <div class='col-md-12 modalContent'>
+                        <h2>T3---</h2>
+                        <p>以蘿蔓生菜為基底，鋪上肥美鮮嫩的燻鮭魚</p>
+                        <p>再淋上義式油醋醬，適合2-3人分享</p>
+                        <h5>$346</h5>
+                        <ul class="footItemIconGruop">
+
+                            <li>
+                                <a class="addCartBtn" href="#">
+                                    <i class="fas fa-cart-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="addLoveBtn" href="#">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!--選取數量-->
+                        <div class="selectNumGruop col-md-12">
+                            <span>
+                                <button type="button" class="quantity-left-minus btn" data-type="minus">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </span>
+                            <input type="text" class="quantityTextbox" value="1" min="1" max="100">
+                            <span>
+                                <button type="button" class="quantity-right-plus btn" data-type="plus">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!--end-食物modal細節-->
+    <!--end content-->
+}

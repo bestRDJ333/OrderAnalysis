@@ -13,7 +13,38 @@
 
         return g.Value;
     }
+}
 
+@helper printProduct(string imgpath, string pName, string pIntro, int? price)
+{
+    <div class="single_food_item media">
+        <img src="@imgpath" class="mr-3 seeFoodDetail" onclick="currentSlide(1)" alt="...">
+        <div class="media-body align-self-center">
+            <h3>@pName</h3>
+            <p>@pIntro</p>
+            <h5>$ @price</h5>
+
+            <!--按鈕集合-->
+            <ul class="footItemIconGruop">
+                <li>
+                    <!--連結到imagemodal-->
+                    <span class="seePicBtn seeFoodDetail" onclick="currentSlide(1)">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </li>
+                <li>
+                    <a class="addCartBtn" href="#">
+                        <i class="fas fa-cart-plus"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="addLoveBtn" href="#">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 }
 
 @{
@@ -46,34 +77,7 @@
                         <div class="tab-pane show active single-member" id="Special" role="tabpanel" aria-labelledby="Special-tab">
                             <div class="row">
                                 <div class="col-sm-6 col-lg-6">
-                                    <div class="single_food_item media">
-                                        <img src="@Model.FirstOrDefault().ProductPhotoS" class="mr-3 seeFoodDetail" onclick="currentSlide(1)" alt="...">
-                                        <div class="media-body align-self-center">
-                                            <h3>@Model.FirstOrDefault().ProductName</h3>
-                                            <p>@Model.FirstOrDefault().ProductIntroduction</p>
-                                            <h5>$ @Model.FirstOrDefault().UnitPrice</h5>
-
-                                            <!--按鈕集合-->
-                                            <ul class="footItemIconGruop">
-                                                <li>
-                                                    <!--連結到imagemodal-->
-                                                    <span class="seePicBtn seeFoodDetail" onclick="currentSlide(1)">
-                                                        <i class="fas fa-search"></i>
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <a class="addCartBtn" href="#">
-                                                        <i class="fas fa-cart-plus"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="addLoveBtn" href="#">
-                                                        <i class="fas fa-heart"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    @printProduct(Model.FirstOrDefault().ProductPhotoS, Model.FirstOrDefault().ProductName, Model.FirstOrDefault().ProductIntroduction,Model.FirstOrDefault().UnitPrice)
                                     <div class="single_food_item media">
                                         <img src="~/img/food_menu/single_food_2.png" class="mr-3 seeFoodDetail" onclick="currentSlide(2)" alt="...">
                                         <div class="media-body align-self-center">
@@ -214,6 +218,9 @@
                                 </div>
                             </div>
                         </div>
+
+
+
                         <!-- Tab2 -->
                         <div class="tab-pane single-member" id="Breakfast" role="tabpanel" aria-labelledby="Breakfast-tab">
                             <div class="row">

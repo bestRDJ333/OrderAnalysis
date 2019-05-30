@@ -17,29 +17,119 @@
     <!--     此網站的css-->
     <link rel="stylesheet" href="~/css/master.css">
     <link rel="stylesheet" href="~/css/productClass.css">
+
+    <!--start  此頁增加的css，其他頁暫不用 -->
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="~/css/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="~/css/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="~/css/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="~/css/slick.css">
+    <link rel="stylesheet" href="~/css/gijgo.min.css">
+    <link rel="stylesheet" href="~/css/nice-select.css">
+    <link rel="stylesheet" href="~/css/all.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <!--Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--     此網站的css-->
+    <link rel="stylesheet" href="~/css/master.css">
+    <link rel="stylesheet" href="~/css/product.css">
+    <!--end  此頁增加的css，其他頁暫不用 -->
 </head>
 <body>
     <!--start  navbar-->
+    <!--網頁版的nav-->
     <div class="topMenu">
         <div id="navLogo">
-            <a href="#index"><img src="~/img/logo.png" alt=""></a>
-
+            <a href="masterPage.html"><img src="~/img/logo.png" alt=""></a>
         </div>
         <p id="navTitleFont">Restaurant</p>
-        <div class="navlinkGroup" id="myTopMenu">
+        <div class="navlinkGroup">
             <a class="a-trigger" href="" id="navTitle">&nbsp;</a>
-            <a class="a-trigger" href="#"><i class="fas fa-shopping-cart"></i>[0]</a>
+            <a class="navShopCart a-trigger" href="#"><i class="fas fa-shopping-cart"></i>[0]</a>
             <a class="a-trigger" href="#"><i class="fas fa-user"></i>會員</a>
-            <a class="a-trigger" href="productClass.html"><i class="fas fa-utensils"></i>菜單</a>
+            <a class="a-trigger" href="~/Shop/Menu"><i class="fas fa-utensils"></i>菜單</a>
             <a class="a-trigger" href="#"><i class="fas fa-store"></i>簡介</a>
             <button id="rwdMenu" onclick="toggleClass()">
                 <span>menu</span>
             </button>
         </div>
     </div>
+
+    <!--行動裝置的nav-->
+    <div class="bottomMenu">
+        <div class="row">
+            <a class="a-trigger col-sm-3" href="#"><i class="fas fa-store"></i>簡介</a>
+            <a class="a-trigger col-sm-3" href="productClass.html"><i class="fas fa-utensils"></i>菜單</a>
+            <a class="a-trigger col-sm-3" href="#"><i class="fas fa-user"></i>會員</a>
+            <a class="navShopCart a-trigger col-sm-3" href="#"><i class="fas fa-shopping-cart"></i>[0]</a>
+        </div>
+    </div>
     <!--end  navbar-->
 
     <div class="wrapper">
+        <!--start 購物車-->
+        <div class="container-fluid">
+            <div class="shopCart">
+                <p></p>
+                <div id="shopCartContent">
+                    <p class="noItem">購物車內目前沒有商品</p>
+                    <!--購物內容 1-->
+                    <div class="shopCartItem">
+                        <a href="#">
+                            <img src="~/img/food_menu/3.jpg" />
+                            <div>
+                                <p>油醋燻鮭魚</p>
+                                <span>$270</span>
+                            </div>
+                        </a>
+                        <span class="ItemQuantity">1份</span>
+                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
+                    </div>
+
+                    <!--購物內容 2-->
+                    <div class="shopCartItem">
+                        <a href="#">
+                            <img src="~/img/food_menu/single_food_1.png" />
+                            <div>
+                                <p>天使巧克力蛋糕</p>
+                                <span>$120</span>
+                            </div>
+                        </a>
+                        <span class="ItemQuantity">1份</span>
+                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
+                    </div>
+
+                    <!--購物內容 3-->
+                    <div class="shopCartItem">
+                        <a href="#">
+                            <img src="~/img/food_menu/single_food_1.png" />
+                            <div>
+                                <p>天使巧克力蛋糕</p>
+                                <span>$120</span>
+                            </div>
+                        </a>
+                        <span class="ItemQuantity">1份</span>
+                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
+                    </div>
+                </div>
+
+
+                <div class="shopCartFooter row">
+                    <p>合計：$510</p>
+                    <a href="#">立即結帳</a>
+                </div>
+            </div>
+
+        </div>
+        <!--end 購物車-->
         @RenderBody()
         <!--必要! 為了把footer置底用-->
         <div class="push"></div>
@@ -86,6 +176,176 @@
 
     <!--此網站的js-->
     <script src="~/js/masterPage.js"></script>
+    <script>
 
+        //數量鍵的使用=======================================
+        $(document).ready(function () {
+
+            var quantitiy = 0;
+            $('.quantity-right-plus').click(function (e) {
+
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('.quantityTextbox').val());
+
+                // 增加
+                $('.quantityTextbox').val(quantity + 1);
+
+            });
+
+            $('.quantity-left-minus').click(function (e) {
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('.quantityTextbox').val());
+
+                // 減少
+                if (quantity > 0) {
+                    $('.quantityTextbox').val(quantity - 1);
+                }
+            });
+
+        });
+
+
+
+
+        $('.addCartBtn').click(function () {
+            //使用 Sweet alert.js
+            swal("加入購物車成功", {
+                icon: "success",
+                buttons: false,
+                timer: 1000,
+            });
+
+        });
+
+
+        $('.seeFoodDetail').click(function () {
+            //顯示 food modal
+            $('#imagemodal').modal();
+
+        });
+
+
+        //food modal上一頁與下一頁的切換===============
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+
+
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+
+        }
+
+
+        //購物車==================================================================
+
+        //行動裝置：當視窗小於374時運作----
+        if ($(window).width() < 376) {
+
+            //位置在下，刪除top的樣式
+            $('.shopCart').css({
+                "bottom": "3rem",
+                "top": "",
+            });
+
+        }
+        else {
+
+            //位置在上，刪除bottom樣式
+            $('.shopCart').css({
+                "top": "2.8rem",
+                "bottom": "",
+            });
+
+        }
+
+
+
+
+
+        $(function () {
+
+            //行動裝置：當視窗小於1024時運作----
+            if ($(window).width() < 1025) {
+
+                //購物車顯示/隱藏
+                $('.navShopCart').click(function () {
+
+                    $('.shopCart').toggle('slow');
+                });
+            }
+
+            //網頁版：
+            $('.navShopCart').hover(function () {
+                $('.shopCart').show('slow');
+            });
+
+            $('.shopCart').hover(function () {
+                //滑鼠移入事件
+
+            }, function () {
+                //滑鼠移出事件--------
+
+                //隱藏購物車
+                $('.shopCart').hide();
+
+            });
+
+
+        });
+
+        main();
+
+        function main() {
+
+            NoItemCart();
+        }
+
+
+
+        //無商品的購物車--------------------------------
+        function NoItemCart() {
+            var cartCount = document.getElementsByClassName("shopCartItem");
+
+            if (cartCount.length <= 0) {
+                //購物車無商品
+                $('.noItem').show();
+                $('.shopCartFooter').hide();
+            }
+            else {
+                //購物車有商品
+                $('.noItem').hide();
+                $('.shopCartFooter').show();
+            }
+        }
+
+
+    </script>
 </body>
 </html>

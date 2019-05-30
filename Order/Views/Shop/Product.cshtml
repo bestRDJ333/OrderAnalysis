@@ -103,7 +103,7 @@
     int getCount(string kind)
     {
         var Q = Model.Where(o => o.ProductPhotoL.IndexOf(kind) != -1);
-        return Q.Count() + 1;
+        return Q.Count() - 1;
     }
 
     // 產品敘述分段
@@ -132,7 +132,7 @@
 @helper productCard(string imgpath, string pName, string pIntro, int? price, int cnt)
 {
     <div class="single_food_item media">
-        <img src="@imgpath" class="mr-3 seeFoodDetail" onclick="currentSlide(cnt)" alt="...">
+        <img src="@imgpath" class="mr-3 seeFoodDetail" onclick="currentSlide(@cnt)" alt="...">
         <div class="media-body align-self-center">
             <h3>@pName</h3>
             <p>@pIntro</p>
@@ -142,7 +142,7 @@
             <ul class="footItemIconGruop">
                 <li>
                     <!--連結到imagemodal-->
-                    <span class="seePicBtn seeFoodDetail" onclick="currentSlide(cnt)">
+                    <span class="seePicBtn seeFoodDetail" onclick="currentSlide(@cnt)">
                         <i class="fas fa-search"></i>
                     </span>
                 </li>
@@ -161,7 +161,6 @@
     </div>
 }
 
-<!-- 印出分類過的菜單 -->
 @helper printMenu(string kind)
 {
     int cnt = getCount(kind);

@@ -7,11 +7,11 @@
 <div class="login100-form-title" style="background-image: url(../img/login_signup/login_signup.jpg);">
 
     <span class="login100-form-title-1">
-       LOG IN
+        LOG IN
     </span>
 </div>
 
-<form class="login100-form validate-form">
+<form class="login100-form validate-form" method="post">
     <div class="wrap-input100 validate-input m-b-26" data-validate="UserID is required">
         <span class="label-input100">UserID</span>
         <input class="input100" type="text" name="UserID" placeholder="Enter UserID">
@@ -20,7 +20,7 @@
 
     <div class="wrap-input100 validate-input m-b-50" data-validate="Password is required">
         <span class="label-input100">Password</span>
-        <input class="input100" type="password" name="pass" placeholder="Enter password">
+        <input class="input100" type="password" name="UserPwd" placeholder="Enter password">
         <span class="focus-input100"></span>
     </div>
 
@@ -37,3 +37,13 @@
         </a>
     </div>
 </form>
+
+@*?? 運算子稱為 null 聯合運算子。 如果運算元不是 null，則會傳回左方運算元，否則傳回右方運算元。*@
+@{
+    var errMsg = TempData["errorMessage"] ?? string.Empty;
+}
+@* 登入失敗的alert *@
+<script type="text/javascript">
+        var message = '@errMsg';
+        if (message) { alert(message); }
+</script>

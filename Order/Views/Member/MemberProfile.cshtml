@@ -1,6 +1,6 @@
-﻿
+﻿@model Order.Models.Member
 @{
-    ViewBag.Title = "SignUp";
+    ViewBag.Title = "MemberProfile";
     Layout = "~/Views/Shared/_LogSignLayout.cshtml";
 }
 
@@ -8,40 +8,41 @@
 <div class="login100-form-title" style="background-image: url(../img/login_signup/login_signup.jpg);">
 
     <span class="login100-form-title-1">
-        SIGN UP
+        Profile
     </span>
 </div>
 
 <form class="login100-form validate-form" method="post">
-    <!--名字-->
+    <input type="hidden" name="MemberID" value="@Model.MemberID">
+    <!--名字 不可修改-->
     <div class="wrap-input100 validate-input m-b-26" data-validate="MemberName is required">
         <span class="label-input100">MemberName</span>
-        <input class="input100" type="text" name="MemberName" placeholder="Enter MemberName">
+        <input class="input100" type="text" name="MemberName" disabled="disabled" value="@Model.MemberName">
         <span class="focus-input100"></span>
     </div>
-    <!--帳號-->
+    <!--帳號 不可修改-->
     <div class="wrap-input100 validate-input m-b-26" data-validate="UserID is required">
         <span class="label-input100">UserID</span>
-        <input class="input100" type="text" name="UserID" placeholder="Enter UserID">
+        <input class="input100" type="text" name="UserID" disabled="disabled" value="@Model.UserID">
         <span class="focus-input100"></span>
     </div>
     <!--密碼-->
     <div class="wrap-input100 validate-input m-b-26" data-validate="Password is required">
         <span class="label-input100">Password</span>
         <!--密碼至少一個小寫英文，一個數字，最少6碼，最多10碼-->
-        <input class="input100" type="password" name="UserPwd" placeholder="Enter password" pattern="^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,10}">
+        <input class="input100" type="password" name="UserPwd" id="UserPwd" placeholder="Enter new password" pattern="^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,10}" value="@Model.UserPwd">
         <span class="focus-input100"></span>
     </div>
-    <!--性別-->
+    <!--性別 不可修改-->
     <div class="wrap-input100 m-b-26">
         <span class="label-input100">Gender</span>
-        <input type="radio" name="gender" value="m" required> Male<br>
-        <input type="radio" name="gender" value="f"> Female<br>
+        <input type="radio" name="gender" value="m" required disabled="disabled" @((Model.Gender == "m") ? "checked" : "")> Male<br>
+        <input type="radio" name="gender" value="f" disabled="disabled" @((Model.Gender == "f") ? "checked" : "")> Female<br>
     </div>
     <!--年齡-->
     <div class="wrap-input100 validate-input m-b-26" data-validate="Age is required">
         <span class="label-input100">Age</span>
-        <input class="input100" type="number" name="Age" placeholder="Enter Age. ex:38">
+        <input class="input100" type="number" name="Age" value="@Model.Age">
         <span class="focus-input100"></span>
     </div>
     <!--email 格式XXX@XXX.XXX-->
@@ -50,27 +51,29 @@
     }
     <div class="wrap-input100 m-b-26">
         <span class="label-input100">Email</span>
-        <input class="input100" type="text" name="Email" placeholder="Enter Email" pattern="@str">
+        <input class="input100" type="text" name="Email" placeholder="Enter Email" pattern="@str" value="@Model.Email">
         <span class="focus-input100"></span>
     </div>
     <!--電話 十碼-->
     <div class="wrap-input100 m-b-26">
         <span class="label-input100">Phone</span>
-        <input class="input100" type="number" name="Phone" placeholder="Enter Phone. ex:0912345678" pattern="\d{10}">
+        <input class="input100" type="number" name="Phone" placeholder="Enter Phone. ex:0912345678" pattern="\d{10}" value="@Model.Phone">
         <span class="focus-input100"></span>
     </div>
     <!--地址-->
     <div class="wrap-input100 m-b-50">
         <span class="label-input100">Address</span>
-        <input class="input100" type="text" name="MemberAddress" placeholder="Enter Address">
+        <input class="input100" type="text" name="MemberAddress" placeholder="Enter Address" value="@Model.MemberAddress">
         <span class="focus-input100"></span>
     </div>
 
     <div class="container-login100-form-btn m-b-50">
-        <button class="btn btn-success login100-form-btn ">
-            SIGN UP
+        <button class="btn btn-success login100-form-btn" name="OkOrCancel" value="Ok">
+            Save Changes
         </button>
-        <a href="/LogSign/LogIn" class="m-l-20">Already have an account?<br /> LOG IN</a>
+        <button class="btn btn-danger login100-form-btn" name="OkOrCancel" value="Cancel">
+            Cancel
+        </button>
     </div>
     <div class="w-75 text-center">
         <!--首頁連結-->
@@ -81,9 +84,9 @@
 </form>
 
 @{
-    var message = TempData["errorMessage"];
+    var message = TempData["successMessage"];
 }
-@if (TempData["errorMessage"] != null)
+@if (TempData["successMessage"] != null)
 {
     <script type="text/javascript">
         var message = '@message'

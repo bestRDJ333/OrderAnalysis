@@ -34,46 +34,41 @@
                         <!-- Tab1 -->
                         <div class="tab-pane show active single-member" id="Special" role="tabpanel" aria-labelledby="Special-tab">
                             <div class="row">
-                                @printMenu("Main", 0)
-                                @printMenu("Dessert", 0)
-                                @printMenu("Beverage", 0)
-                                @printMenu("Appectizer", 0)
+                                @printMenu("Main")
+                                @printMenu("Dessert")
+                                @printMenu("Beverage")
+                                @printMenu("Appectizer")
                             </div>
                         </div>
 
                         <!-- Tab2 -->
                         <div class="tab-pane single-member" id="Breakfast" role="tabpanel" aria-labelledby="Breakfast-tab">
                             <div class="row">
-                                @printMenu("Appectizer", cnt + 1)
-                                cnt = @getCount("Appectizer", cnt)
+                                @printMenu("Appectizer")
                             </div>
                         </div>
                         <!-- Tab3 -->
                         <div class="tab-pane single-member" id="Launch" role="tabpanel" aria-labelledby="Launch-tab">
                             <div class="row">
-                                @printMenu("Appectizer", cnt)
-                                cnt = @getCount("Appectizer", cnt)
+                                @printMenu("Soup")
                             </div>
                         </div>
                         <!-- Tab4 -->
                         <div class="tab-pane single-member" id="Dinner" role="tabpanel" aria-labelledby="Dinner-tab">
                             <div class="row">
-                                @printMenu("Main", cnt)
-                                cnt = @getCount("Main", cnt)
+                                @printMenu("Main")
                             </div>
                         </div>
                         <!-- Tab5 -->
                         <div class="tab-pane single-member" id="Sneaks" role="tabpanel" aria-labelledby="Sneaks-tab">
                             <div class="row">
-                                @printMenu("Dessert", cnt)
-                                cnt = @getCount("Dessert", cnt)
+                                @printMenu("Dessert")
                             </div>
                         </div>
                         <!-- Tab6 -->
                         <div class="tab-pane single-member" id="tab6" role="tabpanel" aria-labelledby="Breakfast-tab">
                             <div class="row">
-                                @printMenu("Beverage", cnt)
-                                cnt = @getCount("Beverage", cnt)
+                                @printMenu("Beverage")
                             </div>
                         </div>
                     </div>
@@ -82,6 +77,7 @@
         </div>
     </section>
     <!-- food_menu part end-->
+
     <!--start-food modal細節-->
     <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
@@ -101,8 +97,8 @@
 
                     <div class='col-md-12 modalContent'>
                         <h2>@Model.LastOrDefault().ProductName</h2>
-                        <p>@Model.LastOrDefault().ProductDescription.Substring(0, Model.LastOrDefault().ProductDescription.IndexOf("！"))</p>
-                        <p>@Model.LastOrDefault().ProductDescription.Substring(Model.LastOrDefault().ProductDescription.IndexOf("！") + 1, Model.LastOrDefault().ProductDescription.Length - Model.LastOrDefault().ProductDescription.IndexOf("！") - 1)</p>
+                        <p>@getDescribtion(Model.LastOrDefault().ProductDescription)[0]</p>
+                        <p>@getDescribtion(Model.LastOrDefault().ProductDescription)[1]</p>
                         <h5>$ @Model.LastOrDefault().UnitPrice</h5>
                         <ul class="footItemIconGruop">
                             <li>
@@ -262,10 +258,32 @@
         return g.Value;
     }
 
-    int getCount(string kind, int cnt)
+    // 取得Modal參數
+    int getCount(string kind)
     {
         var Q = Model.Where(o => o.ProductPhotoL.IndexOf(kind) != -1);
         return Q.Count() + 1;
+    }
+
+    // 產品敘述分段
+    static List<string> getDescribtion(string dcrb)
+    {
+
+        List<string> result = new List<string>();
+
+        int start = 0;
+        int end = dcrb.IndexOf("。") + 1;
+        int dst = end - start;
+
+        while (end != 0)
+        {
+            result.Add(dcrb.Substring(start, dst));
+            start = end;
+            end = dcrb.IndexOf("。", start) + 1;
+            dst = end - start;
+        }
+
+        return result;
     }
 }
 
@@ -303,8 +321,9 @@
 }
 
 <!-- 印出分類過的菜單 -->
-@helper printMenu(string kind, int cnt)
+@helper printMenu(string kind)
 {
+    int cnt = getCount(kind);
     foreach (var item in Model)
     {
         if (getClass(item.ProductPhotoS) != kind)
@@ -314,5 +333,6 @@
         <div class="col-sm-6 col-lg-6">
             @productCard(item.ProductPhotoS, item.ProductName, item.ProductIntroduction, item.UnitPrice, cnt)
         </div>
+        cnt++;
     }
 }

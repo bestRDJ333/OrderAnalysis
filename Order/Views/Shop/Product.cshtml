@@ -3,7 +3,30 @@
 @{
     ViewBag.Title = "Product";
 }
-
+<!--start  此頁增加的css，其他頁暫不用 -->
+<!-- animate CSS -->
+<link rel="stylesheet" href="~/css/animate.css">
+<!-- owl carousel CSS -->
+<link rel="stylesheet" href="~/css/owl.carousel.min.css">
+<!-- themify CSS -->
+<link rel="stylesheet" href="~/css/themify-icons.css">
+<!-- flaticon CSS -->
+<link rel="stylesheet" href="~/css/flaticon.css">
+<!-- font awesome CSS -->
+<link rel="stylesheet" href="~/css/magnific-popup.css">
+<!-- swiper CSS -->
+<link rel="stylesheet" href="~/css/slick.css">
+<link rel="stylesheet" href="~/css/gijgo.min.css">
+<link rel="stylesheet" href="~/css/nice-select.css">
+<link rel="stylesheet" href="~/css/all.css">
+<!-- style CSS -->
+<link rel="stylesheet" href="~/css/style.css">
+<!--Sweet alert-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!--     此網站的css-->
+<link rel="stylesheet" href="~/css/master.css">
+<link rel="stylesheet" href="~/css/product.css">
+<!--end  此頁增加的css，其他頁暫不用 -->
 <!--start content 菜單內容-->
 <!-- food_menu start-->
 <section class="food_menu gray_bg">
@@ -147,9 +170,11 @@
                     </span>
                 </li>
                 <li>
-                    <a class="addCartBtn" href="#">
-                        <i class="fas fa-cart-plus"></i>
-                    </a>
+                    <form action="/" method="post">
+                        <a class="addCartBtn" href="#">
+                            <i class="fas fa-cart-plus"></i>
+                        </a>
+                    </form>
                 </li>
                 <li>
                     <a class="addLoveBtn" href="#">

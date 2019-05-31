@@ -23,5 +23,11 @@ namespace Order.Controllers
             var product = db.Products.ToList();
             return View(product);
         }
+
+        // GET: AddCart
+        public ActionResult addCart()
+        {
+            return RedirectToAction("Product");
+        }
     }
 }

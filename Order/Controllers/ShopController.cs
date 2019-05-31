@@ -26,7 +26,7 @@ namespace Order.Controllers
         }
 
         // GET: AddCart
-        public ActionResult addCart(int pID)
+        public ActionResult addCart(int pID, int? amt)
         {
             // 取得會員ID
             //int mID = (Session["who"] as Member).MemberID;
@@ -34,11 +34,19 @@ namespace Order.Controllers
             // 還沒結帳的商品
             var currentCar = db.OrderDetails
                 .Where(o => o.ProductID == pID && o.IsApproved == "n")
-                .ToList();
+                .FirstOrDefault();
 
             // 判斷清單中有沒有這項產品
-            sc.putProduct(4, pID);
-            return RedirectToAction("Menu");
+            //if (currentCar == null)
+            //{
+            //    sc.PutProduct(4, pID);
+            //}
+            //else
+            //{
+                //currentCar.Quantity += amt;
+            //}
+            //return RedirectToAction("Menu");
+            return Content(amt.ToString());
         }
         // todo: 會員ID傳遞實裝
 

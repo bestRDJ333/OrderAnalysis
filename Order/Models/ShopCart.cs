@@ -11,7 +11,7 @@ namespace Order.Models
         SMIT09Entities db = new SMIT09Entities();
 
         // 放入選擇品項
-        public void putProduct(int mID, int pID)
+        public void PutProduct(int mID, int pID)
         {
             var product = db.Products
                 .Where(o => o.ProductID == pID)

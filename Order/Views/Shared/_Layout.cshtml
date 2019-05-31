@@ -187,7 +187,6 @@
                 // Stop acting like a button
                 e.preventDefault();
 
-                // 取得點選目標的input
                 var id = getIndex(this.id)
 
                 // Get the field name
@@ -197,22 +196,33 @@
                 $('#quantity_' + id).val(quantity + 1);
 
                 // Query string
-                var src = $("#addCart_" + id).attr('href')
+                var src = $("#addCart_" + id).attr('href') + "&amt=" + $('#quantity_' + id).val()
+                $("#addCart_" + id).attr('href', src)
             });
 
             $('.quantity-left-minus').click(function (e) {
                 // Stop acting like a button
                 e.preventDefault();
+
+                var id = getIndex(this.id)
+
                 // Get the field name
-                var quantity = parseInt($('.quantityTextbox').val());
+                var quantity = parseInt($('#quantity_' + id).val());
 
                 // 減少
                 if (quantity > 0) {
-                    $('.quantityTextbox').val(quantity - 1);
+                    $('#quantity_' + id).val(quantity - 1);
                 }
-            });
 
+                // Query string
+                var src = $("#addCart_" + id).attr('href') + "&amt=" + $('#quantity_' + id).val()
+                $("#addCart_" + id).attr('href', src)
+            });
         });
+
+        function changeAmt(amt) {
+            
+        }
 
         function getIndex(rawId) {
             var reg = /\d{1,2}/

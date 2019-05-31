@@ -38,7 +38,8 @@ div .single_food_item:hover {
         display: inline-block;
     }
 
-        .footItemIconGruop li a {
+        .footItemIconGruop li button {
+            background-color:white;
             border-radius: 3rem;
             width: 40px;
             height: 40px;
@@ -49,7 +50,7 @@ div .single_food_item:hover {
             text-align: center;
         }
 
-            .footItemIconGruop li a:hover {
+            .footItemIconGruop li button:hover {
                 color: white !important;
             }
 

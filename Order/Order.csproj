@@ -411,6 +411,7 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>OrderModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ShopCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SMIT09Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SMIT09Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Members">
           <Key>
             <PropertyRef Name="MemberID" />
@@ -31,6 +31,7 @@
           <Property Name="UnitPrice" Type="int" />
           <Property Name="Quantity" Type="int" />
           <Property Name="IsApproved" Type="varchar" MaxLength="1" />
+          <Property Name="MemberID" Type="int" />
         </EntityType>
         <EntityType Name="Orders">
           <Key>
@@ -65,8 +66,7 @@
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SMIT09Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -96,6 +96,7 @@
           <Property Name="UnitPrice" Type="Int32" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="IsApproved" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="MemberID" Type="Int32" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -155,6 +156,7 @@
           <EntitySetMapping Name="OrderDetails">
             <EntityTypeMapping TypeName="SMIT09Model.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
                 <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />

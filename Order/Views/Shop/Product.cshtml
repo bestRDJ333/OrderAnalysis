@@ -103,7 +103,7 @@
 
     @foreach (var item in Model)
     {
-        @modalCard(item.ProductPhotoL, item.ProductName, item.ProductDescription, item.UnitPrice)
+        @modalCard(item.ProductPhotoL, item.ProductName, item.ProductDescription, item.UnitPrice, item.ProductID)
     }
 
     <!--end-食物modal細節-->
@@ -152,7 +152,7 @@
 }
 
 <!-- 單一商品 -->
-@helper productCard(string imgpath, string pName, string pIntro, int? price, int cnt)
+@helper productCard(int pID, string imgpath, string pName, string pIntro, int? price, int cnt)
 {
     <div class="single_food_item media">
         <img src="@imgpath" class="mr-3 seeFoodDetail" onclick="currentSlide(@cnt)" alt="...">
@@ -170,11 +170,9 @@
                     </span>
                 </li>
                 <li>
-                    <form action="/" method="post">
-                        <a class="addCartBtn" href="#">
-                            <i class="fas fa-cart-plus"></i>
-                        </a>
-                    </form>
+                    <a class="addCartBtn" href='@Url.Action("addCart")?pID=@pID&'>
+                        <i class="fas fa-cart-plus"></i>
+                    </a>
                 </li>
                 <li>
                     <a class="addLoveBtn" href="#">
@@ -196,13 +194,13 @@
             continue;
         }
         <div class="col-sm-6 col-lg-6">
-            @productCard(item.ProductPhotoS, item.ProductName, item.ProductIntroduction, item.UnitPrice, cnt)
+            @productCard(item.ProductID, item.ProductPhotoS, item.ProductName, item.ProductIntroduction, item.UnitPrice, cnt)
         </div>
         cnt++;
     }
 }
 
-@helper modalCard(string imgPath, string pName, string pDcrb, int? pPrice)
+@helper modalCard(string imgPath, string pName, string pDcrb, int? pPrice, int pID)
 {
     <div class="mySlides modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -227,7 +225,7 @@
                     <h5>$ @pPrice</h5>
                     <ul class="footItemIconGruop">
                         <li>
-                            <a class="addCartBtn" href="#">
+                            <a class="addCartBtn" href='@Url.Action("addCart")?pID=@pID &'>
                                 <i class="fas fa-cart-plus"></i>
                             </a>
                         </li>
@@ -244,7 +242,7 @@
                                 <i class="fas fa-minus"></i>
                             </button>
                         </span>
-                        <input type="text" class="quantityTextbox" value="1" min="1" max="100">
+                        <input name="quantity" type="text" class="quantityTextbox" value="1" min="1" max="100">
                         <span>
                             <button type="button" class="quantity-right-plus btn" data-type="plus">
                                 <i class="fas fa-plus"></i>
@@ -259,3 +257,7 @@
         </div>
     </div>
 }
+<script>
+    
+</script>
+

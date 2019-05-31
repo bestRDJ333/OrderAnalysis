@@ -117,9 +117,8 @@
     {
         Regex reg = new Regex("img/(.+?)/");
         Match m = reg.Match(imgPath);
-        Group g = m.Groups[1];
 
-        return g.Value;
+        return m.Groups[1].ToString();
     }
 
     // 取得Modal參數
@@ -225,7 +224,7 @@
                     <h5>$ @pPrice</h5>
                     <ul class="footItemIconGruop">
                         <li>
-                            <a class="addCartBtn" href='@Url.Action("addCart")?pID=@pID &'>
+                            <a id="addCart_@pID" class="addCartBtn" href='@Url.Action("addCart")?pID=@pID'>
                                 <i class="fas fa-cart-plus"></i>
                             </a>
                         </li>
@@ -238,13 +237,13 @@
                     <!--選取數量-->
                     <div class="selectNumGruop">
                         <span>
-                            <button type="button" class="quantity-left-minus btn" data-type="minus">
+                            <button id="minus_@pID" type="button" class="quantity-left-minus btn" data-type="minus">
                                 <i class="fas fa-minus"></i>
                             </button>
                         </span>
-                        <input name="quantity" type="text" class="quantityTextbox" value="1" min="1" max="100">
+                        <input id="quantity_@pID" type="text" class="quantityTextbox" value="1" min="1" max="100">
                         <span>
-                            <button type="button" class="quantity-right-plus btn" data-type="plus">
+                            <button id="add_@pID" type="button" class="quantity-right-plus btn" data-type="plus">
                                 <i class="fas fa-plus"></i>
                             </button>
                         </span>
@@ -257,7 +256,3 @@
         </div>
     </div>
 }
-<script>
-    
-</script>
-

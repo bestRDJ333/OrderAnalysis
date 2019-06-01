@@ -59,12 +59,12 @@
         <div class="navlinkGroup">
             <a class="a-trigger" href="" id="navTitle">&nbsp;</a>
             <a class="navShopCart a-trigger" href="#"><i class="fas fa-shopping-cart"></i>[0]</a>
-                <a class="a-trigger" href="/LogSign/Login"><i class="fas fa-user"></i>會員</a>
-                <a class="a-trigger" href="~/Shop/Menu"><i class="fas fa-utensils"></i>菜單</a>
-                <a class="a-trigger" href="#"><i class="fas fa-store"></i>簡介</a>
-                <button id="rwdMenu" onclick="toggleClass()">
-                    <span>menu</span>
-                </button>
+            <a class="a-trigger" href="/LogSign/Login"><i class="fas fa-user"></i>會員</a>
+            <a class="a-trigger" href="~/Shop/Menu"><i class="fas fa-utensils"></i>菜單</a>
+            <a class="a-trigger" href="#"><i class="fas fa-store"></i>簡介</a>
+            <button id="rwdMenu" onclick="toggleClass()">
+                <span>menu</span>
+            </button>
         </div>
     </div>
 
@@ -87,10 +87,13 @@
                 <div id="shopCartContent">
                     <p class="noItem">購物車內目前沒有商品</p>
                     <!--購物內容 1-->
-                    @foreach (var item in TempData["ShopCart"] as IEnumerable<ShopCart>)
-                    {
-                        @getCartItem(item.ProductName, item.ProductImage, item.UnitPrice, item.Quantity, item.pID);
-                    }
+                    @{if (TempData["ShopCart"] != null)
+                        {
+                            foreach (var item in TempData["ShopCart"] as IEnumerable<ShopCart>)
+                            {
+                                @getCartItem(item.ProductName, item.ProductImage, item.UnitPrice, item.Quantity, item.pID);
+                            }
+                        } }
                 </div>
 
 

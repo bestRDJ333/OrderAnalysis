@@ -384,6 +384,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DaySale.cs">
+      <DependentUpon>OrderModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Member.cs">
       <DependentUpon>OrderModel.tt</DependentUpon>
     </Compile>
@@ -411,6 +414,9 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>OrderModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductCost.cs">
+      <DependentUpon>OrderModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ShopCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -436,6 +442,7 @@
     <Content Include="Views\LogSign\LogIn.cshtml" />
     <Content Include="Views\LogSign\SignUp.cshtml" />
     <Content Include="Views\Shop\Product.cshtml" />
+    <Content Include="Views\Member\MemberProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -378,15 +378,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\LogSignController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DaySale.cs">
-      <DependentUpon>OrderModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Member.cs">
       <DependentUpon>OrderModel.tt</DependentUpon>
@@ -415,9 +411,7 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>OrderModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProductCost.cs">
-      <DependentUpon>OrderModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\ShopCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -432,6 +426,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shop\Menu.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_LogSignLayout.cshtml" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.css.map" />
@@ -441,8 +436,6 @@
     <Content Include="Views\LogSign\LogIn.cshtml" />
     <Content Include="Views\LogSign\SignUp.cshtml" />
     <Content Include="Views\Shop\Product.cshtml" />
-    <Content Include="Views\Member\MemberProfile.cshtml" />
-    <Content Include="Views\Admin\AdminIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

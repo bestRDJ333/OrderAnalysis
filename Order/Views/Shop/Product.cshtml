@@ -2,8 +2,31 @@
 @using System.Text.RegularExpressions;
 @{
     ViewBag.Title = "Product";
-    Session["where"] = "/Shop/Product";
 }
+<!--start  此頁增加的css，其他頁暫不用 -->
+<!-- animate CSS -->
+<link rel="stylesheet" href="~/css/animate.css">
+<!-- owl carousel CSS -->
+<link rel="stylesheet" href="~/css/owl.carousel.min.css">
+<!-- themify CSS -->
+<link rel="stylesheet" href="~/css/themify-icons.css">
+<!-- flaticon CSS -->
+<link rel="stylesheet" href="~/css/flaticon.css">
+<!-- font awesome CSS -->
+<link rel="stylesheet" href="~/css/magnific-popup.css">
+<!-- swiper CSS -->
+<link rel="stylesheet" href="~/css/slick.css">
+<link rel="stylesheet" href="~/css/gijgo.min.css">
+<link rel="stylesheet" href="~/css/nice-select.css">
+<link rel="stylesheet" href="~/css/all.css">
+<!-- style CSS -->
+<link rel="stylesheet" href="~/css/style.css">
+<!--Sweet alert-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!--     此網站的css-->
+<link rel="stylesheet" href="~/css/master.css">
+<link rel="stylesheet" href="~/css/product.css">
+<!--end  此頁增加的css，其他頁暫不用 -->
 <!--start content 菜單內容-->
 <!-- food_menu start-->
 <section class="food_menu gray_bg">
@@ -80,7 +103,7 @@
 
     @foreach (var item in Model)
     {
-        @modalCard(item.ProductPhotoL, item.ProductName, item.ProductDescription, item.UnitPrice)
+        @modalCard(item.ProductPhotoL, item.ProductName, item.ProductDescription, item.UnitPrice, item.ProductID)
     }
 
     <!--end-食物modal細節-->
@@ -94,9 +117,8 @@
     {
         Regex reg = new Regex("img/(.+?)/");
         Match m = reg.Match(imgPath);
-        Group g = m.Groups[1];
 
-        return g.Value;
+        return m.Groups[1].ToString();
     }
 
     // 取得Modal參數
@@ -129,7 +151,7 @@
 }
 
 <!-- 單一商品 -->
-@helper productCard(string imgpath, string pName, string pIntro, int? price, int cnt)
+@helper productCard(int pID, string imgpath, string pName, string pIntro, int? price, int cnt)
 {
     <div class="single_food_item media">
         <img src="@imgpath" class="mr-3 seeFoodDetail" onclick="currentSlide(@cnt)" alt="...">
@@ -147,7 +169,7 @@
                     </span>
                 </li>
                 <li>
-                    <a class="addCartBtn" href="#">
+                    <a id="productBtn_@pID" class="addCartBtn" href='@Url.Action("addCart")?pID=@pID'>
                         <i class="fas fa-cart-plus"></i>
                     </a>
                 </li>
@@ -171,13 +193,13 @@
             continue;
         }
         <div class="col-sm-6 col-lg-6">
-            @productCard(item.ProductPhotoS, item.ProductName, item.ProductIntroduction, item.UnitPrice, cnt)
+            @productCard(item.ProductID, item.ProductPhotoS, item.ProductName, item.ProductIntroduction, item.UnitPrice, cnt)
         </div>
         cnt++;
     }
 }
 
-@helper modalCard(string imgPath, string pName, string pDcrb, int? pPrice)
+@helper modalCard(string imgPath, string pName, string pDcrb, int? pPrice, int pID)
 {
     <div class="mySlides modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -202,7 +224,7 @@
                     <h5>$ @pPrice</h5>
                     <ul class="footItemIconGruop">
                         <li>
-                            <a class="addCartBtn" href="#">
+                            <a id="addCart_@pID" class="addCartBtn" href='@Url.Action("addCart")?pID=@pID'>
                                 <i class="fas fa-cart-plus"></i>
                             </a>
                         </li>
@@ -215,13 +237,13 @@
                     <!--選取數量-->
                     <div class="selectNumGruop">
                         <span>
-                            <button type="button" class="quantity-left-minus btn" data-type="minus">
+                            <button id="minus_@pID" type="button" class="quantity-left-minus btn" data-type="minus">
                                 <i class="fas fa-minus"></i>
                             </button>
                         </span>
-                        <input type="text" class="quantityTextbox" value="1" min="1" max="100">
+                        <input id="quantity_@pID" type="text" class="quantityTextbox" value="1" min="1" max="100">
                         <span>
-                            <button type="button" class="quantity-right-plus btn" data-type="plus">
+                            <button id="add_@pID" type="button" class="quantity-right-plus btn" data-type="plus">
                                 <i class="fas fa-plus"></i>
                             </button>
                         </span>

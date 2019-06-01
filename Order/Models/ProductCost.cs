@@ -12,15 +12,11 @@ namespace Order.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderDetail
+    public partial class ProductCost
     {
-        public int OrderDetailID { get; set; }
-        public Nullable<int> OrderID { get; set; }
-        public Nullable<int> ProductID { get; set; }
+        public int ProductID { get; set; }
         public string ProductName { get; set; }
-        public Nullable<int> UnitPrice { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public string IsApproved { get; set; }
-        public Nullable<int> MemberID { get; set; }
+        public Nullable<int> ProductUnitCost { get; set; }
+        public Nullable<int> Inventory { get; set; }
     }
 }

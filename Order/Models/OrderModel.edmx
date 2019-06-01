@@ -4,7 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SMIT09Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SMIT09Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DaySale">
+          <Key>
+            <PropertyRef Name="TradeTime" />
+          </Key>
+          <Property Name="TradeTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UnitePrice" Type="int" />
+          <Property Name="Guest" Type="int" />
+        </EntityType>
         <EntityType Name="Members">
           <Key>
             <PropertyRef Name="MemberID" />
@@ -31,6 +40,7 @@
           <Property Name="UnitPrice" Type="int" />
           <Property Name="Quantity" Type="int" />
           <Property Name="IsApproved" Type="varchar" MaxLength="1" />
+          <Property Name="MemberID" Type="int" />
         </EntityType>
         <EntityType Name="Orders">
           <Key>
@@ -43,6 +53,15 @@
           <Property Name="ReceiverName" Type="nvarchar" MaxLength="10" />
           <Property Name="ReceiverPhone" Type="varchar" MaxLength="10" />
           <Property Name="ReceiverAddress" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProductCost">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductUnitCost" Type="int" />
+          <Property Name="Inventory" Type="int" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
@@ -60,15 +79,27 @@
           <Property Name="ProductDescription" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityContainer Name="SMIT09ModelStoreContainer">
+          <EntitySet Name="DaySale" EntityType="Self.DaySale" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCost" EntityType="Self.ProductCost" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SMIT09Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DaySale">
+          <Key>
+            <PropertyRef Name="TradeTime" />
+          </Key>
+          <Property Name="TradeTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UnitePrice" Type="Int32" />
+          <Property Name="Guest" Type="Int32" />
+        </EntityType>
         <EntityType Name="Member">
           <Key>
             <PropertyRef Name="MemberID" />
@@ -95,6 +126,7 @@
           <Property Name="UnitPrice" Type="Int32" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="IsApproved" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="MemberID" Type="Int32" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -107,6 +139,15 @@
           <Property Name="ReceiverName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="ReceiverPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="ReceiverAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductCost">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductUnitCost" Type="Int32" />
+          <Property Name="Inventory" Type="Int32" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -124,9 +165,11 @@
           <Property Name="ProductDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="SMIT09Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DaySales" EntityType="Self.DaySale" />
           <EntitySet Name="Members" EntityType="Self.Member" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="ProductCosts" EntityType="Self.ProductCost" />
           <EntitySet Name="Products" EntityType="Self.Product" />
         </EntityContainer>
       </Schema>
@@ -135,6 +178,16 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SMIT09ModelStoreContainer" CdmEntityContainer="SMIT09Entities">
+          <EntitySetMapping Name="DaySales">
+            <EntityTypeMapping TypeName="SMIT09Model.DaySale">
+              <MappingFragment StoreEntitySet="DaySale">
+                <ScalarProperty Name="TradeTime" ColumnName="TradeTime" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="UnitePrice" ColumnName="UnitePrice" />
+                <ScalarProperty Name="Guest" ColumnName="Guest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Members">
             <EntityTypeMapping TypeName="SMIT09Model.Member">
               <MappingFragment StoreEntitySet="Members">
@@ -161,6 +214,7 @@
                 <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -174,6 +228,16 @@
                 <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
                 <ScalarProperty Name="ReceiverPhone" ColumnName="ReceiverPhone" />
                 <ScalarProperty Name="ReceiverAddress" ColumnName="ReceiverAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCosts">
+            <EntityTypeMapping TypeName="SMIT09Model.ProductCost">
+              <MappingFragment StoreEntitySet="ProductCost">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductUnitCost" ColumnName="ProductUnitCost" />
+                <ScalarProperty Name="Inventory" ColumnName="Inventory" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

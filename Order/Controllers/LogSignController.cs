@@ -33,14 +33,23 @@ namespace Order.Controllers
             return Redirect("/Member/MemberProfile");
         }
 
+        public ActionResult LogOut()
+        {
+            if (Session["who"].ToString() != "guest")
+            {
+                Session["who"] = "guest";
+                return Redirect("/LogSign/Login");
+            }
+            return Redirect("/LogSign/Login");
+        }
         public ActionResult SignUp()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult SignUp(Member m,string MemberName, string UserID,string UserPwd,
-            string gender,int Age,string Email,string Phone,string MemberAddress)
+        public ActionResult SignUp(Member m, string MemberName, string UserID, string UserPwd,
+            string gender, int Age, string Email, string Phone, string MemberAddress)
         {
             if (UserID.ToLower() == "guest")
             {
@@ -57,7 +66,7 @@ namespace Order.Controllers
                 m.UserID = UserID;
                 m.UserPwd = UserPwd;
                 m.Gender = gender;
-                m.Age =Age;
+                m.Age = Age;
                 m.Email = Email;
                 m.Phone = Phone;
                 m.MemberAddress = MemberAddress;

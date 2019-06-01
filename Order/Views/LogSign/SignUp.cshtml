@@ -9,42 +9,41 @@
 <div class="container-login100">
     <div class="wrap-login100">
         <div class="login100-form-title" style="background-image: url(../img/login_signup/login_signup.jpg);">
-
             <span class="login100-form-title-1">
-                SIGN UP
+                會員註冊
             </span>
         </div>
 
         <form class="login100-form validate-form" method="post">
             <!--名字-->
-            <div class="wrap-input100 validate-input m-b-26" data-validate="MemberName is required">
-                <span class="label-input100">MemberName</span>
-                <input class="input100" type="text" name="MemberName" placeholder="Enter MemberName">
+            <div class="wrap-input100 validate-input m-b-26" data-validate="必填">
+                <span class="label-input100">名稱</span>
+                <input class="input100" type="text" name="MemberName" placeholder="請輸入名稱">
                 <span class="focus-input100"></span>
             </div>
             <!--帳號-->
-            <div class="wrap-input100 validate-input m-b-26" data-validate="UserID is required">
-                <span class="label-input100">UserID</span>
-                <input class="input100" type="text" name="UserID" placeholder="Enter UserID">
+            <div class="wrap-input100 validate-input m-b-26" data-validate="必填">
+                <span class="label-input100">帳號</span>
+                <input class="input100" type="text" name="UserID" placeholder="請輸入帳號">
                 <span class="focus-input100"></span>
             </div>
             <!--密碼-->
-            <div class="wrap-input100 validate-input m-b-26" data-validate="Password is required">
-                <span class="label-input100">Password</span>
+            <div class="wrap-input100 validate-input m-b-26" data-validate="必填">
+                <span class="label-input100">密碼</span>
                 <!--密碼至少一個小寫英文，一個數字，最少6碼，最多10碼-->
-                <input class="input100" type="password" name="UserPwd" placeholder="Enter password" pattern="^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,10}">
+                <input class="input100" type="password" name="UserPwd" placeholder="請輸入密碼" pattern="^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,10}">
                 <span class="focus-input100"></span>
             </div>
             <!--性別-->
-            <div class="wrap-input100 m-b-26">
-                <span class="label-input100">Gender</span>
-                <input type="radio" name="gender" value="m" required> Male<br>
-                <input type="radio" name="gender" value="f"> Female<br>
+            <div class="wrap-input100 m-b-15" style="font-size:0.9rem;border-bottom:hidden;">
+                <span class="label-input100" style="top:0">性別</span>&emsp;
+                <input type="radio" name="gender" value="m" required>男性&emsp;
+                <input type="radio" name="gender" value="f">女性
             </div>
             <!--年齡-->
-            <div class="wrap-input100 validate-input m-b-26" data-validate="Age is required">
-                <span class="label-input100">Age</span>
-                <input class="input100" type="number" name="Age" placeholder="Enter Age. ex:38">
+            <div class="wrap-input100 validate-input m-b-26" data-validate="必填">
+                <span class="label-input100">年齡</span>
+                <input class="input100" type="number" name="Age" placeholder="請輸入年齡。例如:38">
                 <span class="focus-input100"></span>
             </div>
             <!--email 格式XXX@XXX.XXX-->
@@ -53,33 +52,29 @@
             }
             <div class="wrap-input100 m-b-26">
                 <span class="label-input100">Email</span>
-                <input class="input100" type="text" name="Email" placeholder="Enter Email" pattern="@str">
+                <input class="input100" type="text" name="Email" placeholder="請輸入Email" pattern="@str">
                 <span class="focus-input100"></span>
             </div>
             <!--電話 十碼-->
             <div class="wrap-input100 m-b-26">
-                <span class="label-input100">Phone</span>
-                <input class="input100" type="number" name="Phone" placeholder="Enter Phone. ex:0912345678" pattern="\d{10}">
+                <span class="label-input100">手機號碼</span>
+                <input class="input100" type="number" name="Phone" placeholder="請輸入手機號碼，例如:0912345678" pattern="\d{10}">
                 <span class="focus-input100"></span>
             </div>
             <!--地址-->
             <div class="wrap-input100 m-b-50">
-                <span class="label-input100">Address</span>
+                <span class="label-input100">居住地</span>
                 <input class="input100" type="text" name="MemberAddress" placeholder="Enter Address">
                 <span class="focus-input100"></span>
             </div>
 
             <div class="container-login100-form-btn m-b-50">
                 <button class="btn btn-success login100-form-btn ">
-                    SIGN UP
+                    確認送出
                 </button>
-                <a href="/LogSign/LogIn" class="m-l-20">Already have an account?<br /> LOG IN</a>
-            </div>
-            <div class="w-75 text-center">
-                <!--首頁連結-->
-                <a href="/home">
-                    <img src="~/img/login_signup/favicon.ico" style="height:30%;" /> HOME
-                </a>
+                <span>
+                    <a href="/LogSign/LogIn" class="btn btn-primary login100-form-btn m-l-20">已有帳號?登入</a>
+                </span>
             </div>
         </form>
     </div>

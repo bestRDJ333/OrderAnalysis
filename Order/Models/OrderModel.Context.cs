@@ -25,9 +25,11 @@ namespace Order.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<DaySale> DaySales { get; set; }
         public virtual DbSet<Member> Members { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<ProductCost> ProductCosts { get; set; }
         public virtual DbSet<Product> Products { get; set; }
     }
 }

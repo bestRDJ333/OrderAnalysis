@@ -134,8 +134,8 @@
         </header>
 
         
-
-        <section id="cartList">
+        <!--1.確認商品-->
+        <section id="cartList" class="sectionTab">
             <div class="container">
                 <!--產品1-->
                 <article class="product">
@@ -288,16 +288,51 @@
             </div>
         </section>
 
-        <section id="FillDate">
-            <form action="/" method="post">
+        <!--2.填寫資料-->
+        <section id="fillDate" class="sectionTab">
+            <div class="container">
 
+                <div class="filldata-card">
+                    <div class="filldata-header">
+                        <p>訂購人資料</p>
+                    </div>
+                    <div class="filldata-content">
+                        <form>
+                            <div class="form-group row">
+                                <label for="" class="col-4 col-form-label">姓名</label>
+                                <div class="col-8">
+                                    <input id="" name="" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-4 col-form-label">電話</label>
+                                <div class="col-8">
+                                    <input id="" name="" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-4 col-form-label">e-mail</label>
+                                <div class="col-8">
+                                    <input id="" name="" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <button class="submit-btn">送出訂單</button>
+                                    <button class="return-btn">回上一步</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
 
-
-            </form>
+            </div>
+           
 
         </section>
             
-
+        <p></p>
                
 
         <!--end 結帳 content-->
@@ -434,6 +469,34 @@
         });
 
 
+        //section的顯示=======================================================
+        var currentSection = 0;
+
+        showSection(currentSection);
+
+        // Display the current section
+        function showSection(n) {
+            var section = document.getElementsByClassName('sectionTab');
+            section[n].style.display = "block";
+        }
+
+        $(function () {
+
+            $('.next-btn').click(function () {
+                $('#fillDate').show();
+                $('#cartList').hide();
+
+            });
+
+            $('.return-btn').click(function () {
+                $('#cartList').show();
+                $('#fillDate').hide();
+
+            });
+
+        });
+
+        
 
     </script>
 

@@ -12,6 +12,9 @@ namespace Order.Controllers
         Models.SMIT09Entities db = new SMIT09Entities();
         public ActionResult LogIn()
         {
+            if (Session["who"].ToString() != "guest") {
+                return Redirect("/Member/MemberProfile");
+            }
             return View();
         }
 

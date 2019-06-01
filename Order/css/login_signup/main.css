@@ -259,6 +259,14 @@ iframe {
   border-bottom: 1px solid #b2b2b2;
 }
 
+#addressSelect {
+    background-color: #fbfff9;
+    color: grey;
+    height: 100%;
+    width: 25%;
+    border: none;
+}
+
 .label-input100 {
 
   font-size: 1rem;
@@ -315,7 +323,7 @@ iframe {
 
 /*---------------------------------------------*/
 input.input100 {
-  height: 45px;
+    height: 45px;
 }
 
 

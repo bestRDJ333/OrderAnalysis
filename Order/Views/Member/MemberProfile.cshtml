@@ -16,33 +16,33 @@
             <input type="hidden" name="MemberID" value="@Model.MemberID">
             <!--名字 不可修改-->
             <div class="wrap-input100 validate-input m-b-26" data-validate="MemberName is required">
-                <span class="label-input100">MemberName</span>
+                <span class="label-input100">名稱</span>
                 <input class="input100" type="text" name="MemberName" disabled="disabled" value="@Model.MemberName">
                 <span class="focus-input100"></span>
             </div>
             <!--帳號 不可修改-->
             <div class="wrap-input100 validate-input m-b-26" data-validate="UserID is required">
-                <span class="label-input100">UserID</span>
+                <span class="label-input100">帳號</span>
                 <input class="input100" type="text" name="UserID" disabled="disabled" value="@Model.UserID">
                 <span class="focus-input100"></span>
             </div>
             <!--密碼-->
             <div class="wrap-input100 validate-input m-b-26" data-validate="Password is required">
-                <span class="label-input100">Password</span>
+                <span class="label-input100">密碼</span>
                 <!--密碼至少一個小寫英文，一個數字，最少6碼，最多10碼-->
-                <input class="input100" type="password" name="UserPwd" id="UserPwd" placeholder="Enter new password" pattern="^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,10}" value="@Model.UserPwd">
+                <input class="input100" type="password" name="UserPwd" id="UserPwd" placeholder="請輸入新密碼" pattern="^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,10}" value="@Model.UserPwd">
                 <span class="focus-input100"></span>
             </div>
             <!--性別 不可修改-->
             <div class="wrap-input100 m-b-26">
-                <span class="label-input100">Gender</span>
-                <input type="radio" name="gender" value="m" required disabled="disabled" @((Model.Gender == "m") ? "checked" : "")> Male<br>
-                <input type="radio" name="gender" value="f" disabled="disabled" @((Model.Gender == "f") ? "checked" : "")> Female<br>
+                <span class="label-input100">性別</span>
+                <input type="radio" name="gender" value="m" required disabled="disabled" @((Model.Gender == "m") ? "checked" : "")> 男性<br>
+                <input type="radio" name="gender" value="f" disabled="disabled" @((Model.Gender == "f") ? "checked" : "")> 女性<br>
             </div>
             <!--年齡-->
             <div class="wrap-input100 validate-input m-b-26" data-validate="Age is required">
-                <span class="label-input100">Age</span>
-                <input class="input100" type="number" name="Age" value="@Model.Age">
+                <span class="label-input100">年齡</span>
+                <input class="input100" type="number" name="Age" value="@Model.Age" placeholder="請輸入年齡 例如:38">
                 <span class="focus-input100"></span>
             </div>
             <!--email 格式XXX@XXX.XXX-->
@@ -51,36 +51,51 @@
             }
             <div class="wrap-input100 m-b-26">
                 <span class="label-input100">Email</span>
-                <input class="input100" type="text" name="Email" placeholder="Enter Email" pattern="@str" value="@Model.Email">
+                <input class="input100" type="text" name="Email" placeholder="請輸入Email" pattern="@str" value="@Model.Email">
                 <span class="focus-input100"></span>
             </div>
             <!--電話 十碼-->
             <div class="wrap-input100 m-b-26">
-                <span class="label-input100">Phone</span>
-                <input class="input100" type="number" name="Phone" placeholder="Enter Phone. ex:0912345678" pattern="\d{10}" value="@Model.Phone">
+                <span class="label-input100">手機號碼</span>
+                <input class="input100" type="number" name="Phone" placeholder="請輸入手機號碼 例如:0912345678" pattern="\d{10}" value="@Model.Phone">
                 <span class="focus-input100"></span>
             </div>
-            <!--地址-->
-            <div class="wrap-input100 m-b-50">
-                <span class="label-input100">Address</span>
-                <input class="input100" type="text" name="MemberAddress" placeholder="Enter Address" value="@Model.MemberAddress">
+            <!--居住地-->
+            <div class="wrap-input100 m-b-50" style="border-bottom:hidden;font-size:1rem;">
+                <span class="label-input100" style="top:0">居住地</span>
+                <select name="MemberAddress" id="addressSelect">
+                    <option value="臺北市" @((Model.MemberAddress == "臺北市") ? "selected" : "")>臺北市</option>
+                    <option value="新北市" @((Model.MemberAddress == "新北市") ? "selected" : "")>新北市</option>
+                    <option value="桃園市" @((Model.MemberAddress == "桃園市") ? "selected" : "")>桃園市</option>
+                    <option value="臺中市" @((Model.MemberAddress == "臺中市") ? "selected" : "")>臺中市</option>
+                    <option value="臺南市" @((Model.MemberAddress == "臺南市") ? "selected" : "")>臺南市</option>
+                    <option value="高雄市" @((Model.MemberAddress == "高雄市") ? "selected" : "")>高雄市</option>
+                    <option value="基隆市" @((Model.MemberAddress == "基隆市") ? "selected" : "")>基隆市</option>
+                    <option value="新竹市" @((Model.MemberAddress == "新竹市") ? "selected" : "")>新竹市</option>
+                    <option value="嘉義市" @((Model.MemberAddress == "嘉義市") ? "selected" : "")>嘉義市</option>
+                    <option value="新竹縣" @((Model.MemberAddress == "新竹縣") ? "selected" : "")>新竹縣</option>
+                    <option value="苗栗縣" @((Model.MemberAddress == "苗栗縣") ? "selected" : "")>苗栗縣</option>
+                    <option value="彰化縣" @((Model.MemberAddress == "彰化縣") ? "selected" : "")>彰化縣</option>
+                    <option value="南投縣" @((Model.MemberAddress == "南投縣") ? "selected" : "")>南投縣</option>
+                    <option value="雲林縣" @((Model.MemberAddress == "雲林縣") ? "selected" : "")>雲林縣</option>
+                    <option value="嘉義縣" @((Model.MemberAddress == "嘉義縣") ? "selected" : "")>嘉義縣</option>
+                    <option value="屏東縣" @((Model.MemberAddress == "屏東縣") ? "selected" : "")>屏東縣</option>
+                    <option value="宜蘭縣" @((Model.MemberAddress == "宜蘭縣") ? "selected" : "")>宜蘭縣</option>
+                    <option value="花蓮縣" @((Model.MemberAddress == "花蓮縣") ? "selected" : "")>花蓮縣</option>
+                    <option value="臺東縣" @((Model.MemberAddress == "臺東縣") ? "selected" : "")>臺東縣</option>
+                    <option value="澎湖縣" @((Model.MemberAddress == "澎湖縣") ? "selected" : "")>澎湖縣</option>
+                </select>
                 <span class="focus-input100"></span>
             </div>
+         
 
             <div class="container-login100-form-btn m-b-50">
                 <button class="btn btn-success login100-form-btn" name="OkOrCancel" value="Ok">
-                    Save Changes
+                    儲存變更
                 </button>
-                <button class="btn btn-danger login100-form-btn" name="OkOrCancel" value="Cancel">
-                    Cancel
-                </button>
-            </div>
-            <div class="w-75 text-center">
-                <!--首頁連結-->
-                <a href="/home">
-                    <img src="~/img/login_signup/favicon.ico" style="height:30%;" /> HOME
+                <a href="/LogSign/LogIn" class="btn btn-danger login100-form-btn" name="OkOrCancel" value="Cancel">
+                    取消
                 </a>
-                <a href="/LogSign/LogOut">登出</a>
             </div>
         </form>
     </div>

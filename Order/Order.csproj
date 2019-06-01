@@ -130,8 +130,8 @@
     <Content Include="fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
     <Content Include="fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
     <Content Include="Global.asax" />
-    <Content Include="html-Verson1\checkOut2.html" />
     <Content Include="html-Verson1\checkOut.html" />
+    <Content Include="html-Verson1\xcheckOut.html" />
     <Content Include="html-Verson1\masterPage.html" />
     <Content Include="html-Verson1\productClass.html" />
     <Content Include="html-Verson1\~\css\all.css" />

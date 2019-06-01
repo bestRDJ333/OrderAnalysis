@@ -30,21 +30,8 @@ namespace Order.Controllers
         {
             // 取得會員ID
             //int mID = (Session["who"] as Member).MemberID;
-
-            // 還沒結帳的商品
-            var currentCar = db.OrderDetails
-                .Where(o => o.ProductID == pID && o.IsApproved == "n")
-                .FirstOrDefault();
-
-            // 判斷清單中有沒有這項產品
-            //if (currentCar == null)
-            //{
-            //    sc.PutProduct(4, pID);
-            //}
-            //else
-            //{
-                //currentCar.Quantity += amt;
-            //}
+            
+            addCart(pID, amt);
             //return RedirectToAction("Menu");
             return Content(amt.ToString());
         }

@@ -31,7 +31,7 @@ namespace Order.Controllers
             TempData["ShopCart"] = sc.GetCartItem(4); // waiting to edit
 
             // 取得購物車總額
-            ViewBag.price = sc.SumTotal(4); // waiting to edit
+            ViewBag.sumPrice = sc.SumTotal(4); // waiting to edit
 
             return View(product);
         }

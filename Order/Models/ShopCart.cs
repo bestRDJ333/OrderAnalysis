@@ -104,7 +104,7 @@ namespace Order.Models
             int? sum = 0;
             foreach (var item in shopCartItem(mID))
             {
-                sum += item.UnitPrice;
+                sum += item.UnitPrice * item.Quantity;
             }
             return sum;
         }

@@ -91,7 +91,7 @@
 
 
                 <div class="shopCartFooter row">
-                    <p>合計：$510</p>
+                    <p>合計：$ @ViewBag.sumPrice</p>
                     <a href="#">立即結帳</a>
                 </div>
             </div>
@@ -342,7 +342,7 @@
                 <img src="@pImg" />
                 <div>
                     <p>@pName</p>
-                    <span>$ @pPrice</span>
+                    <span>$ @sumPrice(pPrice, pAmt)</span>
                 </div>
             </a>
             <span class="ItemQuantity">@pAmt 份</span>
@@ -351,6 +351,13 @@
                 <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
             </form>
         </div>
+    }
+
+    <!-- 單一商品總價 -->
+    @helper sumPrice(int? pPrice, int? pAmt)
+    {
+        int? sum = pPrice * pAmt;
+        @sum
     }
 </body>
 </html>

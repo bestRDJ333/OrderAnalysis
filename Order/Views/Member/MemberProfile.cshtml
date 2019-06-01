@@ -15,19 +15,19 @@
         <form class="login100-form validate-form" method="post">
             <input type="hidden" name="MemberID" value="@Model.MemberID">
             <!--名字 不可修改-->
-            <div class="wrap-input100 validate-input m-b-26" data-validate="MemberName is required">
+            <div class="wrap-input100 validate-input m-b-26">
                 <span class="label-input100">名稱</span>
                 <input class="input100" type="text" name="MemberName" disabled="disabled" value="@Model.MemberName">
                 <span class="focus-input100"></span>
             </div>
             <!--帳號 不可修改-->
-            <div class="wrap-input100 validate-input m-b-26" data-validate="UserID is required">
+            <div class="wrap-input100 validate-input m-b-26">
                 <span class="label-input100">帳號</span>
                 <input class="input100" type="text" name="UserID" disabled="disabled" value="@Model.UserID">
                 <span class="focus-input100"></span>
             </div>
             <!--密碼-->
-            <div class="wrap-input100 validate-input m-b-26" data-validate="Password is required">
+            <div class="wrap-input100 validate-input m-b-26" data-validate="必填">
                 <span class="label-input100">密碼</span>
                 <!--密碼至少一個小寫英文，一個數字，最少6碼，最多10碼-->
                 <input class="input100" type="password" name="UserPwd" id="UserPwd" placeholder="請輸入新密碼" pattern="^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,10}" value="@Model.UserPwd">
@@ -40,7 +40,7 @@
                 <input type="radio" name="gender" value="f" disabled="disabled" @((Model.Gender == "f") ? "checked" : "")> 女性<br>
             </div>
             <!--年齡-->
-            <div class="wrap-input100 validate-input m-b-26" data-validate="Age is required">
+            <div class="wrap-input100 validate-input m-b-26" data-validate="必填">
                 <span class="label-input100">年齡</span>
                 <input class="input100" type="number" name="Age" value="@Model.Age" placeholder="請輸入年齡 例如:38">
                 <span class="focus-input100"></span>

@@ -18,6 +18,7 @@ namespace Order
         protected void Session_Start()
         {
             Session["who"] = "guest";
+            Session["where"] = "";
         }
     }
 }

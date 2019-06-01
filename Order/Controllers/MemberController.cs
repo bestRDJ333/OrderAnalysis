@@ -14,6 +14,10 @@ namespace Order.Controllers
         public ActionResult MemberProfile()
         {
             string userId = Session["who"].ToString();
+            if (Session["who"].ToString() == "guest")
+            {
+                return Redirect("/LogSign/Login");
+            }
             var query = from o in db.Members
                         where o.UserID == userId
                         select o;

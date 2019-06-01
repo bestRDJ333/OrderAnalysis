@@ -31,11 +31,20 @@ namespace Order.Controllers
                 return Redirect("/LogSign/Login");
             }
             Session["who"] = UserID;
-            //要記得改成該導向的地方(首頁或會員頁)
-            //目前跳至會員基本資料修改頁
-            return Redirect("/Member/MemberProfile");
+            if (Session["who"].ToString() == "admin")
+            {
+                return Redirect("/Admin/AdminIndex");
+            }
+            //從哪裡登入就回到哪裡(如有新增其他頁面需再頁面補上 Session["where"])
+            string where = Session["where"].ToString();
+            if (where != "")
+            {
+                return Redirect(where);
+            } 
+            return Redirect("/Shop/Menu");
         }
 
+        //目前未使用到
         public ActionResult LogOut()
         {
             if (Session["who"].ToString() != "guest")
@@ -45,6 +54,7 @@ namespace Order.Controllers
             }
             return Redirect("/LogSign/Login");
         }
+
         public ActionResult SignUp()
         {
             return View();

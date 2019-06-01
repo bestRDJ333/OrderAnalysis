@@ -8,11 +8,12 @@ namespace Order.Models
 {
     public class ShopCart
     {
-        public int? mID { get; set; }
-        public string ProductName { get; set; }
-        public string ProductImage { get; set; }
-        public int? UnitPrice { get; set; }
-        public int? Quantity { get; set; }
+        public int? pID { get; private set; }
+        public int? mID { get; private set; }
+        public string ProductName { get; private set; }
+        public string ProductImage { get; private set; }
+        public int? UnitPrice { get; private set; }
+        public int? Quantity { get; private set; }
 
         SMIT09Entities db = new SMIT09Entities();
 
@@ -84,6 +85,46 @@ namespace Order.Models
         }
         #endregion 加入購物車
 
+        // 取得購物單
+        public IEnumerable<ShopCart> GetCartItem(int mID)
+        {
+            var Q = db.OrderDetails.Join(
+                    db.Products,
+                    o => o.ProductID,
+                    p => p.ProductID,
+                    (o, p) => new ShopCart { ProductName = o.ProductName, mID = o.MemberID, UnitPrice = o.UnitPrice, ProductImage = p.ProductPhotoS, Quantity = o.Quantity, pID = p.ProductID }
+                    ).Where(q => q.mID == 4).ToList();
 
+            return Q;
+        }
+
+        // 加總購物金額
+        public int? SumTotal(int mID)
+        {
+            int? sum = 0;
+            foreach (var item in shopCartItem(mID))
+            {
+                sum += item.UnitPrice;
+            }
+            return sum;
+        }
+
+        // 刪除購物項目
+        public void DelItem(int? pID, int mID)
+        {
+            var Item = shopCartItem(mID)
+                .Where(o => o.ProductID == pID)
+                .FirstOrDefault();
+            db.OrderDetails.Remove(Item);
+            db.SaveChanges();
+        }
+
+        // 取得購物車清單
+        private IEnumerable<OrderDetail> shopCartItem(int? mID)
+        {
+            var item = db.OrderDetails
+                .Where(o => o.MemberID == mID && o.IsApproved == "n");
+            return item;
+        }
     }
 }

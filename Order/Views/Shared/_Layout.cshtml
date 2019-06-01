@@ -85,7 +85,7 @@
                     <!--購物內容 1-->
                     @foreach (var item in TempData["ShopCart"] as IEnumerable<ShopCart>)
                     {
-                        @getCartItem(item.ProductName, item.ProductImage, item.UnitPrice, item.Quantity);
+                        @getCartItem(item.ProductName, item.ProductImage, item.UnitPrice, item.Quantity, item.pID);
                     }
                 </div>
 
@@ -335,7 +335,7 @@
     </script>
 
 
-    @helper getCartItem(string pName, string pImg, int? pPrice, int? pAmt)
+    @helper getCartItem(string pName, string pImg, int? pPrice, int? pAmt, int? pID)
     {
         <div class="shopCartItem">
             <a href="#">
@@ -346,7 +346,10 @@
                 </div>
             </a>
             <span class="ItemQuantity">@pAmt 份</span>
-            <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
+            <form action="/Shop/DelCart" method="get">
+                <input type="number" name="pID" value="@pID" hidden />
+                <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
+            </form>
         </div>
     }
 </body>

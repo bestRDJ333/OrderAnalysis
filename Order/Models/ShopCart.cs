@@ -9,16 +9,19 @@ namespace Order.Models
     public class ShopCart
     {
         SMIT09Entities db = new SMIT09Entities();
+
+        #region 加入購物車
         // 加入購物車
-        public void addCart(int mID, int pID, int? amt)
+        public void AddProduct(int mID, int pID, int? amt)
         {
             // 還沒結帳的商品
             OrderDetail currentCar = isApproved(pID);
+
             // 判斷清單中有沒有這項產品
             if (currentCar == null)
             {
                 // 沒有就寫入資料庫
-                putProduct(mID, pID);
+                putProduct(mID, pID, amt);
             }
             else
             {
@@ -26,6 +29,7 @@ namespace Order.Models
                 changeAmount(mID, pID, amt, currentCar);
             }
         }
+
         // 查詢未結帳商品
         private OrderDetail isApproved(int pID)
         {
@@ -36,7 +40,7 @@ namespace Order.Models
         }
 
         // 放入選擇品項
-        private void putProduct(int mID, int pID)
+        private void putProduct(int mID, int pID, int? amt)
         {
             var product = db.Products
                 .Where(o => o.ProductID == pID)
@@ -45,7 +49,14 @@ namespace Order.Models
             newOrder.MemberID = mID;
             newOrder.ProductName = product.ProductName;
             newOrder.UnitPrice = product.UnitPrice;
-            newOrder.Quantity = 1;
+            if (amt == null)
+            {
+                newOrder.Quantity = 1;
+            }
+            else
+            {
+                newOrder.Quantity = amt;
+            }
             newOrder.IsApproved = "n";
             db.OrderDetails.Add(newOrder);
             db.SaveChanges();
@@ -64,5 +75,8 @@ namespace Order.Models
             }
             db.SaveChanges();
         }
+        #endregion 加入購物車
+
+
     }
 }

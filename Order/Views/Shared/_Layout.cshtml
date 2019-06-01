@@ -215,13 +215,13 @@
                 if (quantity > 0) {
                     $('#quantity_' + id).val(quantity - 1);
                 }
-
+                // Query string
+                var src = $("#productBtn_" + id).attr('href')
+                $("#addCart_" + id).attr('href', src)
+                src = $("#addCart_" + id).attr('href') + "&amt=" + $('#quantity_' + id).val()
+                $("#addCart_" + id).attr('href', src)
             });
         });
-
-        function changeAmt(amt) {
-
-        }
 
         function getIndex(rawId) {
             var reg = /\d{1,2}/

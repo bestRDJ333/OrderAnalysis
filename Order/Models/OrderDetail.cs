@@ -11,7 +11,7 @@ namespace Order.Models
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class OrderDetail
     {
         public int OrderDetailID { get; set; }
@@ -21,6 +21,6 @@ namespace Order.Models
         public Nullable<int> UnitPrice { get; set; }
         public Nullable<int> Quantity { get; set; }
         public string IsApproved { get; set; }
-        public int? MemberID { get; set; }
+        public Nullable<int> MemberID { get; set; }
     }
 }

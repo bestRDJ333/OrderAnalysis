@@ -29,9 +29,10 @@ namespace Order.Controllers
         public ActionResult addCart(int pID, int? amt)
         {
             // 取得會員ID
-            //int mID = (Session["who"] as Member).MemberID;
+            //int mID = (Session["who"] as Member).MemberID;          
             
-            addCart(pID, amt);
+            sc.AddProduct(4, pID, amt);
+
             //return RedirectToAction("Menu");
             return Content(amt.ToString());
         }

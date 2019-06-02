@@ -11,6 +11,13 @@ html-Verson資料夾是「HTML的前端畫面」
 [待修部份]
 * masterPage.html
 
+- DDDDDDDDDDebug
+	- 會員判定
+	- 會員ID傳遞實裝
+	- CheckOut頁面修改數量後ShopCart同步更新
+	- 結帳點選確認才送出post
+	- 主菜以外的產品卡與Modal無法對應
+	- 詳細的debug
 
 
 [未完成]

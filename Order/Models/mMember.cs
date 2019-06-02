@@ -55,14 +55,7 @@ namespace Order.Models
         }
 
         //註冊
-        public string signUp(Member m, string MemberName, string UserID, string UserPwd,
-            string gender, int Age, string Email, string Phone, string MemberAddress)
-        {
-            return register(m, MemberName, UserID, UserPwd, gender, Age, Email, Phone, MemberAddress);
-        }
-
-        //註冊的新會員存入資料庫
-        private string register(Member m, string MemberName, string UserID, string UserPwd,
+        public string signUp(string MemberName, string UserID, string UserPwd,
             string gender, int Age, string Email, string Phone, string MemberAddress)
         {
             //userid不可為guest
@@ -72,20 +65,10 @@ namespace Order.Models
             }
             else
             {
-                Member dbM = isMember(UserID);
                 //是否已有此userid? 沒有的話才能註冊
-                if (dbM == null)
+                if (isMember(UserID) == null)
                 {
-                    m.MemberName = MemberName;
-                    m.UserID = UserID;
-                    m.UserPwd = UserPwd;
-                    m.Gender = gender;
-                    m.Age = Age;
-                    m.Email = Email;
-                    m.Phone = Phone;
-                    m.MemberAddress = MemberAddress;
-                    db.Members.Add(m);
-                    db.SaveChanges();
+                    register(MemberName, UserID, UserPwd, gender, Age, Email, Phone, MemberAddress);
                     return "success";
                 }
                 else
@@ -93,6 +76,23 @@ namespace Order.Models
                     return "used";
                 }
             }
+        }
+
+        //註冊的新會員存入資料庫
+        private void register(string MemberName, string UserID, string UserPwd,
+            string gender, int Age, string Email, string Phone, string MemberAddress)
+        {
+            Member newM = new Member();
+            newM.MemberName = MemberName;
+            newM.UserID = UserID;
+            newM.UserPwd = UserPwd;
+            newM.Gender = gender;
+            newM.Age = Age;
+            newM.Email = Email;
+            newM.Phone = Phone;
+            newM.MemberAddress = MemberAddress;
+            db.Members.Add(newM);
+            db.SaveChanges();
         }
 
         //會員資料

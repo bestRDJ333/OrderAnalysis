@@ -54,7 +54,7 @@ namespace Order.Controllers
                 return Redirect("/Member/Login");
             }
         }
-        //目前未使用到 登出
+        //目前未使用到 登出 如要使用需更改內容
         public ActionResult LogOut()
         {
             if (Session["who"].ToString() != "guest")
@@ -73,10 +73,10 @@ namespace Order.Controllers
         }
 
         [HttpPost]
-        public ActionResult SignUp(Member m, string MemberName, string UserID, string UserPwd,
+        public ActionResult SignUp(string MemberName, string UserID, string UserPwd,
             string gender, int Age, string Email, string Phone, string MemberAddress)
         {
-            string msg = mb.signUp(m, MemberName, UserID, UserPwd, gender, Age, Email, Phone, MemberAddress);
+            string msg = mb.signUp(MemberName, UserID, UserPwd, gender, Age, Email, Phone, MemberAddress);
             if (msg == "error")
             {
                 TempData["errorMessage"] = "使用者名稱錯誤。";

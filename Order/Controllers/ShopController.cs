@@ -63,5 +63,11 @@ namespace Order.Controllers
             sc.DelItem(pID, mID); // waiting to edit
             return RedirectToAction("Product");
         }
+
+        // GET: CheckOut
+        public ActionResult CheckOut()
+        {
+            return View();
+        }
     }
 }

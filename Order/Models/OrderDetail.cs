@@ -15,7 +15,7 @@ namespace Order.Models
     public partial class OrderDetail
     {
         public int OrderDetailID { get; set; }
-        public Nullable<int> OrderID { get; set; }
+        public string OrderID { get; set; }
         public Nullable<int> ProductID { get; set; }
         public string ProductName { get; set; }
         public Nullable<int> UnitPrice { get; set; }

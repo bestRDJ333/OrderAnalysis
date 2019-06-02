@@ -89,7 +89,8 @@ namespace Order.Models
         // 取得購物單
         public IEnumerable<ShopCart> GetCartItem(int mID)
         {
-            var Q = db.OrderDetails.Join(
+            var Q = db.OrderDetails.Where(q => q.IsApproved == "n")
+                    .Join(
                     db.Products,
                     o => o.ProductID,
                     p => p.ProductID,
@@ -126,6 +127,29 @@ namespace Order.Models
             var item = db.OrderDetails
                 .Where(o => o.MemberID == mID && o.IsApproved == "n");
             return item;
+        }
+
+        public void ConfirmOrder(int mID, int totalPrice, string ReceiverName, string ReceiverPhone, string ReceiverAddress)
+        {
+            string orderID = Guid.NewGuid().ToString();
+
+            Order newOrder = new Order();
+            newOrder.OrderID = orderID;
+            newOrder.MemberID = mID;
+            newOrder.TotalPrice = totalPrice;
+            newOrder.ReceiverName = ReceiverName;
+            newOrder.ReceiverPhone = ReceiverPhone;
+            newOrder.ReceiverAddress = ReceiverAddress;
+            newOrder.OrderDate = DateTime.Now;
+            db.Orders.Add(newOrder);
+
+            foreach (var item in shopCartItem(mID))
+            {
+                item.OrderID = orderID;
+                item.IsApproved = "y";
+            }
+
+            db.SaveChanges();
         }
     }
 }

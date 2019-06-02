@@ -34,7 +34,7 @@
             <PropertyRef Name="OrderDetailID" />
           </Key>
           <Property Name="OrderDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="OrderID" Type="int" />
+          <Property Name="OrderID" Type="varchar" MaxLength="100" />
           <Property Name="ProductID" Type="int" />
           <Property Name="ProductName" Type="nvarchar" MaxLength="30" />
           <Property Name="UnitPrice" Type="int" />
@@ -120,7 +120,7 @@
             <PropertyRef Name="OrderDetailID" />
           </Key>
           <Property Name="OrderDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OrderID" Type="Int32" />
+          <Property Name="OrderID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ProductID" Type="Int32" />
           <Property Name="ProductName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="UnitPrice" Type="Int32" />

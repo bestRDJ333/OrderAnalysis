@@ -12,6 +12,7 @@ namespace Order.Controllers
     // todo: 會員ID傳遞實裝
     // todo: CheckOut頁面修改數量後ShopCart同步更新
     // todo: 結帳點選確認才送出post
+    // todo: 主菜以外的產品卡與Modal無法對應
 
     public class ShopController : Controller
     {
@@ -77,9 +78,10 @@ namespace Order.Controllers
         [HttpPost]
         public ActionResult Confirm(int totalPrice, string ReceiverName, string ReceiverPhone, string ReceiverAddress)
         {
+            int mID = 4;
+            sc.ConfirmOrder(mID, totalPrice, ReceiverName, ReceiverPhone, ReceiverAddress);
 
-            return Content(totalPrice.ToString());
-            //return RedirectToAction("Product");
+            return RedirectToAction("Product");
         }
     }
 }

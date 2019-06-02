@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
+using Order.Models;
 namespace Order
 {
     public class MvcApplication : System.Web.HttpApplication

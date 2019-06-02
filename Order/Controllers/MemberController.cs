@@ -10,41 +10,115 @@ namespace Order.Controllers
     public class MemberController : Controller
     {
         Models.SMIT09Entities db = new SMIT09Entities();
-        // GET: Member
+        mMember mb = new mMember();
+
+        #region 登入 登出
+        public ActionResult LogIn()
+        {
+            string who = Session["who"].ToString();
+
+            //先判定是否已登入
+            if (who == "highest")
+            {
+                return Redirect("/Admin/AdminIndex");
+            }
+            else if (who != "guest")
+            {
+                return Redirect("/Member/MemberProfile");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(string UserID, string UserPwd)
+        {
+            string who = mb.logIn(UserID, UserPwd);
+            Session["who"] = who;
+            if (who == "highest")
+            {
+                return Redirect("/Admin/AdminIndex");
+            }
+            else if (who != "guest")
+            {   //從哪裡登入就回到哪裡(如有新增其他頁面需再頁面補上 Session["where"])
+                string where = Session["where"].ToString();
+                if (where != "")
+                {
+                    return Redirect(where);
+                }
+                //等首頁出來要改成回到首頁
+                return Redirect("/Shop/Menu");
+            }
+            else
+            {
+                TempData["errorMessage"] = "資料錯誤，請重新輸入。";
+                return Redirect("/Member/Login");
+            }
+        }
+        //目前未使用到 登出
+        public ActionResult LogOut()
+        {
+            if (Session["who"].ToString() != "guest")
+            {
+                Session["who"] = "guest";
+                return Redirect("/Member/Login");
+            }
+            return Redirect("/Member/Login");
+        }
+        #endregion 登入 登出
+
+        #region 註冊
+        public ActionResult SignUp()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SignUp(Member m, string MemberName, string UserID, string UserPwd,
+            string gender, int Age, string Email, string Phone, string MemberAddress)
+        {
+            string msg = mb.signUp(m, MemberName, UserID, UserPwd, gender, Age, Email, Phone, MemberAddress);
+            if (msg == "error")
+            {
+                TempData["errorMessage"] = "使用者名稱錯誤。";
+                return Redirect("/Member/SignUp");
+            }
+            else if (msg == "used")
+            {
+                TempData["errorMessage"] = "使用者名稱已被使用，請重新輸入。";
+                return Redirect("/Member/SignUp");
+            }
+            else
+            {
+                TempData["successMessage"] = "註冊成功，請重新登入。";
+                return RedirectToAction("Login");
+            }
+        }
+        #endregion 註冊
+
+        #region 會員資料
         public ActionResult MemberProfile()
         {
-            string userId = Session["who"].ToString();
-            if (Session["who"].ToString() == "guest")
+            string who = Session["who"].ToString();
+            if (who == "guest")
             {
-                return Redirect("/LogSign/Login");
+                return Redirect("/Member/Login");
             }
-            var query = from o in db.Members
-                        where o.UserID == userId
-                        select o;
-            Member m= query.FirstOrDefault();
+            Member m = mb.memberProfile(who);
             return View(m);
         }
 
         [HttpPost]
-        public ActionResult MemberProfile(Member m,string OkOrCancel)
+        public ActionResult MemberProfile(Member m, string OkOrCancel)
         {
-            string userId = Session["who"].ToString();
-            m.UserID = userId;
-            var query = from o in db.Members
-                        where o.UserID == m.UserID
-                        select o;
+            string who = Session["who"].ToString();
+            m.UserID = who;
             if (OkOrCancel == "Ok")
             {
-                Member ServerM = query.FirstOrDefault();
-                ServerM.UserPwd = m.UserPwd;
-                ServerM.Age = m.Age;
-                ServerM.Email = m.Email;
-                ServerM.Phone = m.Phone;
-                ServerM.MemberAddress = m.MemberAddress;
-                db.SaveChanges();
+                mb.renewMemberProfile(m);
                 TempData["successMessage"] = "修改成功！";
             }
             return Redirect("/Member/MemberProfile");
         }
+        #endregion 會員資料
     }
 }

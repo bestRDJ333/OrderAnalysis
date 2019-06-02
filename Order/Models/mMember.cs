@@ -13,32 +13,56 @@ namespace Order.Models
         //登入
         public string logIn(string UserID, string UserPwd)
         {
-            string mUserID = isMember(UserID, UserPwd);
+            string mUserID = verify(UserID, UserPwd);
             return mUserID;
         }
 
-        //查詢是否為會員
-        private string isMember(string UserID, string UserPwd)
+        //登入驗證
+        private string verify(string UserID, string UserPwd)
         {
             var query = from o in db.Members
                         where o.UserID == UserID && o.UserPwd == UserPwd
                         select o;
             Member m = query.FirstOrDefault();
-            //不是的話為"guest"
+            //不是會員的話為"guest"
             if (m == null)
             {
                 return "guest";
             }
-            return m.UserID;
+            //管理員
+            else if (m.UserID == "admin")
+            {
+                return "highest";
+            }
+            else
+            {
+                return m.UserID;
+            }
         }
 
-        public string signUp(Member m,string MemberName, string UserID, string UserPwd,
+        //查詢是否為會員
+        private Member isMember(string UserID)
+        {
+            if (UserID == "highest")
+            {
+                UserID = "admin";
+            }
+            var query = from o in db.Members
+                        where o.UserID == UserID
+                        select o;
+            Member dbM = query.FirstOrDefault();
+            return dbM;
+        }
+
+        //註冊
+        public string signUp(Member m, string MemberName, string UserID, string UserPwd,
             string gender, int Age, string Email, string Phone, string MemberAddress)
         {
-            return register(m,MemberName,UserID,UserPwd,gender,Age,Email,Phone,MemberAddress);
+            return register(m, MemberName, UserID, UserPwd, gender, Age, Email, Phone, MemberAddress);
         }
 
-        private string register(Member m,string MemberName, string UserID, string UserPwd,
+        //註冊的新會員存入資料庫
+        private string register(Member m, string MemberName, string UserID, string UserPwd,
             string gender, int Age, string Email, string Phone, string MemberAddress)
         {
             //userid不可為guest
@@ -48,10 +72,7 @@ namespace Order.Models
             }
             else
             {
-                var query = from o in db.Members
-                            where o.UserID == UserID
-                            select o;
-                Member dbM = query.FirstOrDefault();
+                Member dbM = isMember(UserID);
                 //是否已有此userid? 沒有的話才能註冊
                 if (dbM == null)
                 {
@@ -72,6 +93,25 @@ namespace Order.Models
                     return "used";
                 }
             }
+        }
+
+        //會員資料
+        public Member memberProfile(string UserID)
+        {
+            Member dbM = isMember(UserID);
+            return dbM;
+        }
+
+        //更新會員資料
+        public void renewMemberProfile(Member m)
+        {
+            Member dbM = isMember(m.UserID);
+            dbM.UserPwd = m.UserPwd;
+            dbM.Age = m.Age;
+            dbM.Email = m.Email;
+            dbM.Phone = m.Phone;
+            dbM.MemberAddress = m.MemberAddress;
+            db.SaveChanges();
         }
     }
 }

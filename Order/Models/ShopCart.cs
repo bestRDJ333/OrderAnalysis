@@ -14,6 +14,7 @@ namespace Order.Models
         public string ProductImage { get; private set; }
         public int? UnitPrice { get; private set; }
         public int? Quantity { get; private set; }
+        public string Intro { get; private set; }
 
         SMIT09Entities db = new SMIT09Entities();
 
@@ -92,7 +93,7 @@ namespace Order.Models
                     db.Products,
                     o => o.ProductID,
                     p => p.ProductID,
-                    (o, p) => new ShopCart { ProductName = o.ProductName, mID = o.MemberID, UnitPrice = o.UnitPrice, ProductImage = p.ProductPhotoS, Quantity = o.Quantity, pID = p.ProductID }
+                    (o, p) => new ShopCart { ProductName = o.ProductName, mID = o.MemberID, UnitPrice = o.UnitPrice, ProductImage = p.ProductPhotoS, Quantity = o.Quantity, pID = p.ProductID, Intro = p.ProductIntroduction }
                     ).Where(q => q.mID == 4).ToList();
 
             return Q;

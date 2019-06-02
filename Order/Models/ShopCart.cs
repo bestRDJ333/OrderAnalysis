@@ -80,7 +80,7 @@ namespace Order.Models
             }
             else
             {
-                currentCar.Quantity += amt;
+                currentCar.Quantity = amt;
             }
             db.SaveChanges();
         }

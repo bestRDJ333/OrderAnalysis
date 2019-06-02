@@ -215,6 +215,7 @@
     $(document).ready(function () {
 
         $(".remove").click(function () {
+            var id = getIndex(this.id)
             var el = $(this);
             el.parent().parent().addClass("removed");
             window.setTimeout(
@@ -231,7 +232,7 @@
                         changeTotal();
                     });
                 }, 200);
-            var id = getIndex(this.id)
+
             $.ajax({
                 method: "GET",
                 url: "@Url.Action("DelCart")?pID=" + id
@@ -246,13 +247,13 @@
         }
 
         $(".qt-plus").click(function () {
-            $(this).parent().children(".qt").html(parseInt($(this).parent().children(".qt").html()) + 1);
-
-            $(this).parent().children(".full-price").addClass("added");
+            var id = getIndex(this.id)
+            var amt = parseInt($("#amt_" + id).text()) + 1
+            $("#amt_" + id).text(amt)
 
             var el = $(this);
             window.setTimeout(function () { el.parent().children(".full-price").removeClass("added"); changeVal(el); }, 150);
-            var id = getIndex(this.id)
+
             $.ajax({
                 method: "GET",
                 url: "@Url.Action("addCart")?pID=" + id + "&amt=" + parseInt($("#amt_" + id).text())

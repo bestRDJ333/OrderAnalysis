@@ -72,5 +72,11 @@ namespace Order.Controllers
             ViewBag.sumPrice = sc.SumTotal(mID);
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Confirm()
+        {
+            return View("Product");
+        }
     }
 }

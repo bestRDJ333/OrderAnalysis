@@ -19,8 +19,8 @@ namespace Order.Controllers
         public ActionResult Menu()
         {
             int mID = 4;
-            TempData["ShopCart"] = sc.GetCartItem(mID); // waiting to edit
-            ViewBag.sumPrice = sc.SumTotal(mID); // waiting to edit
+            TempData["ShopCart"] = sc.GetCartItem(mID);
+            ViewBag.sumPrice = sc.SumTotal(mID);
             ViewBag.itemAmt = sc.GetCartItem(mID).Count();
             return View();
         }
@@ -33,13 +33,12 @@ namespace Order.Controllers
             var product = db.Products.ToList();
 
             // 取得購物車清單以及產品圖片路徑
-            TempData["ShopCart"] = sc.GetCartItem(mID); // waiting to edit
+            TempData["ShopCart"] = sc.GetCartItem(mID);
 
             // 取得購物車總額
-            ViewBag.sumPrice = sc.SumTotal(mID); // waiting to edit
+            ViewBag.sumPrice = sc.SumTotal(mID);
             ViewBag.itemAmt = sc.GetCartItem(mID).Count();
             return View(product);
-            //return Content(sc.GetCartItem(4).Count().ToString());
         }
 
         // GET: AddCart
@@ -49,7 +48,7 @@ namespace Order.Controllers
             // 取得會員ID
             //int mID = (Session["who"] as Member).MemberID;          
 
-            sc.AddProduct(mID, pID, amt); // waiting to edit
+            sc.AddProduct(mID, pID, amt);
 
             return RedirectToAction("Product");
         }
@@ -60,13 +59,15 @@ namespace Order.Controllers
         {
             int mID = 4;
             //int mID = (Session["who"] as Member).MemberID;    
-            sc.DelItem(pID, mID); // waiting to edit
+            sc.DelItem(pID, mID);
             return RedirectToAction("Product");
         }
 
         // GET: CheckOut
         public ActionResult CheckOut()
         {
+            int mID = 4;
+            ViewBag.itemAmt = sc.GetCartItem(mID).Count();
             return View();
         }
     }

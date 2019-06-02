@@ -295,6 +295,11 @@
                         changeTotal();
                     });
                 }, 200);
+            $.ajax({
+                method: "GET",
+                url: "@Url.Action("DelCart")?pID="
+            })
+            alert("get")
         });
 
         $(".qt-plus").click(function () {

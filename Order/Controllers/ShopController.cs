@@ -18,24 +18,26 @@ namespace Order.Controllers
         // GET: Menu
         public ActionResult Menu()
         {
-            TempData["ShopCart"] = sc.GetCartItem(4); // waiting to edit
-            ViewBag.sumPrice = sc.SumTotal(4); // waiting to edit
-            ViewBag.itemAmt = sc.GetCartItem(4).Count();
+            int mID = 4;
+            TempData["ShopCart"] = sc.GetCartItem(mID); // waiting to edit
+            ViewBag.sumPrice = sc.SumTotal(mID); // waiting to edit
+            ViewBag.itemAmt = sc.GetCartItem(mID).Count();
             return View();
         }
 
         // GET: Product
         public ActionResult Product()
         {
+            int mID = 4;
             // var mID = (Session["who"] as Member).MemberID;
             var product = db.Products.ToList();
 
             // 取得購物車清單以及產品圖片路徑
-            TempData["ShopCart"] = sc.GetCartItem(4); // waiting to edit
+            TempData["ShopCart"] = sc.GetCartItem(mID); // waiting to edit
 
             // 取得購物車總額
-            ViewBag.sumPrice = sc.SumTotal(4); // waiting to edit
-            ViewBag.itemAmt = sc.GetCartItem(4).Count();
+            ViewBag.sumPrice = sc.SumTotal(mID); // waiting to edit
+            ViewBag.itemAmt = sc.GetCartItem(mID).Count();
             return View(product);
             //return Content(sc.GetCartItem(4).Count().ToString());
         }
@@ -43,10 +45,11 @@ namespace Order.Controllers
         // GET: AddCart
         public ActionResult addCart(int pID, int? amt)
         {
+            int mID = 4;
             // 取得會員ID
             //int mID = (Session["who"] as Member).MemberID;          
 
-            sc.AddProduct(4, pID, amt); // waiting to edit
+            sc.AddProduct(mID, pID, amt); // waiting to edit
 
             return RedirectToAction("Product");
         }
@@ -55,8 +58,9 @@ namespace Order.Controllers
         // GET: DelCart
         public ActionResult DelCart(int pID)
         {
+            int mID = 4;
             //int mID = (Session["who"] as Member).MemberID;    
-            sc.DelItem(pID, 4); // waiting to edit
+            sc.DelItem(pID, mID); // waiting to edit
             return RedirectToAction("Product");
         }
     }

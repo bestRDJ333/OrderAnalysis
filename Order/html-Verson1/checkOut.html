@@ -388,11 +388,18 @@
         var check = false;
 
         function changeVal(el) {
+
             var qt = parseFloat(el.parent().children(".qt").html());
-            var price = parseFloat(el.parent().children(".price").html());
+
+            //尋找this內，所有節點(含父節點、子節點)類別名稱為price
+            //var price = parseFloat(el.parent().children(".price").html());
+            var price = parseFloat(el.siblings(".price").html());
+            
+
             var eq = Math.round(price * qt * 100) / 100;
 
-            el.parent().children(".full-price").html(eq + "$ ");
+            el.parent().children(".full-price").html(eq + "");
+
 
             changeTotal();
         }
@@ -401,9 +408,11 @@
 
             var price = 0;
 
-            $(".full-price").each(function (index) {
+            $(".full-price").each(function (index) {                
                 price += parseFloat($(".full-price").eq(index).html());
             });
+
+            
 
             price = Math.round(price * 100) / 100;
             var discount = parseInt($(".discount").html());

@@ -67,7 +67,9 @@ namespace Order.Controllers
         public ActionResult CheckOut()
         {
             int mID = 4;
+            TempData["ShopCart"] = sc.GetCartItem(mID);
             ViewBag.itemAmt = sc.GetCartItem(mID).Count();
+            ViewBag.sumPrice = sc.SumTotal(mID);
             return View();
         }
     }

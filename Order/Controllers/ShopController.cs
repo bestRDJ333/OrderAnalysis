@@ -18,9 +18,6 @@ namespace Order.Controllers
         // GET: Menu
         public ActionResult Menu()
         {
-            TempData["ShopCart"] = sc.GetCartItem(4); // waiting to edit
-            ViewBag.sumPrice = sc.SumTotal(4); // waiting to edit
-            ViewBag.itemAmt = sc.GetCartItem(4).Count();
             return View();
         }
 

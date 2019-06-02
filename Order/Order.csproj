@@ -131,7 +131,6 @@
     <Content Include="fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
     <Content Include="Global.asax" />
     <Content Include="html-Verson1\checkOut.html" />
-    <Content Include="html-Verson1\xcheckOut.html" />
     <Content Include="html-Verson1\masterPage.html" />
     <Content Include="html-Verson1\productClass.html" />
     <Content Include="html-Verson1\~\css\all.css" />
@@ -193,8 +192,6 @@
     <Content Include="html-Verson1\~\js\swiper.min.js" />
     <Content Include="html-Verson1\~\js\swiper_custom.js" />
     <Content Include="html-Verson1\product.html" />
-    <Content Include="html-Verson1\未完-index.html" />
-    <Content Include="html-Verson1\未完-member.html" />
     <Content Include="html-Verson1\重要-備註.txt" />
     <Content Include="img\1.jpg" />
     <Content Include="img\2.jpg" />
@@ -446,7 +443,6 @@
     <Content Include="Views\LogSign\LogIn.cshtml" />
     <Content Include="Views\LogSign\SignUp.cshtml" />
     <Content Include="Views\Shop\Product.cshtml" />
-    <Content Include="Views\Member\yMemberProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -456,6 +452,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Member\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

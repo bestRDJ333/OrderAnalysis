@@ -378,6 +378,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\LogSignController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
@@ -390,6 +391,7 @@
     <Compile Include="Models\Member.cs">
       <DependentUpon>OrderModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\mMember.cs" />
     <Compile Include="Models\Order.cs">
       <DependentUpon>OrderModel.tt</DependentUpon>
     </Compile>
@@ -443,6 +445,7 @@
     <Content Include="Views\LogSign\SignUp.cshtml" />
     <Content Include="Views\Shop\Product.cshtml" />
     <Content Include="Views\Member\MemberProfile.cshtml" />
+    <Content Include="Views\Admin\AdminIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

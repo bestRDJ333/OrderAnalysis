@@ -101,13 +101,11 @@
     </div>
 </div>
 
+@* 註冊錯誤的alert *@
 @{
-    var message = TempData["errorMessage"];
+    var errMsg = TempData["errorMessage"] ?? string.Empty;
 }
-@if (TempData["errorMessage"] != null)
-{
-    <script type="text/javascript">
-        var message = '@message'
-        alert(message);
-    </script>
-}
+<script type="text/javascript">
+  var errMsg = '@errMsg';
+  if (errMsg) { alert(errMsg); }
+</script>

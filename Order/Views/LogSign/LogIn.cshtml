@@ -38,9 +38,15 @@
 @*?? 運算子稱為 null 聯合運算子。 如果運算元不是 null，則會傳回左方運算元，否則傳回右方運算元。*@
 @{
     var errMsg = TempData["errorMessage"] ?? string.Empty;
+    var sucMsg = TempData["successMessage"] ?? string.Empty;
 }
 @* 登入失敗的alert *@
 <script type="text/javascript">
-        var message = '@errMsg';
-        if (message) { alert(message); }
+    var errMsg = '@errMsg';
+    if (errMsg) { alert(errMsg); }
+</script>
+@* 註冊成功的alert *@
+<script type="text/javascript">
+    var sucMsg = '@sucMsg'
+    if (sucMsg) { alert(sucMsg);}
 </script>

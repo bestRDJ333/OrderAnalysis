@@ -13,6 +13,13 @@ p {
 }
 
 
+/*菜單標題底下的線*/
+.section_tittle h2::after {
+    background-color: #FF6426;
+}
+
+
+
 /*--餐點細項--*/
 .food_menu .single_food_item {
     border-radius: 1.5rem;

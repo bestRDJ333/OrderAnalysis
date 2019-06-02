@@ -105,6 +105,7 @@
     <Content Include="css\animate.css" />
     <Content Include="css\aos.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\checkOut.css" />
     <Content Include="css\flaticon.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\gijgo.min.css" />
@@ -129,12 +130,15 @@
     <Content Include="fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
     <Content Include="fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
     <Content Include="Global.asax" />
+    <Content Include="html-Verson1\checkOut.html" />
+    <Content Include="html-Verson1\xcheckOut.html" />
     <Content Include="html-Verson1\masterPage.html" />
     <Content Include="html-Verson1\productClass.html" />
     <Content Include="html-Verson1\~\css\all.css" />
     <Content Include="html-Verson1\~\css\animate.css" />
     <Content Include="html-Verson1\~\css\aos.css" />
     <Content Include="html-Verson1\~\css\bootstrap.min.css" />
+    <Content Include="html-Verson1\~\css\checkOut.css" />
     <Content Include="html-Verson1\~\css\flaticon.css" />
     <Content Include="html-Verson1\~\css\font-awesome.min.css" />
     <Content Include="html-Verson1\~\css\gijgo.min.css" />
@@ -200,6 +204,10 @@
     <Content Include="img\Appectizer\165x163\Appetizer_02.jpg" />
     <Content Include="img\Appectizer\165x163\Appetizer_06.jpg" />
     <Content Include="img\Appectizer\165x163\Appetizer_10.jpg" />
+    <Content Include="img\Appectizer\800X600\Appectizer_01.jpg" />
+    <Content Include="img\Appectizer\800X600\Appectizer_02.jpg" />
+    <Content Include="img\Appectizer\800X600\Appectizer_06.jpg" />
+    <Content Include="img\Appectizer\800X600\Appectizer_10.jpg" />
     <Content Include="img\Appectizer\800X600\Appetizer_01.jpg" />
     <Content Include="img\Appectizer\800X600\Appetizer_02.jpg" />
     <Content Include="img\Appectizer\800X600\Appetizer_06.jpg" />
@@ -374,7 +382,9 @@
     <Content Include="vendor\select2\select2.js" />
     <Content Include="vendor\select2\select2.min.css" />
     <Content Include="vendor\select2\select2.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -436,6 +446,7 @@
     <Content Include="Views\LogSign\LogIn.cshtml" />
     <Content Include="Views\LogSign\SignUp.cshtml" />
     <Content Include="Views\Shop\Product.cshtml" />
+    <Content Include="Views\Member\yMemberProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

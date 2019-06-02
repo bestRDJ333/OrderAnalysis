@@ -133,7 +133,7 @@
             </div>
         </header>
 
-        
+
         <!--1.確認商品-->
         <section id="cartList" class="sectionTab">
             <div class="container">
@@ -324,16 +324,16 @@
                             </div>
                         </form>
                     </div>
-                    
+
                 </div>
 
             </div>
-           
+
 
         </section>
-            
+
         <p></p>
-               
+
 
         <!--end 結帳 content-->
         <!--必要! 為了把footer置底用-->
@@ -384,6 +384,8 @@
 
 
     <!--此網站的js-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.11.7/dist/sweetalert2.all.min.js"></script>
+
     <script>
         var check = false;
 
@@ -394,7 +396,7 @@
             //尋找this內，所有節點(含父節點、子節點)類別名稱為price
             //var price = parseFloat(el.parent().children(".price").html());
             var price = parseFloat(el.siblings(".price").html());
-            
+
             var eq = Math.round(price * qt * 100) / 100;
 
             el.parent().children(".full-price").html(eq + "");
@@ -407,11 +409,11 @@
 
             var price = 0;
 
-            $(".full-price").each(function (index) {                
+            $(".full-price").each(function (index) {
                 price += parseFloat($(".full-price").eq(index).html());
             });
 
-            
+
 
             price = Math.round(price * 100) / 100;
             var discount = parseInt($(".discount").html());
@@ -473,7 +475,7 @@
 
             window.setTimeout(function () { $(".is-open").removeClass("is-open") }, 1200);
 
-         
+
         });
 
 
@@ -501,6 +503,34 @@
                 $('#fillDate').hide();
 
             });
+
+        });
+
+
+        //「送出訂單」messageBox=====================================
+        $(function () {
+
+            $('.submit-btn').click(function () {
+                Swal.fire({
+                    title: '確定要送出訂單嗎?',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#009933',
+                    cancelButtonColor: '#d33',
+                    cancelButtonText:'取消',
+                    confirmButtonText: '確定'
+                }).then((result) => {
+                    if (result.value) {
+                        Swal.fire(
+                            '送出訂單完成',
+                            '您可以到【訂單明細】查詢結果',
+                            'success'
+                        )
+                    }
+                });
+
+            });
+
 
         });
 

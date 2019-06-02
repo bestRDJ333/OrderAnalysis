@@ -9,7 +9,7 @@ using Order.Models;
 namespace Order.Controllers
 {
     // todo: 會員判定
-    // todo: 會員ID傳遞實裝, addCart, DelCart
+    // todo: 會員ID傳遞實裝
 
     public class ShopController : Controller
     {
@@ -32,8 +32,9 @@ namespace Order.Controllers
 
             // 取得購物車總額
             ViewBag.sumPrice = sc.SumTotal(4); // waiting to edit
-
+            ViewBag.itemAmt = sc.GetCartItem(4).Count();
             return View(product);
+            //return Content(sc.GetCartItem(4).Count().ToString());
         }
 
         // GET: AddCart
@@ -44,7 +45,6 @@ namespace Order.Controllers
 
             sc.AddProduct(4, pID, amt); // waiting to edit
 
-            //return RedirectToAction("Menu");
             return RedirectToAction("Product");
         }
 

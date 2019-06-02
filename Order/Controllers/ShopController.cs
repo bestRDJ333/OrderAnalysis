@@ -10,6 +10,7 @@ namespace Order.Controllers
 {
     // todo: 會員判定
     // todo: 會員ID傳遞實裝
+    // todo: CheckOut頁面修改後ShopCart同步更新
 
     public class ShopController : Controller
     {
@@ -52,7 +53,6 @@ namespace Order.Controllers
 
             return RedirectToAction("Product");
         }
-
 
         // GET: DelCart
         public ActionResult DelCart(int pID)

@@ -87,13 +87,12 @@
                 <div id="shopCartContent">
                     <p class="noItem">購物車內目前沒有商品</p>
                     <!--購物內容 1-->
-                    @{if (TempData["ShopCart"] != null)
-                        {
-                            foreach (var item in TempData["ShopCart"] as IEnumerable<ShopCart>)
+                 
+                            @foreach (var item in TempData["ShopCart"] as IEnumerable<ShopCart>)
                             {
                                 @getCartItem(item.ProductName, item.ProductImage, item.UnitPrice, item.Quantity, item.pID);
                             }
-                        } }
+                        
                 </div>
 
 

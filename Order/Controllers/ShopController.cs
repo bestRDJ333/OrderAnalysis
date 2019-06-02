@@ -10,7 +10,8 @@ namespace Order.Controllers
 {
     // todo: 會員判定
     // todo: 會員ID傳遞實裝
-    // todo: CheckOut頁面修改後ShopCart同步更新
+    // todo: CheckOut頁面修改數量後ShopCart同步更新
+    // todo: 結帳點選確認才送出post
 
     public class ShopController : Controller
     {
@@ -74,9 +75,11 @@ namespace Order.Controllers
         }
 
         [HttpPost]
-        public ActionResult Confirm()
+        public ActionResult Confirm(int totalPrice, string ReceiverName, string ReceiverPhone, string ReceiverAddress)
         {
-            return View("Product");
+
+            return Content(totalPrice.ToString());
+            //return RedirectToAction("Product");
         }
     }
 }

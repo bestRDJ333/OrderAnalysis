@@ -11,11 +11,47 @@ body {
     background-color: #F6F5F1;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Didact Gothic", Arial, 文泉驛正黑, "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", 微軟正黑體, "Microsoft JhengHei", 標楷體, DFKai-SB, sans-serif !important;
+    
+}
+
+/*回到TOP btn*/
+#scrollUp {
+    bottom: 4.5rem;
+    right:1rem;
+    background-color: #FEC40E;
+}
+    #scrollUp:hover {
+        background-color: #fba004;
+    }
+
+.hero-area, .hero-post-slides {
+    top: 2.5rem;
+    background-color: white;
+}
+
+.single-hero-post .hero-slides-content{
+    left:0;
+    right:0;
+    padding-left:1rem;
+}
+
+.single-hero-post .hero-slides-content .post-title h4 {
+    font-weight: 400;
+}
+
+
+/*--- RWD width>1025 ----*/
+@media (min-width:1025px) {
+    .single-hero-post .hero-slides-content .post-title h4 {
+        font-size:1.2rem;
+    }
+}
 
 
 /*--- RWD width<1025 ----*/
 @media (max-width:1025px) {
-
 }
 
 /* width<768*/

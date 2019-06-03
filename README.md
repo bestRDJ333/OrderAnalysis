@@ -9,7 +9,7 @@ html-Verson資料夾是「HTML的前端畫面」
 
 
 [待修部份]
-* masterPage.html
+* index.html 首頁
 
 - DDDDDDDDDDebug
 	- 會員判定
@@ -21,5 +21,6 @@ html-Verson資料夾是「HTML的前端畫面」
 
 
 [未完成]
-* 未完-index.html      首頁
+* 後台-圖表
+* 後台-產品上下架
 

@@ -41,6 +41,31 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 
+/*=================關於我們=========================*/
+#aboutUs{
+    background-color:white;
+}
+
+#aboutUs .aboutUs-content{
+    padding-top:8rem;
+}
+
+.aboutUS-text p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+/*=================圖片輪播========================*/
+.blog-content-area{
+    padding-top:100px;
+    padding-bottom:2rem;
+}
+/*===============也許你會喜歡======================*/
+.maybe-youlike {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+}
+
 
 /*--- RWD width>1025 ----*/
 @media (min-width:1025px) {

@@ -43,21 +43,27 @@ h1, h2, h3, h4, h5, h6 {
 
 /*=================關於我們=========================*/
 #aboutUs{
-    background-color:white;
+
 }
 
-#aboutUs .aboutUs-content{
-    padding-top:8rem;
-}
+    #aboutUs .aboutUs-content {
+        padding-top: 5.5rem;
+        padding-bottom: 1rem;
+    }
 
-.aboutUS-text p {
-    font-size: 1.2rem;
-    line-height: 2rem;
-}
+    #aboutUs .aboutUs-content  .primary-heading {
+
+   font-weight:500;
+    }
+    .aboutUS-text p {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
 
 /*=================圖片輪播========================*/
 .blog-content-area{
-    padding-top:100px;
+    background-color:white;
+    padding-top:2rem;
     padding-bottom:2rem;
 }
 /*===============也許你會喜歡======================*/

@@ -26,6 +26,7 @@ h1, h2, h3, h4, h5, h6 {
         background-color: #fba004;
     }
 
+/*==============直立式輪播 ======================*/
 .hero-area, .hero-post-slides {
     top: 2.5rem;
     background-color: white;
@@ -40,6 +41,10 @@ h1, h2, h3, h4, h5, h6 {
 .single-hero-post .hero-slides-content .post-title h4 {
     font-weight: 400;
 }
+
+    .single-hero-post .hero-slides-content .post-title h4:hover {
+        color: #FEE380;
+    }
 
 /*=================關於我們=========================*/
 #aboutUs{
@@ -65,6 +70,14 @@ h1, h2, h3, h4, h5, h6 {
     background-color:white;
     padding-top:2rem;
     padding-bottom:2rem;
+}
+
+.featured-post-area .carousel-indicators li .post-title h5:hover {
+    color: #e29003;
+}
+
+.featured-post-area .carousel-indicators {
+    background-color: #F6F5F1;
 }
 /*===============也許你會喜歡======================*/
 .maybe-youlike {

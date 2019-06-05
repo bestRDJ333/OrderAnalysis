@@ -55,7 +55,7 @@
     <!--行動裝置的nav-->
     <div class="bottomMenu">
         <div class="row">
-            <a class="a-trigger col-sm-3" href="#"><i class="fas fa-store"></i>簡介</a>
+            <a class="a-trigger col-sm-3" href="#aboutUs"><i class="fas fa-store"></i>簡介</a>
             <a class="a-trigger col-sm-3" href="productClass.html"><i class="fas fa-utensils"></i>菜單</a>
             <a class="a-trigger col-sm-3" href="#"><i class="fas fa-user"></i>會員</a>
             <a class="navShopCart a-trigger col-sm-3" href="#"><i class="fas fa-shopping-cart"></i>[0]</a>
@@ -64,7 +64,9 @@
     <!--end  navbar-->
 
     <div class="wrapper">
-
+        <!-- **************  測試用btn *************-->
+        <button id="testbtn1" style="display:none; position:fixed; top: 100px; right: 300px; z-index:9999999;">測試取得scrool的offset</button>
+        <!-- ******************************      -->
         <!--start 購物車-->
         <div class="container-fluid">
             <div class="shopCart">
@@ -124,7 +126,7 @@
         <!-- ##### 頁面loading時的動畫 ##### -->
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="circle-preloader">
-                <img src="~/img/core-img/logo.png" alt="">
+                <img style="width:148px;" src="~/img/logo.png" alt="">
                 <div class="foode-preloader">
                     <span></span>
                 </div>
@@ -160,7 +162,6 @@
                         <p></p>
                         <a href="#" class="post-title">
                             <div>
-
                                 <h4>季節水果與海鮮的碰撞</h4>
                                 <h4>絕妙搭配出清甜滋味</h4>
                             </div>
@@ -302,17 +303,16 @@
 
                     </div>
                     <div class="col-md-6">
-                        <p><img src="~/img/blog-img/img_1.jpg" class="img-responsive"></p>
+                        <img class="aboutUs-img" src="~/img/blog-img/img_1.jpg" class="img-responsive">
                     </div>
                 </div>
 
             </div>
         </section>
         <!--##### end 簡介 #####-->
-
         <!-- ##### 圖片輪播 Blog Content Area Start ##### -->
         <section class="blog-content-area">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <!-- Featured Post Area -->
                     <div class="col-12">
@@ -321,20 +321,20 @@
 
                                 <div class="carousel-inner">
 
-                                    <div class="carousel-item active bg-img" style="background-image: url(~/img/blog-img/7.jpg)">
+                                    <div class="carousel-item active bg-img" style="background-image: url(~/img/blog-img/b1.jpg)">
                                         <!-- Featured Post Content -->
                                         <div class="featured-post-content">
-                                            <p>MAY 8, 2018 / foody</p>
+                                            <p>MAY 8, 2019 / 新品上市</p>
                                             <a href="#" class="post-title">
-                                                <h2>A Closer Look At Our Front Porch Items From Lowe’s</h2>
+                                                <h2>法式海鮮水果塔</h2>
                                             </a>
                                         </div>
                                     </div>
 
-                                    <div class="carousel-item bg-img" style="background-image: url(~/img/blog-img/6.jpg)">
+                                    <div class="carousel-item bg-img" style="background-image: url(~/img/blog-img/b2.jpg)">
                                         <!-- Featured Post Content -->
                                         <div class="featured-post-content">
-                                            <p>MAY 8, 2018 / foody</p>
+                                            <p>MAY 8, 2019 / 新品上市</p>
                                             <a href="#" class="post-title">
                                                 <h2>12 Beautiful Vegan Panna Cottas</h2>
                                             </a>
@@ -351,7 +351,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="carousel-item bg-img" style="background-image: url(~/img/blog-img/3.jpg)">
+                                    <div class="carousel-item bg-img" style="background-image: url(~/img/blog-img/b4.jpg)">
                                         <!-- Featured Post Content -->
                                         <div class="featured-post-content">
                                             <p>MAY 8, 2018 / foody</p>
@@ -376,7 +376,7 @@
                                     <li data-target="#featured-post-slides" data-slide-to="0" class="active">
                                         <h2>01</h2>
                                         <a href="#" class="post-title">
-                                            <h5>A Closer Look At Our Front Porch Items From Lowe’s</h5>
+                                            <h5>季節水果與海鮮的碰撞，絕妙搭配出清甜滋味</h5>
                                         </a>
                                     </li>
                                     <li data-target="#featured-post-slides" data-slide-to="1">
@@ -517,17 +517,53 @@
 
     <script src="~/js/masterPage.js"></script>
 
-    <!--start 此頁面新增加的js-->
-    <!-- jQuery-2.2.4 js -->
-    <!--<script src="js/jquery/jquery-2.2.4.min.js"></script>-->
-    <!-- Popper js -->
-    <!--<script src="js/bootstrap/popper.min.js"></script>-->
-    <!-- Bootstrap js -->
-    <!--<script src="js/bootstrap/bootstrap.min.js"></script>-->
+    <!--start 此頁面新增加的js-->   
     <!-- All Plugins js -->
     <script src="~/js/plugins.js"></script>
     <!-- Active js -->
     <script src="~/js/active.js"></script>
+
+    <script>
+
+        //測試用----取得scroll offset的數值---------
+        $(function () {
+            $("#testbtn1").click(function () {
+
+                alert($(document).scrollTop() + " px");
+            });
+        });
+
+
+
+        //  ---scroll切換動畫----------------
+        $(function () {
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > 330) {
+                    $(".primary-heading").addClass("animated fadeIn");
+                    $(".aboutUS-text").addClass("animated fadeIn");
+                    $('.aboutUs-img').addClass('animated fadeInRight')
+                } else {
+                    $(".primary-heading").removeClass("animated fadeIn");
+                    $(".aboutUS-text").removeClass("animated fadeIn");
+                    $(".aboutUs-img").removeClass("animated fadeInRight");
+                }
+
+                if ($(document).scrollTop() > 1000) {
+                    $('.section-heading').addClass("animated fadeInDown");
+                }
+                else {
+                    $('.section-heading').removeClass("animated fadeInDown");
+                }
+
+
+            });
+        });
+
+
+
+
+    </script>
+
 
 
 </body>

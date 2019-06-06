@@ -79,11 +79,20 @@ h1, h2, h3, h4, h5, h6 {
 .featured-post-area .carousel-indicators {
     background-color: #F6F5F1;
 }
+
+.featured-post-area .carousel-inner .carousel-item .featured-post-content .post-title h2:hover {
+    color: #FEE380;
+}
 /*===============也許你會喜歡======================*/
 .maybe-youlike {
     padding-top: 2.5rem;
     padding-bottom: 3rem;
 }
+
+.section-heading span {
+    color: #FF6426;
+}
+
 
 
 /*--- RWD width>1025 ----*/
@@ -107,7 +116,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* width<375*/
 @media (max-width:376px) {
-   
+    #scrollUp {
+        bottom: 8rem;
+      
+    }
 }
 
  

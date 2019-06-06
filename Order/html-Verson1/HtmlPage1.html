@@ -3,6 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
     <title>Document</title>
 
     <!--   RWD-->
@@ -14,11 +17,106 @@
     <!--    iconfont-->
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <!--     此網站的css-->
     <link rel="stylesheet" href="~/css/master.css">
 
-    <!--     此網站的css-->
-    <link rel="stylesheet" href="~/css/OrderDetail.css">
+
+    <style>
+
+
+        /*start 購物車使用_置中*/
+        .container-fluid {
+            padding-left: 25%;
+            padding-right: 25%;
+        }
+
+        /*start 手風琴使用*/
+        .shopCar {
+            position: relative;
+            top: 100px;
+            
+        }
+
+        .accordion {
+            background-color: #b5d5ea;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 25px;
+            transition: 0.4s;
+        }
+
+            .active, .accordion:hover {
+                background-color: #f0c9cd;
+            }
+
+        .panel {
+            width: 100%;
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        /*--------------楚河漢界-----------------*/
+
+
+        /*Tabs的CSS*/
+        /*Style the tab 標籤的樣式*/
+        .tab {
+            overflow: hidden;
+            border: 1px solid #fa9ead;
+            background-color: #fa9ead;
+         
+        }
+
+            /* Style the buttons inside the tab 裡面bnt樣式*/
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+                font-size: 17px;
+            }
+
+                /* Change background color of buttons on hover 懸停時bnt底色*/
+                .tab button:hover {
+                    background-color: #f86e84;
+                }
+
+                /* Create an active/current tablink class */
+                .tab button.active {
+                    background-color: #f63d5b;
+                }
+
+        /* Style the tab content 標簽內容樣式*/
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border-top: none;
+        }
+
+
+        /*---------------------------------------*/
+         /*Tabs_手風琴內圖片左 文字右*/
+        .smallimg {
+            float: left;
+            margin: 15px;
+          /*margin參數使用參考: 20px 40px 60px 80px（上20px；右40px；下60px；左80px。）*/
+        }
+
+
+    </style>
+
+
+
 </head>
 
 <body>
@@ -41,7 +139,7 @@
             </button>
         </div>
     </div>
-    
+
     <!--行動裝置的nav-->
     <div class="bottomMenu">
         <div class="row">
@@ -57,63 +155,9 @@
 
         <!--start 購物車-->
         <div class="container-fluid">
-            <div class="shopCart">
-                <p></p>
-                <div id="shopCartContent">
-                    <p class="noItem">購物車內目前沒有商品</p>
-                    <!--購物內容 1-->
-                    <div class="shopCartItem">
-                        <a href="#">
-                            <img src="~/img/food_menu/3.jpg" />
-                            <div>
-                                <p>油醋燻鮭魚</p>
-                                <span>$270</span>
-                            </div>
-                        </a>
-                        <span class="ItemQuantity">1份</span>
-                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
-                    </div>
+            <!--購物車的div-->
+            <div class="shopCar">
 
-                    <!--購物內容 2-->
-                    <div class="shopCartItem">
-                        <a href="#">
-                            <img src="~/img/food_menu/single_food_1.png" />
-                            <div>
-                                <p>天使巧克力蛋糕</p>
-                                <span>$120</span>
-                            </div>
-                        </a>
-                        <span class="ItemQuantity">1份</span>
-                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
-                    </div>
-
-                    <!--購物內容 3-->
-                    <div class="shopCartItem">
-                        <a href="#">
-                            <img src="~/img/food_menu/single_food_1.png" />
-                            <div>
-                                <p>天使巧克力蛋糕</p>
-                                <span>$120</span>
-                            </div>
-                        </a>
-                        <span class="ItemQuantity">1份</span>
-                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
-                    </div>
-                </div>
-
-
-                <div class="shopCartFooter row">
-                    <p>合計：$510</p>
-                    <a href="checkOut.html">立即結帳</a>
-                </div>
-            </div>
-
-        </div>
-        <!--end 購物車-->
-
-        <!--start 購買清單 content -->
-        <div class="container">
-            <div class="OrderDetail">
                 <h1>購買清單</h1>
                 <!--Tabs_list-->
                 <div class="tab">
@@ -172,11 +216,16 @@
 
 
 
-            </div>
-        </div>
-       
-        <!--end 購買清單 content-->
 
+
+            </div><!--購物車的div_end-->
+
+
+
+        </div>
+        <!--end 購物車-->
+        <!--start content -->
+        <!--end content-->
         <!--必要! 為了把footer置底用-->
         <div class="push"></div>
     </div>
@@ -229,7 +278,7 @@
         //手風琴Lab使用
         var acc = document.getElementsByClassName("accordion");
         var i;
-
+     
         for (i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function () {
                 this.classList.toggle("active");
@@ -241,7 +290,7 @@
                 }
             });
         }
-
+        
         //分頁Lab使用
         function openLab(evt, labTabs) {
             var i, tabcontent, tablinks;
@@ -270,9 +319,6 @@
         })
         //自動打開 第一頁分頁的Lab
         document.getElementById("defaultOpen").click();
-        
-        
-
     </script>
 
 

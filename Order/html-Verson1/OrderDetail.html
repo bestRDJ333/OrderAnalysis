@@ -17,10 +17,8 @@
 
     <link rel="stylesheet" href="~/css/master.css">
 
-    <!--     此網站的css-->  
-    <link rel="stylesheet" href="~/css/index.css"  />
-
-
+    <!--     此網站的css-->
+    <link rel="stylesheet" href="~/css/OrderDetail.css">
 </head>
 
 <body>
@@ -43,7 +41,7 @@
             </button>
         </div>
     </div>
-
+    
     <!--行動裝置的nav-->
     <div class="bottomMenu">
         <div class="row">
@@ -112,44 +110,73 @@
 
         </div>
         <!--end 購物車-->
-        <!--START SCROLL TOP BUTTON -->
-        <a class="scrollToTop" href="#">
-            <i class="fas fa-chevron-up"></i>
-        </a>
-        <!-- END SCROLL TOP BUTTON -->
+
+        <!--start 購買清單 content -->
+        <div class="container">
+            <div class="OrderDetail">
+                <h1>購買清單</h1>
+                <!--Tabs_list-->
+                <div class="tab">
+                    <button class="tablinks" onclick="openLab(event, 'fristlist')" id="defaultOpen">最新購買</button>
+                    <button class="tablinks" onclick="openLab(event, 'twolist')">歷史記錄</button>
+                    <button class="tablinks" onclick="openLab(event, 'threelist')">我是隨意</button>
+                </div>
+                <!--Tabs_第一分頁內容-->
+                <div id="fristlist" class="tabcontent">
+                    <!--Tabs_第一分頁_list.1-->
+                    <button class="accordion">商品 111111</button>
+                    <div class="panel">
+                        <div class="smallimg">
+                            <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                        </div>
+                        <p>HAHAHAHAHAH.</p>
+                    </div>
+                    <!--Tabs_第一分頁_list.2-->
+                    <button class="accordion">商品 2</button>
+                    <div class="panel">
+                        <div class="smallimg">
+                            <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <!--Tabs_第一分頁_list.3-->
+                    <button class="accordion">商品 3</button>
+                    <div class="panel">
+                        <div class="smallimg">
+                            <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                        </div>
+                        <a href=""></a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+                <!--Tabs_第二分頁內容-->
+                <div id="twolist" class="tabcontent">
+                    <button class="accordion">商品 1233</button>
+                    <div class="panel">
+                        <div class="smallimg">
+                            <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+                <!--Tabs_第三分頁內容-->
+                <div id="threelist" class="tabcontent">
+                    <button class="accordion">商品 3</button>
+                    <div class="panel">
+                        <div class="smallimg">
+                            <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
        
-        <!--start 首頁 content -->
-        <!-- start banner Area -->
-        <section class="banner-area" id="home">
-            <div class="container-fluid">
-                <img src="~/img/index-img/header-bg.jpg" />
-            </div>
+        <!--end 購買清單 content-->
 
-            <div class="container">
-                
-            </div>
-
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-        </section>
-        
-        <!-- End banner Area -->
-
-
-        <!--end 首頁content-->
         <!--必要! 為了把footer置底用-->
         <div class="push"></div>
     </div>
@@ -193,36 +220,58 @@
     <script src="~/js/jquery.nice-select.min.js"></script>
     <!-- custom js -->
     <script src="~/js/custom.js"></script>
+
+    <!--此網站的js-->
     <script src="~/js/masterPage.js"></script>
 
 
-    <!--此網站的js-->
-
-
-
     <script>
-        /* ----------------------------------------------------------- */
-        /*  SCROLL TOP BUTTON
-        /* ----------------------------------------------------------- */
+        //手風琴Lab使用
+        var acc = document.getElementsByClassName("accordion");
+        var i;
 
-        //Check to see if the window is top if not then display button
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
 
-        jQuery(window).scroll(function () {
-            if (jQuery(this).scrollTop() > 300) {
-                jQuery('.scrollToTop').fadeIn();
-            } else {
-                jQuery('.scrollToTop').fadeOut();
+        //分頁Lab使用
+        function openLab(evt, labTabs) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
             }
-        });
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(labTabs).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
 
-        //Click event to scroll to top
+        $(document).ready(function () {
+            $('.accordion').on('click', function () {
+                //添加下面這行是因為Lab點擊時顏色會改變,但是
+                //Lab要自動打開,所以網頁在load時顏色會閃一下
+                //所以移除一開始的顏色功能
+                $('.accordion').removeClass('active');
+            })
+            //自動打開 手風琴Lab
+            $('.accordion').click();
 
-        jQuery('.scrollToTop').click(function () {
-            jQuery('html, body').animate({ scrollTop: 0 }, 800);
-            return false;
-        });
-
-
+        })
+        //自動打開 第一頁分頁的Lab
+        document.getElementById("defaultOpen").click();
+        
+        
 
     </script>
 

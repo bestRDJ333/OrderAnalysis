@@ -1,0 +1,85 @@
+﻿
+/*.container-fluid {
+    padding-left: 25%;
+    padding-right: 25%;
+}*/
+
+/*start 手風琴使用*/
+.OrderDetail {
+    position: relative;
+    top: 100px;
+}
+
+.accordion {
+    background-color: #b5d5ea;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 25px;
+    transition: 0.4s;
+}
+
+    .active, .accordion:hover {
+        background-color: #f0c9cd;
+    }
+
+.panel {
+    width: 100%;
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+
+/*--------------楚河漢界-----------------*/
+
+
+/*Tabs的CSS*/
+/*Style the tab 標籤的樣式*/
+.tab {
+    overflow: hidden;
+    border: 1px solid #fa9ead;
+    background-color: #fa9ead;
+}
+
+    /* Style the buttons inside the tab 裡面bnt樣式*/
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+        /* Change background color of buttons on hover 懸停時bnt底色*/
+        .tab button:hover {
+            background-color: #f86e84;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #f63d5b;
+        }
+
+/* Style the tab content 標簽內容樣式*/
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}
+
+
+/*---------------------------------------*/
+/*Tabs_手風琴內圖片左 文字右*/
+.smallimg {
+    float: left;
+    margin: 15px;
+    /*margin參數使用參考: 20px 40px 60px 80px（上20px；右40px；下60px；左80px。）*/
+}

@@ -26,6 +26,7 @@ h1, h2, h3, h4, h5, h6 {
         background-color: #fba004;
     }
 
+/*==============直立式輪播 ======================*/
 .hero-area, .hero-post-slides {
     top: 2.5rem;
     background-color: white;
@@ -40,6 +41,58 @@ h1, h2, h3, h4, h5, h6 {
 .single-hero-post .hero-slides-content .post-title h4 {
     font-weight: 400;
 }
+
+    .single-hero-post .hero-slides-content .post-title h4:hover {
+        color: #FEE380;
+    }
+
+/*=================關於我們=========================*/
+#aboutUs{
+
+}
+
+    #aboutUs .aboutUs-content {
+        padding-top: 5.5rem;
+        padding-bottom: 1rem;
+    }
+
+    #aboutUs .aboutUs-content  .primary-heading {
+
+   font-weight:500;
+    }
+    .aboutUS-text p {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+
+/*=================圖片輪播========================*/
+.blog-content-area{
+    background-color:white;
+    padding-top:2rem;
+    padding-bottom:2rem;
+}
+
+.featured-post-area .carousel-indicators li .post-title h5:hover {
+    color: #e29003;
+}
+
+.featured-post-area .carousel-indicators {
+    background-color: #F6F5F1;
+}
+
+.featured-post-area .carousel-inner .carousel-item .featured-post-content .post-title h2:hover {
+    color: #FEE380;
+}
+/*===============也許你會喜歡======================*/
+.maybe-youlike {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+}
+
+.section-heading span {
+    color: #FF6426;
+}
+
 
 
 /*--- RWD width>1025 ----*/
@@ -63,7 +116,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* width<375*/
 @media (max-width:376px) {
-   
+    #scrollUp {
+        bottom: 8rem;
+      
+    }
 }
 
  

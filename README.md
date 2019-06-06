@@ -10,7 +10,7 @@ html-Verson資料夾是「HTML的前端畫面」
 
 [Bug部份]
 * index.html 首頁
-	- scollTop在chrom 的RWD 畫面停住會消失，畫面滾動會閃爍出現。但在 fireFox都會正常顯示
+	- scollTop在chrom 的RWD 畫面停住會消失，畫面滾動會閃爍出現。但在 fireFox 正常顯示
 	
 
 - DDDDDDDDDDebug

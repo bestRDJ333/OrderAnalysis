@@ -30,6 +30,6 @@ html-Verson資料夾是「HTML的前端畫面」
 [未完成]
 * 後台-圖表
 * 後台-顧客滿意度
-* 前台-masterPage：navMenu增加 隱藏pannel[會員-訂單明細、基本資料]
+* 前台-masterPage：navMenu增加 隱藏pannel[會員-訂單明細、基本資料、登出]
 
 

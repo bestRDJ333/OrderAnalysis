@@ -13,6 +13,8 @@ html-Verson資料夾是「HTML的前端畫面」
 [Bug部份]
 * index.html 首頁
 	- scollTop在chrom 的RWD 畫面停住會消失，畫面滾動會閃爍出現。但在 fireFox 正常顯示
+* checkOut.cshtml 結帳
+	- 按下[送出訂單]後，alert會閃退
 	
 
 - DDDDDDDDDDebug
@@ -26,5 +28,7 @@ html-Verson資料夾是「HTML的前端畫面」
 
 [未完成]
 * 後台-圖表
-* 後台-產品上下架
+* 後台-顧客滿意度
+* 前台-masterPage：navMenu增加 隱藏pannel[會員-訂單明細、基本資料]
+
 

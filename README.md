@@ -16,6 +16,7 @@ html-Verson資料夾是「HTML的前端畫面」
 * checkOut.cshtml 結帳
 	- 按下[送出訂單]後，alert會閃退
 	
+	
 
 - DDDDDDDDDDebug
 	- 會員判定

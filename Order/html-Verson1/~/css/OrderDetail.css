@@ -136,10 +136,8 @@ h3 {
         }
 
 
-/*==============楚河漢界=========================*/
 
-
-/*Tabs的CSS*/
+/*==================Tabs的CSS====================*/
 /*Style the tab 標籤的樣式*/
 
 /*-- tab標題列--*/
@@ -281,9 +279,14 @@ h3 {
     .order-history .table thead th, .table td, .table th {
         border-style: none;
     }
+    .order-history .table thead, .table th, .table td {
+        font-size: 0.8rem;
+        padding: .3rem;
+    }
 
-    .message-content{
-        padding:0 1rem;
+
+    .message-content {
+        padding: 0 1rem;
     }
 
     /*--- 手風琴 ---*/

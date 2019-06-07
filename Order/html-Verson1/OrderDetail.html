@@ -13,7 +13,7 @@
 
     <!--    iconfont-->
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
 
     <link rel="stylesheet" href="~/css/master.css">
 
@@ -127,40 +127,39 @@
                 <!--Tabs_最新購買 內容-->
                 <div class="row">
                     <div id="fristlist" class="tabcontent">
-                        <!--Tabs_第一分頁_list.1-->
-                        <button class="accordion">商品 111111</button>
-                        <div class="panel">
-                            <div class="smallimg">
-                                <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                        <!--start accordion-->
+                        <div class="container">                            
+
+                            <div class="accordion">
+                                <div class="accordion-item">
+                                    <a>墨西哥菲力牛肉披薩</a>
+                                    <div class="content">
+                                        <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                                        <p>採窯烤披薩做法餅皮酥脆可口讓人愛不釋手。</p>
+                                        <p>數量1份 &nbsp;&nbsp;&nbsp;$<span>358</span>元</p>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <a>墨西哥菲力牛肉披薩</a>
+                                    <div class="content">
+                                        <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                                        <p>採窯烤披薩做法餅皮酥脆可口讓人愛不釋手。</p>
+                                        <p>數量1份 &nbsp;&nbsp;&nbsp;$<span>358</span>元</p>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <a>墨西哥菲力牛肉披薩</a>
+                                    <div class="content">
+                                        <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                                        <p>採窯烤披薩做法餅皮酥脆可口讓人愛不釋手。</p>
+                                        <p>數量1份 &nbsp;&nbsp;&nbsp;$<span>358</span>元</p>
+                                    </div>
+                                </div>
                             </div>
-                            <p>HAHAHAHAHAH.</p>
+
                         </div>
-                        <!--Tabs_第一分頁_list.2-->
-                        <button class="accordion">商品 2</button>
-                        <div class="panel">
-                            <div class="smallimg">
-                                <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                        <!--Tabs_第一分頁_list.3-->
-                        <button class="accordion">商品 3</button>
-                        <div class="panel">
-                            <div class="smallimg">
-                                <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
-                            </div>
-                            <a href=""></a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                        <!--Tabs_第一分頁_list.4-->
-                        <button class="accordion">商品 4</button>
-                        <div class="panel">
-                            <div class="smallimg">
-                                <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
-                            </div>
-                            <a href=""></a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
+                        <!--end accordion-->
+                                               
                     </div>
                 </div>
                 
@@ -275,23 +274,21 @@
 
 
     <script>
-        //手風琴Lab使用
-        var acc = document.getElementsByClassName("accordion");
-        var i;
 
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
+        //測試用手風琴======================================
+        const items = document.querySelectorAll(".accordion a");
+
+        
+        items.forEach(item => item.addEventListener('click', toggleAccordion));
+
+        function toggleAccordion() {
+            this.classList.toggle('active');
+            this.nextElementSibling.classList.toggle('active'); 
         }
 
-        //分頁Lab使用
+
+
+        //分頁Lab使用==============================================
         function openLab(evt, labTabs) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
@@ -307,14 +304,17 @@
         }
 
         $(document).ready(function () {
-            $('.accordion').on('click', function () {
-                //添加下面這行是因為Lab點擊時顏色會改變,但是
-                //Lab要自動打開,所以網頁在load時顏色會閃一下
-                //所以移除一開始的顏色功能
-                $('.accordion').removeClass('active');
-            })
-            //自動打開 手風琴Lab
-            $('.accordion').click();
+            //$('.accordion').on('click', function () {
+            //    //添加下面這行是因為Lab點擊時顏色會改變,但是
+            //    //Lab要自動打開,所以網頁在load時顏色會閃一下
+            //    //所以移除一開始的顏色功能
+            //    $('.accordion').removeClass('active');
+            //})
+            ////自動打開 手風琴Lab
+            //$('.accordion').click();
+
+
+
 
         })
         //自動打開 第一頁分頁的Lab

@@ -29,34 +29,114 @@
             bottom: 25px;
         }
 
-
-
-.accordion {
-    background-color: #b5d5ea;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 25px;
-    transition: 0.4s;
+/*=========== 最新購買 =======================*/
+h3 {
+    font-size: 1.75rem;
+    color: #373d51;
+    padding: 1.3rem;
+    margin: 0;
 }
 
-    .active, .accordion:hover {
-        background-color: #f0c9cd;
+.accordion a {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+    color: #7288a2;
+    font-size: 1.3rem;
+    font-weight: 400;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+    .accordion a:hover,
+    .accordion a:hover::after {
+        cursor: pointer;
+        color: #03b5d2;
     }
 
-.panel {
-    width: 100%;
-    padding: 0 18px;
-    display: none;
-    background-color: white;
-    overflow: hidden;
-}
+        .accordion a:hover::after {
+            border: 1px solid #03b5d2;
+        }
 
-/*--------------楚河漢界-----------------*/
+    .accordion a.active {
+        color: #03b5d2;
+        border-bottom: 1px solid #03b5d2;
+    }
+
+
+
+    .accordion a::after {       
+        content: '\02795'; /* Unicode character for "plus" sign (+) */
+        position: absolute;
+        float: right;
+        right: 1rem;
+        font-size: 0.8rem;
+        color: #7288a2;
+        padding: 5px;
+        width: 30px;
+        height: 30px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        border: 1px solid #7288a2;
+        text-align: center;
+    }
+
+    .accordion a.active::after {
+       
+        content: "\2796"; /* Unicode character for "minus" sign (-) */
+        color: #03b5d2;
+        border: 1px solid #03b5d2;
+    }
+
+   
+
+    .accordion .content {
+        opacity: 0;
+        padding: 0 1rem;
+        max-height: 0;
+        border-bottom: 1px solid #e5e5e5;
+        overflow: hidden;
+        clear: both;
+        -webkit-transition: all 0.2s ease 0.15s;
+        -o-transition: all 0.2s ease 0.15s;
+        transition: all 0.2s ease 0.15s;
+    }
+        /*手風琴-圖片靠左*/
+        .accordion .content img {
+            float: left;
+            margin-right: 5rem;
+            width:150px;
+        }
+
+        /*手風琴-文字*/
+        .accordion .content p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        .accordion .content p span {
+            color: #FF4D4D;
+        }
+
+        .accordion .content.active {
+            opacity: 1;
+            padding: 1rem;
+            max-height: 100%;
+            -webkit-transition: all 0.35s ease 0.15s;
+            -o-transition: all 0.35s ease 0.15s;
+            transition: all 0.35s ease 0.15s;
+        }
+
+
+/*==============楚河漢界=========================*/
 
 
 /*Tabs的CSS*/
@@ -84,7 +164,7 @@
         cursor: pointer;
         padding: 14px 16px;
         transition: 0.3s;
-        font-size: 17px;
+        font-size: 1.5rems;
         width: 33.33%;
         color:white;
     }
@@ -114,13 +194,6 @@
 }
 
 
-/*---------------------------------------*/
-/*Tabs_手風琴內圖片左 文字右*/
-.smallimg {
-    float: left;
-    margin: 15px;
-    /*margin參數使用參考: 20px 40px 60px 80px（上20px；右40px；下60px；左80px。）*/
-}
 
 /*============ 歷史紀錄 ==================*/
 .order-history {
@@ -182,6 +255,12 @@
         padding-left: 2rem;
         padding-right: 2rem;
     }
+
+    /*--- 手風琴 ---*/
+    .accordion .content img {        
+        margin-right: 1rem;
+        width: 150px;
+    }
 }
 
 @media (max-width:376px) {
@@ -198,12 +277,18 @@
      
     }
 
-    /*歷史記錄*/
+    /*--- 歷史記錄--- */
     .order-history .table thead th, .table td, .table th {
         border-style: none;
     }
 
     .message-content{
         padding:0 1rem;
+    }
+
+    /*--- 手風琴 ---*/
+    .accordion .content img {
+        width: 250px;
+        margin-bottom: 1rem;
     }
 }

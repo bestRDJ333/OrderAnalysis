@@ -111,71 +111,120 @@
         </div>
         <!--end 購物車-->
 
-        <!--start 購買清單 content -->
+        <!--start 訂單細節 content -->
         <div class="container">
             <div class="OrderDetail">
-                <h1>購買清單</h1>
+                <h1>訂單細節</h1>
                 <!--Tabs_list-->
-                <div class="tab">
-                    <button class="tablinks" onclick="openLab(event, 'fristlist')" id="defaultOpen">最新購買</button>
-                    <button class="tablinks" onclick="openLab(event, 'twolist')">歷史記錄</button>
-                    <button class="tablinks" onclick="openLab(event, 'threelist')">我是隨意</button>
-                </div>
-                <!--Tabs_第一分頁內容-->
-                <div id="fristlist" class="tabcontent">
-                    <!--Tabs_第一分頁_list.1-->
-                    <button class="accordion">商品 111111</button>
-                    <div class="panel">
-                        <div class="smallimg">
-                            <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
-                        </div>
-                        <p>HAHAHAHAHAH.</p>
-                    </div>
-                    <!--Tabs_第一分頁_list.2-->
-                    <button class="accordion">商品 2</button>
-                    <div class="panel">
-                        <div class="smallimg">
-                            <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                    <!--Tabs_第一分頁_list.3-->
-                    <button class="accordion">商品 3</button>
-                    <div class="panel">
-                        <div class="smallimg">
-                            <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
-                        </div>
-                        <a href=""></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="table-list row">
+                    <div class="tab">
+                        <button class="tablinks" onclick="openLab(event, 'fristlist')" id="defaultOpen">最新購買</button>
+                        <button class="tablinks" onclick="openLab(event, 'twolist')">歷史記錄</button>
+                        <button class="tablinks" onclick="openLab(event, 'threelist')">客服回應</button>
                     </div>
                 </div>
-                <!--Tabs_第二分頁內容-->
-                <div id="twolist" class="tabcontent">
-                    <button class="accordion">商品 1233</button>
-                    <div class="panel">
-                        <div class="smallimg">
-                            <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                
+                <!--Tabs_最新購買 內容-->
+                <div class="row">
+                    <div id="fristlist" class="tabcontent">
+                        <!--Tabs_第一分頁_list.1-->
+                        <button class="accordion">商品 111111</button>
+                        <div class="panel">
+                            <div class="smallimg">
+                                <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                            </div>
+                            <p>HAHAHAHAHAH.</p>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <!--Tabs_第一分頁_list.2-->
+                        <button class="accordion">商品 2</button>
+                        <div class="panel">
+                            <div class="smallimg">
+                                <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                        <!--Tabs_第一分頁_list.3-->
+                        <button class="accordion">商品 3</button>
+                        <div class="panel">
+                            <div class="smallimg">
+                                <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                            </div>
+                            <a href=""></a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                        <!--Tabs_第一分頁_list.4-->
+                        <button class="accordion">商品 4</button>
+                        <div class="panel">
+                            <div class="smallimg">
+                                <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                            </div>
+                            <a href=""></a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
                     </div>
                 </div>
-                <!--Tabs_第三分頁內容-->
-                <div id="threelist" class="tabcontent">
-                    <button class="accordion">商品 3</button>
-                    <div class="panel">
-                        <div class="smallimg">
-                            <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
+                
+                <!--Tabs_歷史紀錄 內容-->
+                <div class="row">
+                    <div id="twolist" class="tabcontent">
+                        <div class="order-history">
+                            <table class="table table-hover table-borderless pre-scrollable">
+                                <thead>
+                                    <tr>
+                                        <th style="font-weight: normal">訂購日期</th>
+                                        <th style="font-weight: normal">訂單編號</th>
+                                        <th style="font-weight: normal">商品名稱</th>
+                                        <th style="font-weight: normal">狀態</th>                                        
+                                        <th>總金額</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2019-01-04</td>
+                                        <td>201901041642M0012</td>
+                                        <td>油醋燻鮭魚</td>
+                                        <td>已取貨</td>                                        
+                                        <td class="td-dollar">$&nbsp;725</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2019-01-04</td>
+                                        <td>201901041642M0012</td>
+                                        <td>油醋燻鮭魚</td>
+                                        <td>已取貨</td>
+                                        <td class="td-dollar">$&nbsp;500</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                 </div>
+               
+                <!--Tabs_客戶回應 內容-->
+                <div class="row">
+                    <div id="threelist" class="customer-sevice tabcontent">
+                        <div class="customer-sevice-panel">
+                            <form>
+                                <div class="message-content row">
+                                    <input  class="common-input mt-10" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" required="" type="text">
+                                    <input class="common-input mt-10" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'"  required="" type="email">
+                                    <textarea class="common-input mt-10" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+                                </div>
+                                <div class="send-MsgBtn row">
+                                    <button class="btn btn-success">送出</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+               
 
 
 
             </div>
         </div>
        
-        <!--end 購買清單 content-->
+        <!--end 訂單細節 content-->
 
         <!--必要! 為了把footer置底用-->
         <div class="push"></div>

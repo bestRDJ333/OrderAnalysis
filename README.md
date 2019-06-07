@@ -7,6 +7,7 @@ html-Verson資料夾是「HTML的前端畫面」
 * product.html       餐品分類、餐品明細
 * checkOut.html      結帳
 * index.html	     首頁
+* OrderDetail	     訂單明細
 
 
 [Bug部份]

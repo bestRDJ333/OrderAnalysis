@@ -229,7 +229,11 @@
     <Content Include="img\1.jpg" />
     <Content Include="img\2.jpg" />
     <Content Include="img\3.jpg" />
+    <Content Include="img\4.jpg" />
     <Content Include="img\44-1.jpg" />
+    <Content Include="img\5.jpg" />
+    <Content Include="img\6.jpg" />
+    <Content Include="img\7.jpg" />
     <Content Include="img\Appectizer\165x163\Appetizer_01.jpg" />
     <Content Include="img\Appectizer\165x163\Appetizer_02.jpg" />
     <Content Include="img\Appectizer\165x163\Appetizer_06.jpg" />

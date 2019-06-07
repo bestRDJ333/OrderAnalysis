@@ -276,6 +276,13 @@ h3 {
     }
 
     /*--- 歷史記錄--- */
+    
+    /*不知為啥，無效----table的螢光棒*/
+    .order-history .table-hover tbody tr:hover td {
+        cursor: pointer;
+        background-color: #C3FFC3;
+    }
+
     .order-history .table thead th, .table td, .table th {
         border-style: none;
     }

@@ -1,0 +1,574 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <!--   RWD-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--    線上bootstrap 4.0-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!--    iconfont-->
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="~/css/master.css">
+
+    <!--start  此頁增加的css，其他頁暫不用 -->
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="~/css/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/classy-nav.css" />
+    <!--sample檔的css-->
+    <link rel="stylesheet" href="~/css/OrgIndex.css" />
+    <!--修改sample檔後的css-->
+    <link rel="stylesheet" href="~/css/index.css" />
+    <!--end  此頁增加的css，其他頁暫不用 -->
+
+</head>
+
+<body>
+    <!--start  navbar-->
+    <!--網頁版的nav-->
+    <div class="topMenu">
+        <div id="navLogo">
+            <a href="masterPage.html"><img src="~/img/logo.png" alt=""></a>
+        </div>
+        <p id="navTitleFont">Restaurant</p>
+        <div class="navlinkGroup">
+            <!--<a class="a-trigger" href="" id="navTitle">&nbsp;</a>-->
+            <a class="navShopCart a-trigger" href="#"><i class="fas fa-shopping-cart"></i>[0]</a>
+            <a class="a-trigger" href="#"><i class="fas fa-user"></i>會員</a>
+            <a class="a-trigger" href="productClass.html"><i class="fas fa-utensils"></i>菜單</a>
+            <a class="a-trigger" href="#aboutUs"><i class="fas fa-store"></i>簡介</a>
+            <button id="rwdMenu" onclick="toggleClass()">
+                <span>menu</span>
+            </button>
+        </div>
+    </div>
+
+    <!--行動裝置的nav-->
+    <div class="bottomMenu">
+        <div class="row">
+            <a class="a-trigger col-sm-3" href="#aboutUs"><i class="fas fa-store"></i>簡介</a>
+            <a class="a-trigger col-sm-3" href="productClass.html"><i class="fas fa-utensils"></i>菜單</a>
+            <a class="a-trigger col-sm-3" href="#"><i class="fas fa-user"></i>會員</a>
+            <a class="navShopCart a-trigger col-sm-3" href="#"><i class="fas fa-shopping-cart"></i>[0]</a>
+        </div>
+    </div>
+    <!--end  navbar-->
+
+    <div class="wrapper">
+        <!-- **************  測試用btn *************-->
+        <button id="testbtn1" style="display:none; position:fixed; top: 100px; right: 300px; z-index:9999999;">測試取得scrool的offset</button>
+        <!-- ******************************      -->
+        <!--start 購物車-->
+        <div class="container-fluid">
+            <div class="shopCart">
+                <p></p>
+                <div id="shopCartContent">
+                    <p class="noItem">購物車內目前沒有商品</p>
+                    <!--購物內容 1-->
+                    <div class="shopCartItem">
+                        <a href="#">
+                            <img src="~/img/food_menu/3.jpg" />
+                            <div>
+                                <p>油醋燻鮭魚</p>
+                                <span>$270</span>
+                            </div>
+                        </a>
+                        <span class="ItemQuantity">1份</span>
+                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
+                    </div>
+
+                    <!--購物內容 2-->
+                    <div class="shopCartItem">
+                        <a href="#">
+                            <img src="~/img/food_menu/single_food_1.png" />
+                            <div>
+                                <p>天使巧克力蛋糕</p>
+                                <span>$120</span>
+                            </div>
+                        </a>
+                        <span class="ItemQuantity">1份</span>
+                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
+                    </div>
+
+                    <!--購物內容 3-->
+                    <div class="shopCartItem">
+                        <a href="#">
+                            <img src="~/img/food_menu/single_food_1.png" />
+                            <div>
+                                <p>天使巧克力蛋糕</p>
+                                <span>$120</span>
+                            </div>
+                        </a>
+                        <span class="ItemQuantity">1份</span>
+                        <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
+                    </div>
+                </div>
+
+
+                <div class="shopCartFooter row">
+                    <p>合計：$510</p>
+                    <a href="checkOut.html">立即結帳</a>
+                </div>
+            </div>
+
+        </div>
+        <!--end 購物車-->
+        <!--start 首頁 content -->
+        <!-- ##### 頁面loading時的動畫 ##### -->
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="circle-preloader">
+                <img style="width:148px;" src="~/img/core-img/logo.png" alt="">
+                <div class="foode-preloader">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ##### Hero Area Start 直式長形輪播 ##### -->
+        <section class="hero-area">
+            <div class="hero-post-slides owl-carousel">
+
+                <!-- Single Hero Post -->
+                <div class="single-hero-post">
+                    <!-- Post Image -->
+                    <div class="slide-img bg-img" style="background-image: url(~/img/blog-img/2.jpg);"></div>
+                    <!-- Post Content -->
+                    <div class="hero-slides-content">
+                        <p></p>
+                        <a href="#" class="post-title">
+
+                            <h4>清甜略帶微酸的口感</h4>
+                            <h4>讓人想一口接著一口</h4>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Hero Post -->
+                <div class="single-hero-post">
+                    <!-- Post Image -->
+                    <div class="slide-img bg-img" style="background-image: url(~/img/blog-img/3-1.jpg);"></div>
+                    <!-- Post Content -->
+                    <div class="hero-slides-content">
+                        <p></p>
+                        <a href="#" class="post-title">
+                            <div>
+                                <h4>季節水果與海鮮的碰撞</h4>
+                                <h4>絕妙搭配出清甜滋味</h4>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Hero Post -->
+                <div class="single-hero-post">
+                    <!-- Post Image -->
+                    <div class="slide-img bg-img" style="background-image: url(~/img/blog-img/4.jpg);"></div>
+                    <!-- Post Content -->
+                    <div class="hero-slides-content">
+                        <a href="#" class="post-title">
+
+                            <h4>著重麵糰發酵的天然風味</h4>
+                            <h4>自然發酵，帶有獨特香氣</h4>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Hero Post -->
+                <div class="single-hero-post">
+                    <!-- Post Image -->
+                    <div class="slide-img bg-img" style="background-image: url(~/img/blog-img/5.jpg);"></div>
+                    <!-- Post Content -->
+                    <div class="hero-slides-content">
+                        <p></p>
+                        <a href="#" class="post-title">
+                            <h4>菜色豐富且份量足夠</h4>
+                            <h4>非常適合家庭式聚餐</h4>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Hero Post -->
+                <div class="single-hero-post">
+                    <!-- Post Image -->
+                    <div class="slide-img bg-img" style="background-image: url(~/img/blog-img/6.jpg);"></div>
+                    <!-- Post Content -->
+                    <div class="hero-slides-content">
+                        <p></p>
+                        <a href="#" class="post-title">
+                            <h4>溫柔和順的口感</h4>
+                            <h4>帶領味蕾感受最上乘享受</h4>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Hero Post -->
+                <div class="single-hero-post">
+                    <!-- Post Image -->
+                    <div class="slide-img bg-img" style="background-image: url(~/img/blog-img/2.jpg);"></div>
+                    <!-- Post Content -->
+                    <div class="hero-slides-content">
+                        <a href="#" class="post-title">
+                            <p></p>
+                            <h4>清甜略帶微酸的口感</h4>
+                            <h4>讓人想一口接著一口</h4>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Hero Post -->
+                <div class="single-hero-post">
+                    <!-- Post Image -->
+                    <div class="slide-img bg-img" style="background-image: url(~/img/blog-img/3-1.jpg);"></div>
+                    <!-- Post Content -->
+                    <div class="hero-slides-content">
+                        <p></p>
+                        <a href="#" class="post-title">
+                            <h4>季節水果與海鮮的碰撞</h4>
+                            <h4>絕妙搭配出清甜滋味</h4>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Hero Post -->
+                <div class="single-hero-post">
+                    <!-- Post Image -->
+                    <div class="slide-img bg-img" style="background-image: url(~/img/blog-img/4.jpg);"></div>
+                    <!-- Post Content -->
+                    <div class="hero-slides-content">
+                        <p></p>
+                        <a href="#" class="post-title">
+                            <h4>著重麵糰發酵的天然風味</h4>
+                            <h4>自然發酵，帶有獨特香氣</h4>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Hero Post -->
+                <div class="single-hero-post">
+                    <!-- Post Image -->
+                    <div class="slide-img bg-img" style="background-image: url(~/img/blog-img/5.jpg);"></div>
+                    <!-- Post Content -->
+                    <div class="hero-slides-content">
+                        <p></p>
+                        <a href="#" class="post-title">
+                            <h4>菜色豐富且份量足夠</h4>
+                            <h4>非常適合家庭式聚餐</h4>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single Hero Post -->
+                <div class="single-hero-post">
+                    <!-- Post Image -->
+                    <div class="slide-img bg-img" style="background-image: url(~/img/blog-img/6.jpg);"></div>
+                    <!-- Post Content -->
+                    <div class="hero-slides-content">
+                        <p></p>
+                        <a href="#" class="post-title">
+                            <h4>溫柔和順的口感</h4>
+                            <h4>帶領味蕾感受最上乘享受</h4>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- ##### Hero Area End ##### -->
+        <br />
+        <br />
+        <!--##### start 簡介 #####-->
+        <section id="aboutUs" class="">
+            <div class="aboutUs-content container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="">
+                            <h1 class="primary-heading">關於我們</h1>
+                            <span class="seperator"><hr /></span>
+                        </div>
+                        <div class="aboutUS-text">
+                            <p>回歸自然質樸的初衷，進而成為開創頂級法式蔬食的先鋒</p>
+                            <p>不違逆自然，珍惜著上天賜與的食材並對其充滿感激</p>
+                            <p>堅信萬物生成的自然定律，瞭解當季食材才能嚐出鮮甜的滋味</p>
+
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-6">
+                        <img class="aboutUs-img" src="~/img/blog-img/door-1.jpg" class="img-responsive">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!--##### end 簡介 #####-->
+        <!-- ##### 圖片輪播 Blog Content Area Start ##### -->
+        <section class="blog-content-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Featured Post Area -->
+                    <div class="col-12">
+                        <div class="featured-post-area">
+                            <div id="featured-post-slides" class="carousel slide d-flex flex-wrap" data-ride="carousel">
+
+                                <div class="carousel-inner">
+
+                                    <div class="carousel-item active bg-img" style="background-image: url(~/img/blog-img/b1.jpg)">
+                                        <!-- Featured Post Content -->
+                                        <div class="featured-post-content">
+                                            <p>MAY 8, 2019 / 新品上市</p>
+                                            <a href="#" class="post-title">
+                                                <h2>法式海鮮水果塔</h2>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item bg-img" style="background-image: url(~/img/blog-img/b2.jpg)">
+                                        <!-- Featured Post Content -->
+                                        <div class="featured-post-content">
+                                            <p>Jun 8, 2019 / 季節限定</p>
+                                            <a href="#" class="post-title">
+                                                <h2>蘆筍炒蝦球</h2>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item bg-img" style="background-image: url(~/img/blog-img/2.jpg)">
+                                        <!-- Featured Post Content -->
+                                        <div class="featured-post-content">
+                                            <p>2019年 / 熱門餐點</p>
+                                            <a href="#" class="post-title">
+                                                <h2>夏多內小滿(花蜜醋)</h2>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item bg-img" style="background-image: url(~/img/blog-img/b4.jpg)">
+                                        <!-- Featured Post Content -->
+                                        <div class="featured-post-content">
+                                            <p>2019年 / 熱門餐點</p>
+                                            <a href="#" class="post-title">
+                                                <h2>Laduree</h2>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item bg-img" style="background-image: url(~/img/blog-img/5.jpg)">
+                                        <!-- Featured Post Content -->
+                                        <div class="featured-post-content">
+                                            <p>2019年 / 熱門餐點</p>
+                                            <a href="#" class="post-title">
+                                                <h2>家庭式排餐(可客製化)</h2>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <ol class="carousel-indicators">
+                                    <li data-target="#featured-post-slides" data-slide-to="0" class="active">
+                                        <h2>01</h2>
+                                        <a href="#" class="post-title">
+                                            <h5>季節水果與海鮮的碰撞，絕妙搭配出清甜滋味</h5>
+                                        </a>
+                                    </li>
+                                    <li data-target="#featured-post-slides" data-slide-to="1">
+                                        <h2>02</h2>
+                                        <a href="#" class="post-title">
+                                            <h5>蝦仁的Q彈與蘆荀的清甜，帶來消暑的涼意</h5>
+                                        </a>
+                                    </li>
+                                    <li data-target="#featured-post-slides" data-slide-to="2">
+                                        <h2>03</h2>
+                                        <a href="#" class="post-title">
+                                            <h5>漫步在海邊，喝著浪花般的氛圍與酸甜一起縈繞</h5>
+                                        </a>
+                                    </li>
+                                    <li data-target="#featured-post-slides" data-slide-to="3">
+                                        <h2>04</h2>
+                                        <a href="#" class="post-title">
+                                            <h5>舒服的奶油甜度與玫瑰香氣，帶來狂野感的溫柔</h5>
+                                        </a>
+                                    </li>
+                                    <li data-target="#featured-post-slides" data-slide-to="4">
+                                        <h2>05</h2>
+                                        <a href="#" class="post-title">
+                                            <h5>菜色豐富且份量足夠，非常適合家庭式聚餐</h5>
+                                        </a>
+                                    </li>
+                                </ol>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+        <!-- ##### 圖片輪播 Blog Content Area End ##### -->
+        <!-- ##### 也許你會喜歡 Instagram Area Start ##### -->
+        <div class="follow-us-instagram">
+            <div class="maybe-youlike container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-heading">
+                            <h2>也許你會喜歡</h2>
+                            <span>@Restaurant</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="instagram-slides owl-carousel">
+                            <!-- Single Instagram Slide -->
+                            <div class="single-instagram-slide">
+                                <img src="~/img/blog-img/insta1.jpg" alt="">
+                                <a href="#"><i class="far fa-heart"></i>Follow Me</a>
+                            </div>
+
+                            <!-- Single Instagram Slide -->
+                            <div class="single-instagram-slide">
+                                <img src="~/img/blog-img/insta2.jpg" alt="">
+                                <a href="#"><i class="far fa-heart"></i>Follow Me</a>
+                            </div>
+
+                            <!-- Single Instagram Slide -->
+                            <div class="single-instagram-slide">
+                                <img src="~/img/blog-img/insta3.jpg" alt="">
+                                <a href="#"><i class="far fa-heart"></i>Follow Me</a>
+                            </div>
+
+                            <!-- Single Instagram Slide -->
+                            <div class="single-instagram-slide">
+                                <img src="~/img/blog-img/insta4.jpg" alt="">
+                                <a href="#"><i class="far fa-heart"></i>Follow Me</a>
+                            </div>
+
+                            <!-- Single Instagram Slide -->
+                            <div class="single-instagram-slide">
+                                <img src="~/img/blog-img/insta5.jpg" alt="">
+                                <a href="#"><i class="far fa-heart"></i>Follow Me</a>
+                            </div>
+
+                            <!-- Single Instagram Slide -->
+                            <div class="single-instagram-slide">
+                                <img src="~/img/blog-img/insta6.jpg" alt="">
+                                <a href="#"><i class="far fa-heart"></i>Follow Me</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ##### Instagram Area End ##### -->
+        <!--end 首頁 content-->
+        <!--必要! 為了把footer置底用-->
+        <div class="push"></div>
+    </div>
+
+    <!--start Footer -->
+    <footer class="bs-footer">
+        <!-- Copyright -->
+        <div class="py-3">
+            © 2019 Copyright
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Big Champion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <!--社群icon連結-->
+            <ul class="social-network social-circle">
+                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" class="icoInstagram" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" class="icoYoutube" title="Youtube"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+        </div>
+
+
+    </footer>
+    <!--end Footer -->
+    <!-- ====== jquery plugins here============ -->
+    <!-- jquery -->
+    <script src="~/js/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="~/js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="~/js/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="~/js/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="~/js/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="~/js/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="~/js/slick.min.js"></script>
+    <script src="~/js/gijgo.min.js"></script>
+    <script src="~/js/jquery.nice-select.min.js"></script>
+    <!-- custom js -->
+    <script src="~/js/custom.js"></script>
+
+    <script src="~/js/masterPage.js"></script>
+
+    <!--start 此頁面新增加的js-->   
+    <!-- All Plugins js -->
+    <script src="~/js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="~/js/active.js"></script>
+
+    <script>
+
+        //測試用----取得scroll offset的數值---------
+        $(function () {
+            $("#testbtn1").click(function () {
+
+                alert($(document).scrollTop() + " px");
+            });
+        });
+
+
+
+        //  ---scroll切換動畫----------------
+        $(function () {
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > 330) {
+                    $(".primary-heading").addClass("animated fadeIn");
+                    $(".aboutUS-text").addClass("animated fadeIn");
+                    $('.aboutUs-img').addClass('animated fadeInRight')
+                } else {
+                    $(".primary-heading").removeClass("animated fadeIn");
+                    $(".aboutUS-text").removeClass("animated fadeIn");
+                    $(".aboutUs-img").removeClass("animated fadeInRight");
+                }
+
+                if ($(document).scrollTop() > 1000) {
+                    $('.section-heading').addClass("animated fadeInDown");
+                }
+                else {
+                    $('.section-heading').removeClass("animated fadeInDown");
+                }
+
+
+            });
+        });
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

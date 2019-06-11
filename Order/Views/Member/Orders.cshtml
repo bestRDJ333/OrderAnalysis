@@ -1,8 +1,9 @@
 ﻿
 @{
     ViewBag.Title = "Orders";
+    Random rnd = new Random();
 }
-
+@model List<Order.Models.Product>
 <!--     此網站的css-->
 <link rel="stylesheet" href="~/css/OrderDetail.css">
 <!--start 訂單明細 content -->
@@ -23,32 +24,19 @@
             <div id="fristlist" class="tabcontent">
                 <!--start accordion-->
                 <div class="container">
-
                     <div class="accordion">
-                        <div class="accordion-item">
-                            <a>墨西哥菲力牛肉披薩</a>
-                            <div class="content">
-                                <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
-                                <p>採窯烤披薩做法餅皮酥脆可口讓人愛不釋手。</p>
-                                <p>數量1份 &nbsp;&nbsp;&nbsp;$<span>358</span>元</p>
+                        @for (int i = 0; i < 3; i++)
+                        {
+                            int idx = rnd.Next(1, 20);
+                            <div class="accordion-item">
+                                <a>@Model[idx].ProductName</a>
+                                <div class="content">
+                                    <img src="@Model[idx].ProductPhotoS" />
+                                    <p>@Model[i].ProductIntroduction</p>
+                                    <p>數量1份 &nbsp;&nbsp;&nbsp;$<span>@Model[idx].UnitPrice</span>元</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <a>墨西哥菲力牛肉披薩</a>
-                            <div class="content">
-                                <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
-                                <p>採窯烤披薩做法餅皮酥脆可口讓人愛不釋手。</p>
-                                <p>數量1份 &nbsp;&nbsp;&nbsp;$<span>358</span>元</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <a>墨西哥菲力牛肉披薩</a>
-                            <div class="content">
-                                <img src="https://images2.gamme.com.tw/news2/2019/71/95/q5yanaCdlaKYqA-150x110.jpeg" />
-                                <p>採窯烤披薩做法餅皮酥脆可口讓人愛不釋手。</p>
-                                <p>數量1份 &nbsp;&nbsp;&nbsp;$<span>358</span>元</p>
-                            </div>
-                        </div>
+                        }
                     </div>
 
                 </div>

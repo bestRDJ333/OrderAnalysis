@@ -123,16 +123,9 @@ namespace Order.Controllers
 
         public ActionResult Orders()
         {
-            int mID = 4;
-            var Orders = db.Orders
-                .Where(q => q.MemberID == mID)
+            var products = db.Products
                 .ToList();
-            var OrderDetails = db.OrderDetails
-                .Where(q => q.MemberID == mID)
-                .ToList();
-            TempData["Orders"] = Orders;
-            TempData["OrderDetails"] = OrderDetails;
-            return View();
+            return View(products);
         }
     }
 }

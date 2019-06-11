@@ -30,7 +30,6 @@ html-Verson資料夾是「HTML的前端畫面」
 	- 會員ID傳遞實裝
 	- CheckOut頁面修改數量後ShopCart同步更新
 	- 結帳點選確認才送出post
-	- 主菜以外的產品卡與Modal無法對應
 
 
 [未完成]

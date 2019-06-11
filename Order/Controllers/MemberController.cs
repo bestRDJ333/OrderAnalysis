@@ -120,5 +120,19 @@ namespace Order.Controllers
             return Redirect("/Member/MemberProfile");
         }
         #endregion 會員資料
+
+        public ActionResult Orders()
+        {
+            int mID = 4;
+            var Orders = db.Orders
+                .Where(q => q.MemberID == mID)
+                .ToList();
+            var OrderDetails = db.OrderDetails
+                .Where(q => q.MemberID == mID)
+                .ToList();
+            TempData["Orders"] = Orders;
+            TempData["OrderDetails"] = OrderDetails;
+            return View();
+        }
     }
 }

@@ -106,6 +106,7 @@
     <Content Include="css\aos.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\checkOut.css" />
+    <Content Include="css\classy-nav.css" />
     <Content Include="css\flaticon.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\gijgo.min.css" />
@@ -115,6 +116,8 @@
     <Content Include="css\magnific-popup.css" />
     <Content Include="css\master.css" />
     <Content Include="css\nice-select.css" />
+    <Content Include="css\OrderDetail.css" />
+    <Content Include="css\OrgIndex.css" />
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\product.css" />
     <Content Include="css\productClass.css" />
@@ -256,6 +259,32 @@
     <Content Include="img\Beverage\800X600\Beverage_08.jpg" />
     <Content Include="img\Beverage\800X600\Beverage_10.jpg" />
     <Content Include="img\Beverage\800X600\Beverage_13.jpg" />
+    <Content Include="img\blog-img\2.jpg" />
+    <Content Include="img\blog-img\3-1.jpg" />
+    <Content Include="img\blog-img\4.jpg" />
+    <Content Include="img\blog-img\5.jpg" />
+    <Content Include="img\blog-img\6.jpg" />
+    <Content Include="img\blog-img\b1.jpg" />
+    <Content Include="img\blog-img\b2.jpg" />
+    <Content Include="img\blog-img\b4.jpg" />
+    <Content Include="img\blog-img\door-1.jpg" />
+    <Content Include="img\blog-img\insta1.jpg" />
+    <Content Include="img\blog-img\insta2.jpg" />
+    <Content Include="img\blog-img\insta3.jpg" />
+    <Content Include="img\blog-img\insta4.jpg" />
+    <Content Include="img\blog-img\insta5.jpg" />
+    <Content Include="img\blog-img\insta6.jpg" />
+    <Content Include="img\blog-img\lp3.jpg" />
+    <Content Include="img\blog-img\lp4.jpg" />
+    <Content Include="img\blog-img\lp5.jpg" />
+    <Content Include="img\core-img\breadcrumb-line.png" />
+    <Content Include="img\core-img\foo-curve.png" />
+    <Content Include="img\core-img\logo.png" />
+    <Content Include="img\core-img\post-curve-line.png" />
+    <Content Include="img\core-img\quote.png" />
+    <Content Include="img\core-img\signa.png" />
+    <Content Include="img\core-img\signature.png" />
+    <Content Include="img\core-img\widget-curve.png" />
     <Content Include="img\Dessert\165x163\Dessert_01.jpg" />
     <Content Include="img\Dessert\165x163\Dessert_04.jpg" />
     <Content Include="img\Dessert\165x163\Dessert_07.jpg" />
@@ -286,6 +315,7 @@
     <Content Include="img\login_signup\favicon.ico" />
     <Content Include="img\login_signup\login_signup.jpg" />
     <Content Include="img\logo.png" />
+    <Content Include="img\logo2.jpg" />
     <Content Include="img\Main\165x163\Main_01.jpg" />
     <Content Include="img\Main\165x163\Main_02.jpg" />
     <Content Include="img\Main\165x163\Main_03.jpg" />
@@ -300,6 +330,7 @@
     <Content Include="img\Main\800X600\Main_05.jpg" />
     <Content Include="img\Main\800X600\Main_07.jpg" />
     <Content Include="img\Main\800X600\Main_08.jpg" />
+    <Content Include="js\active.js" />
     <Content Include="js\aos.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\contact.js" />
@@ -321,6 +352,7 @@
     <Content Include="js\masterPage.js" />
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="js\particles.min.js" />
+    <Content Include="js\plugins.js" />
     <Content Include="js\popper.min.js" />
     <Content Include="js\slick.min.js" />
     <Content Include="js\swiper.min.js" />
@@ -422,6 +454,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
@@ -488,6 +521,7 @@
     <Content Include="Views\Member\LogIn.cshtml" />
     <Content Include="Views\Member\SignUp.cshtml" />
     <Content Include="Views\Shop\CheckOut.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

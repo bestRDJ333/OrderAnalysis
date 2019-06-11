@@ -1,4 +1,8 @@
 ﻿@using Order.Models;
+@if (ViewBag.itemAmt == null)
+{
+    ViewBag.itemAmt = 0;
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,6 +44,10 @@
     <script src="~/js/jquery.nice-select.min.js"></script>
     <!-- custom js -->
     <script src="~/js/custom.js"></script>
+    <!-- All Plugins js -->
+    <script src="~/js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="~/js/active.js"></script>
 </head>
 <body>
     <!--start  navbar-->
@@ -308,7 +316,29 @@
                 $('.shopCartFooter').show();
             }
         }
+        //  ---scroll切換動畫----------------
+        $(function () {
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > 330) {
+                    $(".primary-heading").addClass("animated fadeIn");
+                    $(".aboutUS-text").addClass("animated fadeIn");
+                    $('.aboutUs-img').addClass('animated fadeInRight')
+                } else {
+                    $(".primary-heading").removeClass("animated fadeIn");
+                    $(".aboutUS-text").removeClass("animated fadeIn");
+                    $(".aboutUs-img").removeClass("animated fadeInRight");
+                }
 
+                if ($(document).scrollTop() > 1000) {
+                    $('.section-heading').addClass("animated fadeInDown");
+                }
+                else {
+                    $('.section-heading').removeClass("animated fadeInDown");
+                }
+
+
+            });
+        });
 
     </script>
 

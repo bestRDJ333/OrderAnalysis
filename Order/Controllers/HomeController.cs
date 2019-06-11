@@ -13,5 +13,12 @@ namespace Order.Controllers
         {
             return View();
         }
+
+        // GET: Introduction
+        public ActionResult Introduction()
+        {
+            return View("Index");
+        }
     }
+    
 }

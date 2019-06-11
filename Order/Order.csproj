@@ -522,6 +522,7 @@
     <Content Include="Views\Member\SignUp.cshtml" />
     <Content Include="Views\Shop\CheckOut.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Introduction.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

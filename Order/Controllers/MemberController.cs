@@ -43,6 +43,7 @@ namespace Order.Controllers
                 string where = Session["where"].ToString();
                 if (where != "")
                 {
+                    TempData["LogIn"] = "登入成功，歡迎！";
                     return Redirect(where);
                 }
                 //等首頁出來要改成回到首頁
@@ -57,12 +58,11 @@ namespace Order.Controllers
         //目前未使用到 登出 如要使用需更改內容
         public ActionResult LogOut()
         {
-            if (Session["who"].ToString() != "guest")
-            {
-                Session["who"] = "guest";
-                return Redirect("/Member/Login");
-            }
-            return Redirect("/Member/Login");
+            TempData["LogOut"] = "已登出，歡迎再度光臨！";
+            var where = Session["where"].ToString();
+            Session["who"] = "guest";
+            return Redirect(where);
+
         }
         #endregion 登入 登出
 
@@ -123,6 +123,11 @@ namespace Order.Controllers
 
         public ActionResult Orders()
         {
+            string who = Session["who"].ToString();
+            if (who == "guest")
+            {
+                return Redirect("/Member/Login");
+            }
             var products = db.Products
                 .ToList();
             return View(products);

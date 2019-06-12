@@ -143,16 +143,16 @@
         //判斷是否為會員，如果非會員，導向到 login
         $('#navMember').click(function () {
 
-            var sessionWho = '@Session["who"].ToString()';            
+            var sessionWho = '@Session["who"].ToString()';
 
             if (sessionWho != "guest") {
                 $('.nav-member-content').toggle();
             }
             else {
                 //導向到 login頁面
-                window.location.href = '/Member/LogIn';               
+                window.location.href = '/Member/LogIn';
             }
-            
+
 
         });
 
@@ -396,5 +396,19 @@
         int? sum = pPrice * pAmt;
         @sum
     }
+    @{
+        var LogOutMsg = TempData["LogOut"] ?? string.Empty;
+        var LogInMsg = TempData["LogIn"] ?? string.Empty;
+    }
+    @* 登出的alert *@
+    <script type="text/javascript">
+        var LogOutMsg = '@LogOutMsg';
+        if (LogOutMsg) { alert(LogOutMsg); }
+    </script>
+    @* 登入成功的alert *@
+    <script type="text/javascript">
+        var LogInMsg = '@LogInMsg';
+        if (LogInMsg) { alert(LogInMsg); }
+    </script>
 </body>
 </html>

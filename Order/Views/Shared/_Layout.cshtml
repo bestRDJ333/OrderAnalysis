@@ -56,10 +56,10 @@
         <div id="navLogo">
             <a href="~/Home/Index"><img src="~/img/logo.png" alt=""></a>
         </div>
-        <p id="navTitleFont">Restaurant</p>
+        <a href="~/Home/Index"><p id="navTitleFont">Restaurant</p></a>
         <div class="navlinkGroup">
             <a class="navShopCart a-trigger" href="#"><i class="fas fa-shopping-cart"></i>[@ViewBag.itemAmt]</a>
-            <a id="navMember" class="a-trigger member-dropdown"><i class="fas fa-user"></i>會員</a>
+            <a class="navMember a-trigger"><i class="fas fa-user"></i>會員</a>
 
             <a class="a-trigger" href="~/Shop/Menu"><i class="fas fa-utensils"></i>菜單</a>
             <a class="a-trigger" href="~/Home/Index#aboutUs"><i class="fas fa-store"></i>簡介</a>
@@ -74,7 +74,7 @@
         <div class="row">
             <a class="a-trigger col-sm-3" href="~/Home/Index#aboutUs"><i class="fas fa-store"></i>簡介</a>
             <a class="a-trigger col-sm-3" href="~/Shop/Menu"><i class="fas fa-utensils"></i>菜單</a>
-            <a class="a-trigger col-sm-3" href="~/Member/Login"><i class="fas fa-user"></i>會員</a>
+            <a class="navMember a-trigger col-sm-3"><i class="fas fa-user"></i>會員</a>
             <a class="navShopCart a-trigger col-sm-3" href="#"><i class="fas fa-shopping-cart"></i>[@ViewBag.itemAmt]</a>
         </div>
     </div>
@@ -85,7 +85,7 @@
         <div class="nav-member-content">
             <a class="sub-item" href="~/Member/MemberProfile">基本資料</a>
             <a class="sub-item" href="~/Member/Orders">訂單查詢</a>
-            <a href="~/Member/LogOut">登出</a>
+            <a class="sub-item" href="~/Member/LogOut"><i class="fas fa-sign-out-alt" style="padding-right:1rem"></i>登出</a>
         </div>
         <!--//end 訂單細節、修改會員資料-->
         <!--start 購物車-->
@@ -141,7 +141,7 @@
     <script>
 
         //判斷是否為會員，如果非會員，導向到 login
-        $('#navMember').click(function () {
+        $('.navMember').click(function () {
 
             var sessionWho = '@Session["who"].ToString()';            
 

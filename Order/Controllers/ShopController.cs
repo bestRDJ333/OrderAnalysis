@@ -13,7 +13,7 @@ namespace Order.Controllers
     // todo: CheckOut頁面修改數量後ShopCart同步更新
     // todo: 結帳點選確認才送出post
     // todo: 主菜以外的產品卡與Modal無法對應
-    // todo: 完整的debug
+    // todo: 詳細的debug
 
     public class ShopController : Controller
     {

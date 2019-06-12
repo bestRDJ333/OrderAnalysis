@@ -1,4 +1,8 @@
 ﻿@using Order.Models;
+@if (ViewBag.itemAmt == null)
+{
+    ViewBag.itemAmt = 0;
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,21 +44,25 @@
     <script src="~/js/jquery.nice-select.min.js"></script>
     <!-- custom js -->
     <script src="~/js/custom.js"></script>
+    <!-- All Plugins js -->
+    <script src="~/js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="~/js/active.js"></script>
 </head>
 <body>
     <!--start  navbar-->
     <!--網頁版的nav-->
     <div class="topMenu">
         <div id="navLogo">
-            <a href="masterPage.html"><img src="~/img/logo.png" alt=""></a>
+            <a href="~/Home/Index"><img src="~/img/logo.png" alt=""></a>
         </div>
-        <p id="navTitleFont">Restaurant</p>
+        <a href="~/Home/Index"><p id="navTitleFont">Restaurant</p></a>
         <div class="navlinkGroup">
-            <!-- <a class="a-trigger" href="" id="navTitle">&nbsp;</a>-->
             <a class="navShopCart a-trigger" href="#"><i class="fas fa-shopping-cart"></i>[@ViewBag.itemAmt]</a>
-            <a class="a-trigger" href="/Member/Login"><i class="fas fa-user"></i>會員</a>
+            <a class="navMember a-trigger"><i class="fas fa-user"></i>會員</a>
+
             <a class="a-trigger" href="~/Shop/Menu"><i class="fas fa-utensils"></i>菜單</a>
-            <a class="a-trigger" href="#"><i class="fas fa-store"></i>簡介</a>
+            <a class="a-trigger" href="~/Home/Index#aboutUs"><i class="fas fa-store"></i>簡介</a>
             <button id="rwdMenu" onclick="toggleClass()">
                 <span>menu</span>
             </button>
@@ -64,15 +72,22 @@
     <!--行動裝置的nav-->
     <div class="bottomMenu">
         <div class="row">
-            <a class="a-trigger col-sm-3" href="#"><i class="fas fa-store"></i>簡介</a>
-            <a class="a-trigger col-sm-3" href="productClass.html"><i class="fas fa-utensils"></i>菜單</a>
-            <a class="a-trigger col-sm-3" href="/Member/Login"><i class="fas fa-user"></i>會員</a>
+            <a class="a-trigger col-sm-3" href="~/Home/Index#aboutUs"><i class="fas fa-store"></i>簡介</a>
+            <a class="a-trigger col-sm-3" href="~/Shop/Menu"><i class="fas fa-utensils"></i>菜單</a>
+            <a class="navMember a-trigger col-sm-3"><i class="fas fa-user"></i>會員</a>
             <a class="navShopCart a-trigger col-sm-3" href="#"><i class="fas fa-shopping-cart"></i>[@ViewBag.itemAmt]</a>
         </div>
     </div>
     <!--end  navbar-->
 
     <div class="wrapper">
+        <!--start 訂單細節、修改會員資料-->
+        <div class="nav-member-content">
+            <a class="sub-item" href="~/Member/MemberProfile">基本資料</a>
+            <a class="sub-item" href="~/Member/Orders">訂單查詢</a>
+            <a class="sub-item" href="~/Member/LogOut"><i class="fas fa-sign-out-alt" style="padding-right:1rem"></i>登出</a>
+        </div>
+        <!--//end 訂單細節、修改會員資料-->
         <!--start 購物車-->
         <div class="container-fluid">
             <div class="shopCart">
@@ -124,6 +139,28 @@
     <script src="~/js/masterPage.js"></script>
 
     <script>
+
+        //判斷是否為會員，如果非會員，導向到 login
+        $('.navMember').click(function () {
+
+            var sessionWho = '@Session["who"].ToString()';
+
+            if (sessionWho != "guest") {
+                $('.nav-member-content').toggle();
+            }
+            else {
+                //導向到 login頁面
+                window.location.href = '/Member/LogIn';
+            }
+
+
+        });
+
+
+
+
+
+
         //數量鍵的使用=======================================
         $(document).ready(function () {
 
@@ -308,7 +345,29 @@
                 $('.shopCartFooter').show();
             }
         }
+        //  ---scroll切換動畫----------------
+        $(function () {
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > 330) {
+                    $(".primary-heading").addClass("animated fadeIn");
+                    $(".aboutUS-text").addClass("animated fadeIn");
+                    $('.aboutUs-img').addClass('animated fadeInRight')
+                } else {
+                    $(".primary-heading").removeClass("animated fadeIn");
+                    $(".aboutUS-text").removeClass("animated fadeIn");
+                    $(".aboutUs-img").removeClass("animated fadeInRight");
+                }
 
+                if ($(document).scrollTop() > 1000) {
+                    $('.section-heading').addClass("animated fadeInDown");
+                }
+                else {
+                    $('.section-heading').removeClass("animated fadeInDown");
+                }
+
+
+            });
+        });
 
     </script>
 
@@ -337,5 +396,19 @@
         int? sum = pPrice * pAmt;
         @sum
     }
+    @{
+        var LogOutMsg = TempData["LogOut"] ?? string.Empty;
+        var LogInMsg = TempData["LogIn"] ?? string.Empty;
+    }
+    @* 登出的alert *@
+    <script type="text/javascript">
+        var LogOutMsg = '@LogOutMsg';
+        if (LogOutMsg) { alert(LogOutMsg); }
+    </script>
+    @* 登入成功的alert *@
+    <script type="text/javascript">
+        var LogInMsg = '@LogInMsg';
+        if (LogInMsg) { alert(LogInMsg); }
+    </script>
 </body>
 </html>

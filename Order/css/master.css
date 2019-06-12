@@ -118,6 +118,39 @@ body {
     font-size: 1.2rem;
 }
 
+/*---[會員]nav的下拉式選單---*/
+.navMember {
+    color: #009344 !important;
+    cursor: pointer;
+}
+
+.nav-member-content {
+    display: none;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 3;
+    padding-top: 3.5rem;
+    width: 110px;
+    margin-right: 5rem;
+    position: fixed;
+    right: 40px;
+    text-align: center;
+    background-color: white;
+    transition: .5s ease;
+}
+
+    .nav-member-content .sub-item {
+        text-decoration: none;
+        display: block;
+        font-size: 1.1rem;
+        line-height: 2.5rem;
+        color: #009344;
+    }
+        .nav-member-content .sub-item:hover {
+            background-color: #009344;
+            color:white;
+            font-size: 1.1rem;
+        }
 /*--- fix底部的nav ---*/
 .bottomMenu {
     display: none;
@@ -389,7 +422,10 @@ ul.social-network li {
         font-size: 1rem;
     }
 
-  
+    /*nav會員的下拉式選單*/
+    .nav-member-content {
+        right: 40px;
+    }
 
    
 }
@@ -413,7 +449,16 @@ ul.social-network li {
     p {
         font-size: 1rem;
     }
-    
+
+    /*nav會員的下拉式選單*/
+    .nav-member-content {
+       padding-top:0;
+        bottom: 45px;
+        right: 10px;
+        width: 100px;
+    }
+   
+
     /*購物車*/
     .shopCart {
         padding-top:0;

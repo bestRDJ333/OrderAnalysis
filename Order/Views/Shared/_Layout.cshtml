@@ -59,9 +59,7 @@
         <p id="navTitleFont">Restaurant</p>
         <div class="navlinkGroup">
             <a class="navShopCart a-trigger" href="#"><i class="fas fa-shopping-cart"></i>[@ViewBag.itemAmt]</a>
-            <a class="a-trigger" href="~/Member/Login"><i class="fas fa-user"></i>會員</a>
-            <!--訂單細節、修改會員資料-->
-
+            <a id="navMember" class="a-trigger member-dropdown"><i class="fas fa-user"></i>會員</a>
 
             <a class="a-trigger" href="~/Shop/Menu"><i class="fas fa-utensils"></i>菜單</a>
             <a class="a-trigger" href="~/Home/Index#aboutUs"><i class="fas fa-store"></i>簡介</a>
@@ -83,6 +81,13 @@
     <!--end  navbar-->
 
     <div class="wrapper">
+        <!--start 訂單細節、修改會員資料-->
+        <div class="nav-member-content">
+            <a class="sub-item" href="~/Member/MemberProfile">基本資料</a>
+            <a class="sub-item" href="~/Member/Orders">訂單查詢</a>
+            <a href="~/Member/LogOut">登出</a>
+        </div>
+        <!--//end 訂單細節、修改會員資料-->
         <!--start 購物車-->
         <div class="container-fluid">
             <div class="shopCart">
@@ -134,6 +139,28 @@
     <script src="~/js/masterPage.js"></script>
 
     <script>
+
+        //判斷是否為會員，如果非會員，導向到 login
+        $('#navMember').click(function () {
+
+            var sessionWho = '@Session["who"].ToString()';            
+
+            if (sessionWho != "guest") {
+                $('.nav-member-content').toggle();
+            }
+            else {
+                //導向到 login頁面
+                window.location.href = '/Member/LogIn';               
+            }
+            
+
+        });
+
+
+
+
+
+
         //數量鍵的使用=======================================
         $(document).ready(function () {
 

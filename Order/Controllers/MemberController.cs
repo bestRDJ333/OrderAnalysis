@@ -11,7 +11,7 @@ namespace Order.Controllers
     {
         Models.SMIT09Entities db = new SMIT09Entities();
         mMember mb = new mMember();
-
+ShopCart sc = new ShopCart();
         #region 登入 登出
         public ActionResult LogIn()
         {
@@ -24,6 +24,10 @@ namespace Order.Controllers
             }
             else if (who != "guest")
             {
+                int mID = sc.GetMemberID(Session["who"].ToString());
+                TempData["ShopCart"] = sc.GetCartItem(mID);
+                ViewBag.itemAmt = sc.GetCartItem(mID).Count();
+                ViewBag.sumPrice = sc.SumTotal(mID);
                 return Redirect("/Member/MemberProfile");
             }
             return View();
@@ -41,6 +45,7 @@ namespace Order.Controllers
             else if (who != "guest")
             {   //從哪裡登入就回到哪裡(如有新增其他頁面需再頁面補上 Session["where"])
                 string where = Session["where"].ToString();
+ 
                 if (where != "")
                 {
                     TempData["LogIn"] = "登入成功，歡迎！";
@@ -103,6 +108,10 @@ namespace Order.Controllers
             {
                 return Redirect("/Member/Login");
             }
+            int mID = sc.GetMemberID(Session["who"].ToString());
+            TempData["ShopCart"] = sc.GetCartItem(mID);
+            ViewBag.itemAmt = sc.GetCartItem(mID).Count();
+            ViewBag.sumPrice = sc.SumTotal(mID);
             Member m = mb.memberProfile(who);
             return View(m);
         }
@@ -128,6 +137,11 @@ namespace Order.Controllers
             {
                 return Redirect("/Member/Login");
             }
+
+            int mID = sc.GetMemberID(Session["who"].ToString());
+            TempData["ShopCart"] = sc.GetCartItem(mID);
+            ViewBag.itemAmt = sc.GetCartItem(mID).Count();
+            ViewBag.sumPrice = sc.SumTotal(mID);
             var products = db.Products
                 .ToList();
             return View(products);

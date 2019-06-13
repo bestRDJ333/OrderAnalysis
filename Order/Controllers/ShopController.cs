@@ -72,10 +72,10 @@ namespace Order.Controllers
         // GET: CheckOut
         public ActionResult CheckOut()
         {
-            //if (Session["who"].ToString() == "guest")
-            //{
-            //    return RedirectToRoute(new { controller = "Member", action = "Login" });
-            //}
+            if (Session["who"].ToString() == "guest")
+            {
+                return RedirectToRoute(new { controller = "Member", action = "Login" });
+            }
             int mID = sc.GetMemberID(Session["who"].ToString());
             TempData["ShopCart"] = sc.GetCartItem(mID);
             ViewBag.itemAmt = sc.GetCartItem(mID).Count();
@@ -87,7 +87,6 @@ namespace Order.Controllers
         public ActionResult Confirm(int totalPrice, string ReceiverName, string ReceiverPhone, string ReceiverAddress)
         {
             int mID = sc.GetMemberID(Session["who"].ToString());
-            return Content(totalPrice.ToString());
             sc.ConfirmOrder(mID, totalPrice, ReceiverName, ReceiverPhone, ReceiverAddress);
 
             return RedirectToAction("Product");

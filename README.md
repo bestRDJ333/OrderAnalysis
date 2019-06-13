@@ -20,10 +20,8 @@ html-Verson資料夾是「HTML的前端畫面」
 	* Hero-area 位置跑掉了，疑似在MVC架構下抓不到Navbar的大小？
 	  * 字體疑似被覆蓋掉
 	* scollTop在chrom 的RWD 畫面停住會消失，畫面滾動會閃爍出現。但在 fireFox 正常顯示
-	
-* checkOut.cshtml 結帳
-	- 按下[送出訂單]後，alert會閃退
-	
+
+
 	
 
 - DDDDDDDDDDebug

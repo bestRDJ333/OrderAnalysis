@@ -140,7 +140,7 @@
 
     <script>
 
-        //判斷是否為會員，如果非會員，導向到 login
+        //判斷是否為會員，如果非會員，導向到 login=========================
         $('.navMember').click(function () {
 
             var sessionWho = '@Session["who"].ToString()';
@@ -150,9 +150,8 @@
             }
             else {
                 //導向到 login頁面
-                window.location.href = '/Member/LogIn';
+                document.location.href = '/Member/LogIn';
             }
-
 
         });
 

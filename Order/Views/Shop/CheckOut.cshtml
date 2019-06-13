@@ -171,6 +171,16 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.11.7/dist/sweetalert2.all.min.js"></script>
 
 <script>
+
+    //繼續購物btn-------------
+    $('.shopping-btn').click(function () {
+
+        //回上一页，不過表單裡的數據全部都還在
+        history.go(-1);
+
+    });
+
+
     var check = false;
 
     function changeVal(el) {

@@ -125,28 +125,28 @@
             </div>
             <div class="filldata-content">
                 <form action="/Shop/Confirm" method="post">
-                    <input name="totalPrice" value="@ViewBag.sumPrice" hidden />
+                    <input id="totalPrice" name="totalPrice" value="@ViewBag.sumPrice" hidden />
                     <div class="form-group row">
                         <label for="" class="col-4 col-form-label">姓名</label>
                         <div class="col-8">
-                            <input id="" name="ReceiverName" type="text" class="form-control">
+                            <input id="ReceiverName" name="ReceiverName" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="" class="col-4 col-form-label">電話</label>
                         <div class="col-8">
-                            <input id="" name="ReceiverPhone" type="text" class="form-control">
+                            <input id="ReceiverPhone" name="ReceiverPhone" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="" class="col-4 col-form-label">收件地址</label>
                         <div class="col-8">
-                            <input id="" name="ReceiverAddress" type="text" class="form-control">
+                            <input id="ReceiverAddress" name="ReceiverAddress" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <button type="submit" class="submit-btn">送出訂單</button>
+                            <button type="button" class="submit-btn">送出訂單</button>
                             <a class="return-btn" href="#cartList">回上一步</a>
                         </div>
                     </div>
@@ -168,7 +168,6 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
-
     //繼續購物btn-------------
     $('.shopping-btn').click(function () {
 
@@ -335,6 +334,17 @@
             })
                 .then((willDelete) => {
                     if (willDelete) {
+                        $.ajax({
+                            method: "POST",
+                            url: "@Url.Action("Confirm")",
+                            contentType: "application/json",
+                            data: JSON.stringify({
+                                totalPrice: $("#totalPrice").val(),
+                                ReceiverName: $("#ReceiverName").val(),
+                                ReceiverPhone: $("#ReceiverPhone").val(),
+                                ReceiverAddress: $("#ReceiverAddress").val(),
+                            })
+                        })
                         swal({
                             title: "訂購完成",
                             text: "如需查詢訂單內容：會員中心 >> 訂單查詢，即可查看內容",

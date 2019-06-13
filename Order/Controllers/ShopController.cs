@@ -86,10 +86,6 @@ namespace Order.Controllers
         [HttpPost]
         public ActionResult Confirm(int totalPrice, string ReceiverName, string ReceiverPhone, string ReceiverAddress)
         {
-            if (Session["who"].ToString() == "guest")
-            {
-                return RedirectToRoute(new { controller = "Member", action = "Login" });
-            }
             int mID = sc.GetMemberID(Session["who"].ToString());
             sc.ConfirmOrder(mID, totalPrice, ReceiverName, ReceiverPhone, ReceiverAddress);
 

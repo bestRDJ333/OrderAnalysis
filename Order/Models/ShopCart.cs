@@ -18,6 +18,14 @@ namespace Order.Models
 
         SMIT09Entities db = new SMIT09Entities();
 
+        public int GetMemberID(string uID)
+        {
+            int mID = db.Members
+                .Where(w => w.UserID == uID)
+                .Select(s => s.MemberID)
+                .FirstOrDefault();
+            return mID;
+        }
         #region 加入購物車
         // 加入購物車
         public void AddProduct(int mID, int pID, int? amt)
@@ -95,7 +103,7 @@ namespace Order.Models
                     o => o.ProductID,
                     p => p.ProductID,
                     (o, p) => new ShopCart { ProductName = o.ProductName, mID = o.MemberID, UnitPrice = o.UnitPrice, ProductImage = p.ProductPhotoS, Quantity = o.Quantity, pID = p.ProductID, Intro = p.ProductIntroduction }
-                    ).Where(q => q.mID == 4).ToList();
+                    ).Where(q => q.mID == mID).ToList();
 
             return Q;
         }

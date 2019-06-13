@@ -13,10 +13,14 @@ namespace Order.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            int mID = 4;
-            ViewBag.sumPrice = sc.SumTotal(mID);
-            ViewBag.itemAmt = sc.GetCartItem(mID).Count();
-            TempData["ShopCart"] = sc.GetCartItem(mID);
+            if (Session["who"].ToString() != "guest")
+            {
+                int mID = sc.GetMemberID(Session["who"].ToString());
+                ViewBag.sumPrice = sc.SumTotal(mID);
+                ViewBag.itemAmt = sc.GetCartItem(mID).Count();
+                TempData["ShopCart"] = sc.GetCartItem(mID);
+            }
+
             return View();
         }
 

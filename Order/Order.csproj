@@ -500,7 +500,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="html-Verson1\~\css\style.map" />
-    <Content Include="css\style.map" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />

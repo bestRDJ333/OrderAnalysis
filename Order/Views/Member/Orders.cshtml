@@ -1,0 +1,189 @@
+﻿
+@{
+    ViewBag.Title = "Orders";
+    Random rnd = new Random();
+}
+@model List<Order.Models.Product>
+<!--     此網站的css-->
+<link rel="stylesheet" href="~/css/OrderDetail.css">
+<!--start 訂單明細 content -->
+<div class="container">
+    <div class="OrderDetail">
+        <h1>訂單明細</h1>
+        <!--Tabs_list-->
+        <div class="table-list row">
+            <div class="tab">
+                <button class="tablinks" onclick="openLab(event, 'fristlist')" id="defaultOpen">最新購買</button>
+                <button class="tablinks" onclick="openLab(event, 'twolist')">歷史記錄</button>
+                <button class="tablinks" onclick="openLab(event, 'threelist')">客服回應</button>
+            </div>
+        </div>
+
+        <!--Tabs_最新購買 內容-->
+        <div class="row">
+            <div id="fristlist" class="tabcontent">
+                <!--start accordion-->
+                <div class="container">
+                    <div class="accordion">
+                        @for (int i = 0; i < 3; i++)
+                        {
+                            int idx = rnd.Next(1, 20);
+                            <div class="accordion-item">
+                                <a>@Model[idx].ProductName</a>
+                                <div class="content">
+                                    <img src="@Model[idx].ProductPhotoS" />
+                                    <p>@Model[i].ProductIntroduction</p>
+                                    <p>數量1份 &nbsp;&nbsp;&nbsp;$<span>@Model[idx].UnitPrice</span>元</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+                <!--end accordion-->
+
+            </div>
+        </div>
+
+        <!--Tabs_歷史紀錄 內容-->
+        <div class="row">
+            <div id="twolist" class="tabcontent">
+                <div class="order-history">
+                    <table class=" col-md-12 table table-hover table-borderless pre-scrollable">
+                        <thead>
+                            <tr>
+                                <th class="cn-col-3">訂購日期</th>
+                                <th class="cn-col-3">訂單編號</th>
+                                <!--<th>商品名稱</th>-->
+                                <th class="cn-col-3">狀態</th>
+                                <th class="cn-col-3">總金額</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2019-05-04</td>
+                                <td>201901041642M0012</td>
+                                <!--<td>油醋燻鮭魚</td>-->
+                                <td>已取貨</td>
+                                <td class="td-dollar">$&nbsp;725</td>
+                            </tr>
+                            <tr>
+                                <td>2019-05-03</td>
+                                <td>201901041642M0012</td>
+                                <td>已取貨</td>
+                                <td class="td-dollar">$&nbsp;500</td>
+                            </tr>
+                            <tr>
+                                <td>2019-05-01</td>
+                                <td>201901041642M0012</td>
+                                <td>已取貨</td>
+                                <td class="td-dollar">$&nbsp;1250</td>
+                            </tr>
+                            <tr>
+                                <td>2019-04-20</td>
+                                <td>201901041642M0012</td>
+                                <td>已取貨</td>
+                                <td class="td-dollar">$&nbsp;1300</td>
+                            </tr>
+                            <tr>
+                                <td>2019-03-12</td>
+                                <td>201901041642M0012</td>
+                                <td>已取貨</td>
+                                <td class="td-dollar">$&nbsp;178</td>
+                            </tr>
+                            <tr>
+                                <td>2019-03-11</td>
+                                <td>201901041642M0012</td>
+                                <td>已取貨</td>
+                                <td class="td-dollar">$&nbsp;180</td>
+                            </tr>
+                            <tr>
+                                <td>2019-03-08</td>
+                                <td>201901041642M0012</td>
+                                <td>已取貨</td>
+                                <td class="td-dollar">$&nbsp;2500</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!--Tabs_客戶回應 內容-->
+        <div class="row">
+            <div id="threelist" class="customer-sevice tabcontent">
+                <div class="customer-sevice-panel">
+                    <form>
+                        <div class="message-content row">
+                            <input class="common-input mt-10" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" required="" type="text">
+                            <input class="common-input mt-10" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+.[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" required="" type="email">
+                            <textarea class="common-input mt-10" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+                        </div>
+                        <div class="send-MsgBtn row">
+                            <button class="btn btn-success">送出</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+<!--end 訂單明細 content-->
+
+
+<script>
+
+    //測試用手風琴======================================
+    const items = document.querySelectorAll(".accordion a");
+
+
+    items.forEach(item => item.addEventListener('click', toggleAccordion));
+
+    function toggleAccordion() {
+        this.classList.toggle('active');
+        this.nextElementSibling.classList.toggle('active');
+    }
+
+
+
+    //分頁Lab使用==============================================
+    function openLab(evt, labTabs) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(labTabs).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    $(document).ready(function () {
+        //$('.accordion').on('click', function () {
+        //    //添加下面這行是因為Lab點擊時顏色會改變,但是
+        //    //Lab要自動打開,所以網頁在load時顏色會閃一下
+        //    //所以移除一開始的顏色功能
+        //    $('.accordion').removeClass('active');
+        //})
+        ////自動打開 手風琴Lab
+        //$('.accordion').click();
+
+
+
+
+    })
+    //自動打開 第一頁分頁的Lab
+    document.getElementById("defaultOpen").click();
+
+
+
+</script>

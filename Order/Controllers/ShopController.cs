@@ -12,7 +12,6 @@ namespace Order.Controllers
     // todo: 會員ID傳遞實裝
     // todo: CheckOut頁面修改數量後ShopCart同步更新
     // todo: 結帳點選確認才送出post
-    // todo: 主菜以外的產品卡與Modal無法對應
 
     public class ShopController : Controller
     {
@@ -21,7 +20,7 @@ namespace Order.Controllers
         // GET: Menu
         public ActionResult Menu()
         {
-            int mID = 4;
+            int mID = sc.GetMemberID(Session["who"].ToString());
             TempData["ShopCart"] = sc.GetCartItem(mID);
             ViewBag.sumPrice = sc.SumTotal(mID);
             ViewBag.itemAmt = sc.GetCartItem(mID).Count();
@@ -31,8 +30,7 @@ namespace Order.Controllers
         // GET: Product
         public ActionResult Product()
         {
-            int mID = 4;
-            // var mID = (Session["who"] as Member).MemberID;
+            int mID = sc.GetMemberID(Session["who"].ToString());
             var product = db.Products.ToList();
 
             // 取得購物車清單以及產品圖片路徑
@@ -47,9 +45,12 @@ namespace Order.Controllers
         // GET: AddCart
         public ActionResult addCart(int pID, int? amt)
         {
-            int mID = 4;
+            if (Session["who"].ToString()=="guest")
+            {
+                return RedirectToRoute(new { controller = "Member", action = "Login" });
+            }
             // 取得會員ID
-            //int mID = (Session["who"] as Member).MemberID;          
+            int mID = sc.GetMemberID(Session["who"].ToString());
 
             sc.AddProduct(mID, pID, amt);
 
@@ -59,8 +60,11 @@ namespace Order.Controllers
         // GET: DelCart
         public ActionResult DelCart(int pID)
         {
-            int mID = 4;
-            //int mID = (Session["who"] as Member).MemberID;    
+            if (Session["who"].ToString() == "guest")
+            {
+                return RedirectToRoute(new { controller = "Member", action = "Login" });
+            }
+            int mID = sc.GetMemberID(Session["who"].ToString());
             sc.DelItem(pID, mID);
             return RedirectToAction("Product");
         }
@@ -68,7 +72,11 @@ namespace Order.Controllers
         // GET: CheckOut
         public ActionResult CheckOut()
         {
-            int mID = 4;
+            if (Session["who"].ToString() == "guest")
+            {
+                return RedirectToRoute(new { controller = "Member", action = "Login" });
+            }
+            int mID = sc.GetMemberID(Session["who"].ToString());
             TempData["ShopCart"] = sc.GetCartItem(mID);
             ViewBag.itemAmt = sc.GetCartItem(mID).Count();
             ViewBag.sumPrice = sc.SumTotal(mID);
@@ -78,7 +86,11 @@ namespace Order.Controllers
         [HttpPost]
         public ActionResult Confirm(int totalPrice, string ReceiverName, string ReceiverPhone, string ReceiverAddress)
         {
-            int mID = 4;
+            if (Session["who"].ToString() == "guest")
+            {
+                return RedirectToRoute(new { controller = "Member", action = "Login" });
+            }
+            int mID = sc.GetMemberID(Session["who"].ToString());
             sc.ConfirmOrder(mID, totalPrice, ReceiverName, ReceiverPhone, ReceiverAddress);
 
             return RedirectToAction("Product");

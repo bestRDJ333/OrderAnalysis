@@ -6,15 +6,12 @@
 <!-- animate CSS -->
 <link rel="stylesheet" href="~/css/animate.css">
 
-
 <!-- swiper CSS -->
 <link rel="stylesheet" href="~/css/slick.css">
 <link rel="stylesheet" href="~/css/gijgo.min.css">
 <link rel="stylesheet" href="~/css/nice-select.css">
 <link rel="stylesheet" href="~/css/all.css">
 
-<!--Sweet alert-->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!--     此網站的css-->
 <link rel="stylesheet" href="~/css/master.css">
 <link rel="stylesheet" href="~/css/checkOut.css" />
@@ -128,7 +125,7 @@
             </div>
             <div class="filldata-content">
                 <form action="/Shop/Confirm" method="post">
-                    <input name="totalPrice" value="@ViewBag.sumPrice" hidden/>
+                    <input name="totalPrice" value="@ViewBag.sumPrice" hidden />
                     <div class="form-group row">
                         <label for="" class="col-4 col-form-label">姓名</label>
                         <div class="col-8">
@@ -164,13 +161,23 @@
 </section>
 
 <p></p>
-
-
 <!--end 結帳 content-->
+
 <!--此網站的js-->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.11.7/dist/sweetalert2.all.min.js"></script>
+<!--Sweet alert-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
+
+    //繼續購物btn-------------
+    $('.shopping-btn').click(function () {
+
+        //回上一页，不過表單裡的數據全部都還在
+        history.go(-1);
+
+    });
+
+
     var check = false;
 
     function changeVal(el) {
@@ -318,23 +325,26 @@
     $(function () {
 
         $('.submit-btn').click(function () {
-            Swal.fire({
-                title: '確定要送出訂單嗎?',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#009933',
-                cancelButtonColor: '#d33',
-                cancelButtonText: '取消',
-                confirmButtonText: '確定'
-            }).then((result) => {
-                if (result.value) {
-                    Swal.fire(
-                        '送出訂單完成',
-                        '您可以到【訂單明細】查詢結果',
-                        'success'
-                    )
-                }
-            });
+
+            swal({
+                title: "確定要送出訂單嗎?",
+                text: "將傳送訂購資料到商家，請勿關閉頁面",
+                icon: "warning",
+                buttons: ["取消", "確定"],
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal({
+                            title: "訂購完成",
+                            text: "如需查詢訂單內容：會員中心 >> 訂單查詢，即可查看內容",
+                            icon: "success",
+                        });
+                    } else {
+                        //swal("Your imaginary file is safe!");
+                    }
+                });
+
 
         });
 

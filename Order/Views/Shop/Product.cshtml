@@ -122,13 +122,6 @@
         return m.Groups[1].ToString();
     }
 
-    // 取得Modal參數
-    int getCount(string kind)
-    {
-        var Q = Model.Where(o => o.ProductPhotoL.IndexOf(kind) != -1);
-        return Q.Count() - 1;
-    }
-
     // 產品敘述分段
     static List<string> getDescribtion(string dcrb)
     {
@@ -186,7 +179,6 @@
 
 @helper printMenu(string kind)
 {
-    int cnt = getCount(kind);
     foreach (var item in Model)
     {
         if (getClass(item.ProductPhotoS) != kind)
@@ -194,9 +186,8 @@
             continue;
         }
         <div class="col-sm-6 col-lg-6">
-            @productCard(item.ProductID, item.ProductPhotoS, item.ProductName, item.ProductIntroduction, item.UnitPrice, cnt)
+            @productCard(item.ProductID, item.ProductPhotoS, item.ProductName, item.ProductIntroduction, item.UnitPrice, item.ProductID)
         </div>
-        cnt++;
     }
 }
 

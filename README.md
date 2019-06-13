@@ -9,10 +9,11 @@ html-Verson資料夾是「HTML的前端畫面」
 * index.html	     首頁
 * OrderDetail	     訂單明細
 
-[Bug部份]
+[bug已修正]
+* 網站頁面的超連結
+* checkOut.cshtml：按下[送出訂單],alert不閃退。
 
-- MasterPage
-  - 簡介按鈕直接導向Index頁面
+[Bug部份]
 
 * index.html 首頁
 	

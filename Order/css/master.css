@@ -148,7 +148,7 @@ body {
     }
         .nav-member-content .sub-item:hover {
             background-color: #009344;
-            color:white;
+            color:white !important;
             font-size: 1.1rem;
         }
 /*--- fix底部的nav ---*/

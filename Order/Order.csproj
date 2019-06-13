@@ -330,6 +330,16 @@
     <Content Include="img\Main\800X600\Main_05.jpg" />
     <Content Include="img\Main\800X600\Main_07.jpg" />
     <Content Include="img\Main\800X600\Main_08.jpg" />
+    <Content Include="img\Soup\165x163\Soup_01.jpg" />
+    <Content Include="img\Soup\165x163\Soup_02.jpg" />
+    <Content Include="img\Soup\165x163\Soup_03.jpg" />
+    <Content Include="img\Soup\165x163\Soup_04.jpg" />
+    <Content Include="img\Soup\165x163\soup_05.jpg" />
+    <Content Include="img\Soup\800x600\Soup_01.jpg" />
+    <Content Include="img\Soup\800x600\Soup_02.jpg" />
+    <Content Include="img\Soup\800x600\Soup_03.jpg" />
+    <Content Include="img\Soup\800x600\Soup_04.jpg" />
+    <Content Include="img\Soup\800x600\soup_05.jpg" />
     <Content Include="js\active.js" />
     <Content Include="js\aos.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -500,7 +510,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="html-Verson1\~\css\style.map" />
-    <Content Include="css\style.map" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />

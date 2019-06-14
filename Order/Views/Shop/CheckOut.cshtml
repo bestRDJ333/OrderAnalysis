@@ -349,7 +349,10 @@
                             title: "訂購完成",
                             text: "如需查詢訂單內容：會員中心 >> 訂單查詢，即可查看內容",
                             icon: "success",
-                        });
+                        })
+                            .then(() => {
+                                window.location.href = "@Url.Action("/Product")";
+                            });
                     } else {
                         //swal("Your imaginary file is safe!");
                     }

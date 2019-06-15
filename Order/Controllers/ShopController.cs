@@ -8,10 +8,7 @@ using Order.Models;
 
 namespace Order.Controllers
 {
-    // todo: 會員判定
-    // todo: 會員ID傳遞實裝
     // todo: CheckOut頁面修改數量後ShopCart同步更新
-    // todo: 結帳點選確認才送出post
 
     public class ShopController : Controller
     {

@@ -10,7 +10,7 @@ namespace Order.Controllers
 {
     // todo: CheckOut頁面修改數量後ShopCart同步更新
 
-    public class ShopController : Controller
+    public class ShopController : BaseController
     {
         SMIT09Entities db = new SMIT09Entities();
         ShopCart sc = new ShopCart();
@@ -30,12 +30,7 @@ namespace Order.Controllers
             int mID = sc.GetMemberID(Session["who"].ToString());
             var product = db.Products.ToList();
 
-            // 取得購物車清單以及產品圖片路徑
-            TempData["ShopCart"] = sc.GetCartItem(mID);
-
-            // 取得購物車總額
-            ViewBag.sumPrice = sc.SumTotal(mID);
-            ViewBag.itemAmt = sc.GetCartItem(mID).Count();
+            setCart(165);
             return View(product);
         }
 

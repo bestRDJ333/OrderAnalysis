@@ -12,39 +12,31 @@ namespace Order.Controllers
 
     public class ShopController : BaseController
     {
-        SMIT09Entities db = new SMIT09Entities();
-        ShopCart sc = new ShopCart();
         // GET: Menu
         public ActionResult Menu()
         {
-            int mID = sc.GetMemberID(Session["who"].ToString());
-            TempData["ShopCart"] = sc.GetCartItem(mID);
-            ViewBag.sumPrice = sc.SumTotal(mID);
-            ViewBag.itemAmt = sc.GetCartItem(mID).Count();
+            setCart();
+
             return View();
         }
 
         // GET: Product
         public ActionResult Product()
         {
-            int mID = sc.GetMemberID(Session["who"].ToString());
-            var product = db.Products.ToList();
+            setCart();
 
-            setCart(165);
-            return View(product);
+            return View(getProduct());
         }
 
         // GET: AddCart
         public ActionResult addCart(int pID, int? amt)
         {
-            if (Session["who"].ToString()=="guest")
+            if (Session["who"].ToString() == "guest")
             {
                 return RedirectToRoute(new { controller = "Member", action = "Login" });
             }
-            // 取得會員ID
-            int mID = sc.GetMemberID(Session["who"].ToString());
 
-            sc.AddProduct(mID, pID, amt);
+            addItem(pID, amt);
 
             return RedirectToAction("Product");
         }
@@ -56,8 +48,9 @@ namespace Order.Controllers
             {
                 return RedirectToRoute(new { controller = "Member", action = "Login" });
             }
-            int mID = sc.GetMemberID(Session["who"].ToString());
-            sc.DelItem(pID, mID);
+
+            delItem(pID);
+
             return RedirectToAction("Product");
         }
 
@@ -68,18 +61,16 @@ namespace Order.Controllers
             {
                 return RedirectToRoute(new { controller = "Member", action = "Login" });
             }
-            int mID = sc.GetMemberID(Session["who"].ToString());
-            TempData["ShopCart"] = sc.GetCartItem(mID);
-            ViewBag.itemAmt = sc.GetCartItem(mID).Count();
-            ViewBag.sumPrice = sc.SumTotal(mID);
+
+            setCart();
+
             return View();
         }
 
         [HttpPost]
         public ActionResult Confirm(int totalPrice, string ReceiverName, string ReceiverPhone, string ReceiverAddress)
         {
-            int mID = sc.GetMemberID(Session["who"].ToString());
-            sc.ConfirmOrder(mID, totalPrice, ReceiverName, ReceiverPhone, ReceiverAddress);
+            confirmOrder(totalPrice, ReceiverName, ReceiverPhone, ReceiverAddress);
 
             return RedirectToAction("Product");
         }

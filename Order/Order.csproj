@@ -463,7 +463,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
@@ -526,7 +525,6 @@
     <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Views\Shop\Product.cshtml" />
     <Content Include="Views\Member\MemberProfile.cshtml" />
-    <Content Include="Views\Admin\AdminIndex.cshtml" />
     <Content Include="Views\Member\LogIn.cshtml" />
     <Content Include="Views\Member\SignUp.cshtml" />
     <Content Include="Views\Shop\CheckOut.cshtml" />

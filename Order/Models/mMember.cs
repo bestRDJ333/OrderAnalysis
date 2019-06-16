@@ -28,13 +28,7 @@ namespace Order.Models
             if (m == null)
             {
                 return "guest";
-            }
-            //管理員
-            else if (m.UserID == "admin")
-            {
-                return "highest";
-            }
-            else
+            }else
             {
                 return m.UserID;
             }
@@ -43,10 +37,6 @@ namespace Order.Models
         //查詢是否為會員
         private Member isMember(string UserID)
         {
-            if (UserID == "highest")
-            {
-                UserID = "admin";
-            }
             var query = from o in db.Members
                         where o.UserID == UserID
                         select o;

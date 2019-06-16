@@ -11,7 +11,7 @@ namespace Order.Controllers
     {
         Models.SMIT09Entities db = new SMIT09Entities();
         mMember mb = new mMember();
-ShopCart sc = new ShopCart();
+        ShopCart sc = new ShopCart();
         #region 登入 登出
         public ActionResult LogIn()
         {
@@ -43,16 +43,15 @@ ShopCart sc = new ShopCart();
                 return Redirect("/Admin/AdminIndex");
             }
             else if (who != "guest")
-            {   //從哪裡登入就回到哪裡(如有新增其他頁面需再頁面補上 Session["where"])
+            {   //從哪裡登入就回到哪裡
                 string where = Session["where"].ToString();
- 
+
                 if (where != "")
                 {
                     TempData["LogIn"] = "登入成功，歡迎！";
                     return Redirect(where);
                 }
-                //等首頁出來要改成回到首頁
-                return Redirect("/Shop/Menu");
+                return Redirect("/Home/Index");
             }
             else
             {
@@ -60,14 +59,13 @@ ShopCart sc = new ShopCart();
                 return Redirect("/Member/Login");
             }
         }
-        //目前未使用到 登出 如要使用需更改內容
+        //登出
         public ActionResult LogOut()
         {
             TempData["LogOut"] = "已登出，歡迎再度光臨！";
             var where = Session["where"].ToString();
             Session["who"] = "guest";
             return Redirect(where);
-
         }
         #endregion 登入 登出
 

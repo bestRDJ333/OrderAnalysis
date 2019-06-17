@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Member
+@{
     ViewBag.Title = "CheckOut";
 }
 @using Order.Models;
@@ -129,19 +130,19 @@
                     <div class="form-group row">
                         <label for="" class="col-4 col-form-label">姓名</label>
                         <div class="col-8">
-                            <input id="ReceiverName" name="ReceiverName" type="text" class="form-control">
+                            <input id="ReceiverName" name="ReceiverName" type="text" class="form-control" value="@Model.MemberName">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="" class="col-4 col-form-label">電話</label>
                         <div class="col-8">
-                            <input id="ReceiverPhone" name="ReceiverPhone" type="text" class="form-control">
+                            <input id="ReceiverPhone" name="ReceiverPhone" type="text" class="form-control" value="@Model.Phone">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="" class="col-4 col-form-label">收件地址</label>
                         <div class="col-8">
-                            <input id="ReceiverAddress" name="ReceiverAddress" type="text" class="form-control">
+                            <input id="ReceiverAddress" name="ReceiverAddress" type="text" class="form-control" placeholder="如需內用，此欄免填。">
                         </div>
                     </div>
                     <div class="form-group row">

@@ -12,6 +12,7 @@ namespace Order.Controllers
 
     public class ShopController : BaseController
     {
+        mMember mb = new mMember();
         // GET: Menu
         public ActionResult Menu()
         {
@@ -57,14 +58,15 @@ namespace Order.Controllers
         // GET: CheckOut
         public ActionResult CheckOut()
         {
-            if (Session["who"].ToString() == "guest")
+            string who = Session["who"].ToString();
+            if (who == "guest")
             {
                 return RedirectToRoute(new { controller = "Member", action = "Login" });
             }
 
             setCart();
-
-            return View();
+            Member m = mb.memberProfile(who);
+            return View(m);
         }
 
         [HttpPost]

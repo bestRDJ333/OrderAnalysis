@@ -28,7 +28,8 @@ namespace Order.Models
             if (m == null)
             {
                 return "guest";
-            }else
+            }
+            else
             {
                 return m.UserID;
             }
@@ -104,5 +105,45 @@ namespace Order.Models
             db.SaveChanges();
         }
 
+        public class memberOrder
+        {
+            public int? MemberID;
+            public int OrderDetailID;
+            public string OrderID;
+            public int? ProductID;
+            public string ProductName;
+            public int? Quantity;
+            public int? UnitPrice;
+            public DateTime? OrderDate;
+            public int? TotalPrice;
+            public string ProductPhotoS;
+            public string ProductIntroduction;
+        }
+
+        public List<memberOrder> getMemberOrder(Member m)
+        {
+            var obj = from od in db.OrderDetails
+                      join o in db.Orders
+                      on od.OrderID equals o.OrderID
+                      join p in db.Products
+                      on od.ProductID equals p.ProductID
+                      where od.MemberID == m.MemberID
+                      orderby od.OrderDetailID descending
+                      select new memberOrder()
+                      {
+                          MemberID=od.MemberID,
+                          OrderDetailID=od.OrderDetailID,
+                          OrderID=od.OrderID,
+                          ProductID=od.ProductID,
+                          ProductName=od.ProductName,
+                          Quantity=od.Quantity,
+                          UnitPrice=od.UnitPrice,
+                          OrderDate=o.OrderDate,
+                          TotalPrice=o.TotalPrice,
+                          ProductPhotoS=p.ProductPhotoS,
+                          ProductIntroduction=p.ProductIntroduction
+                      };
+            return obj.ToList();
+        }
     }
 }

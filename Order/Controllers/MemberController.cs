@@ -144,5 +144,18 @@ namespace Order.Controllers
                 .ToList();
             return View(products);
         }
+        public ActionResult Orders2()
+        {
+            string who = Session["who"].ToString();
+            if (who == "guest")
+            {
+                return Redirect("/Member/Login");
+            }
+            Member m= mb.memberProfile(who);
+            List<mMember.memberOrder> memberOrder=mb.getMemberOrder(m);
+            int mID = sc.GetMemberID(who);
+            TempData["ShopCart"] = sc.GetCartItem(mID);
+            return View(memberOrder);
+        }
     }
 }

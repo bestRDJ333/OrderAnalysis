@@ -27,42 +27,39 @@ body {
 }
 
 
-.topMenu a {
-    float: right;
-    /*    border-left: 1px solid #03A9F4;*/
+    .topMenu a {
+        float: right;
+        /*    border-left: 1px solid #03A9F4;*/
+        display: block;
+        color: #009344;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        font-size: 1.3rem;
+    }
 
-    display: block;
-    color: #009344;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    font-size: 1.3rem;
-}
+        .topMenu a:hover {
+            text-decoration: none;
+            background-color: #009344;
+            color: white !important;
+            font-size: 1.5rem;
+            transition: .5s ease;
+        }
 
-.topMenu a:hover {
-    text-decoration: none;
-    background-color: #009344;
-    color: white !important;
-    font-size: 1.5rem;
-    transition: .5s ease;
+    .topMenu .a-trigger i {
+        /*    font-size: 1.5rem;*/
+        /*    padding-right: 0.5rem;*/
+        width: 2rem;
+    }
 
-}
+    .topMenu #navLogo {
+        width: 150px;
+    }
 
-.topMenu .a-trigger i {
-    /*    font-size: 1.5rem;*/
-    /*    padding-right: 0.5rem;*/
-    width: 2rem;
-}
-
-.topMenu #navLogo {
-    width: 150px;
-}
-
-.topMenu #navLogo a:hover {
-    /* 背景無顏色*/
-    background-color: transparent;
-    padding-right: 0;
-
-}
+        .topMenu #navLogo a:hover {
+            /* 背景無顏色*/
+            background-color: transparent;
+            padding-right: 0;
+        }
 
 #navTitleFont {
     position: absolute;
@@ -80,10 +77,10 @@ body {
 }
 
 
-#navLogo img {
-    width: 50%;
-    cursor: pointer;
-}
+    #navLogo img {
+        width: 50%;
+        cursor: pointer;
+    }
 
 /* menu鍵*/
 #rwdMenu {
@@ -101,10 +98,10 @@ body {
     font-size: 1.2rem;
 }
 
-#rwdMenu:hover {
-    font-size: 1.5rem;
-    background-color: #41D98A;
-}
+    #rwdMenu:hover {
+        font-size: 1.5rem;
+        background-color: #41D98A;
+    }
 
 
 #navTitle {
@@ -146,9 +143,10 @@ body {
         line-height: 2.5rem;
         color: #009344;
     }
+
         .nav-member-content .sub-item:hover {
             background-color: #009344;
-            color:white !important;
+            color: white !important;
             font-size: 1.1rem;
         }
 /*--- fix底部的nav ---*/
@@ -165,35 +163,35 @@ body {
     /*    opacity: 0.8;*/
 }
 
-.bottomMenu a {
-    display: inline-block;
-    width:100px;
-
-    text-align:center;
-    color: #009344;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    font-size: 1.3rem;
-}
-    .bottomMenu a:hover {
+    .bottomMenu a {
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+        color: #009344;
+        padding: 0.5rem 1rem;
         text-decoration: none;
-        background-color: #009344;
-        color: white !important;
-        transition: .5s ease;
+        font-size: 1.3rem;
     }
 
-    .bottomMenu a > i {
-        padding-right: 0.8rem;
-        font-size: 1.2rem;
-    }
+        .bottomMenu a:hover {
+            text-decoration: none;
+            background-color: #009344;
+            color: white !important;
+            transition: .5s ease;
+        }
+
+        .bottomMenu a > i {
+            padding-right: 0.8rem;
+            font-size: 1.2rem;
+        }
 
 
-    /*=============== footer =======================*/
-    .wrapper {
-        min-height: 100%;
-        margin-bottom: -50px;
-        /* 等于footer的高度 */
-    }
+/*=============== footer =======================*/
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+    /* 等于footer的高度 */
+}
 
 
 .push {
@@ -201,16 +199,16 @@ body {
 }
 
 .bs-footer {
-    height:auto;
+    height: auto;
     color: #777;
     background-color: white;
     text-align: center;
     border-top: 1px solid #cccccc;
 }
 
-.bs-footer span {
-    color: #8CC540;
-}
+    .bs-footer span {
+        color: #8CC540;
+    }
 
 /* footer social icons */
 
@@ -221,10 +219,10 @@ ul.social-network {
     padding: 0;
 }
 
-ul.social-network li {
-    display: inline;
-    margin: 0 5px;
-}
+    ul.social-network li {
+        display: inline;
+        margin: 0 5px;
+    }
 
 
 /* social icons 滑鼠移動時的顏色*/
@@ -239,6 +237,7 @@ ul.social-network li {
 .social-network a.icoTwitter:hover {
     background-color: #07C4F7;
 }
+
 .social-network a.icoYoutube:hover {
     background-color: #F8362A;
 }
@@ -266,22 +265,22 @@ ul.social-network li {
     font-size: 15px;
 }
 
-.social-circle li a:hover {
-    border: 0.1px solid #ffffff;
-}
+    .social-circle li a:hover {
+        border: 0.1px solid #ffffff;
+    }
 
-.social-circle li a:hover i,
-.triggeredHover {
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -ms--transform: rotate(360deg);
-    transform: rotate(360deg);
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -o-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    transition: all 0.2s;
-}
+        .social-circle li a:hover i,
+        .triggeredHover {
+            -moz-transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            -ms--transform: rotate(360deg);
+            transform: rotate(360deg);
+            -webkit-transition: all 0.2s;
+            -moz-transition: all 0.2s;
+            -o-transition: all 0.2s;
+            -ms-transition: all 0.2s;
+            transition: all 0.2s;
+        }
 
 .social-circle li i {
     margin: 0;
@@ -385,7 +384,7 @@ ul.social-network li {
         text-align: center;
         padding-top: 2px;
         color: #ff1a1a;
-        font-size:1.2rem;
+        font-size: 1.2rem;
     }
 
     .shopCartFooter a {
@@ -408,12 +407,13 @@ ul.social-network li {
             background-color: #ff4d4d;
             color: white !important;
         }
- 
+
 
 
 
 /*--- RWD width<1025 ----*/
-@media (max-width:1025px) {}
+@media (max-width:1025px) {
+}
 
 /* width<768*/
 @media (max-width:769px) {
@@ -426,8 +426,6 @@ ul.social-network li {
     .nav-member-content {
         right: 40px;
     }
-
-   
 }
 
 /* ---當視窗小於652時---*/
@@ -438,10 +436,25 @@ ul.social-network li {
         display: none;
     }
 
-    /*顯示bottomNav*/
+    /*--- fix底部的nav ---*/
     .bottomMenu {
         display: block;
-    }    
+    }
+}
+
+/* width<420*/
+@media (max-width:420px) {
+    /*--- fix底部的nav ---*/
+    .bottomMenu .row {
+        margin-left: 0.6rem;
+        flex-wrap: nowrap;
+    }
+
+    .bottomMenu a {
+        padding: 0.5rem 0;
+        font-size: 1rem;
+        border-right: 1px solid #b3b3b3;
+    }
 }
 
 /* width<375*/
@@ -452,32 +465,35 @@ ul.social-network li {
 
     /*nav會員的下拉式選單*/
     .nav-member-content {
-       padding-top:0;
+        padding-top: 0;
         bottom: 45px;
         right: 10px;
         width: 100px;
     }
-   
+
 
     /*購物車*/
     .shopCart {
-        padding-top:0;
+        padding-top: 0;
         /*在masterPage.js裡有位置設定*/
         width: auto;
         /*min-height: 20%;*/
-        height:auto;
+        height: auto;
         z-index: 3;
     }
-    
+
     /*--navbar--*/
     #navTitleFont {
         top: 0.3rem;
         left: 5rem;
         font-size: 1.8rem;
-
     }
 
     /*--- fix底部的nav ---*/
+    .bottomMenu .row {
+        margin-left: 0;
+        flex-wrap: nowrap;
+    }
     .bottomMenu a {
         padding: 0.5rem 0;
         font-size: 1rem;
@@ -494,11 +510,4 @@ ul.social-network li {
             padding-right: 0.5rem;
             font-size: 1rem;
         }
-
 }
-
-
-
-
-       
-           

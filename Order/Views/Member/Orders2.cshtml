@@ -25,26 +25,26 @@
                 <!--start accordion-->
                 <div class="container">
                     <div class="accordion">
-
-                        @foreach (var item in Model)
+                        @if (Model.FirstOrDefault() != null)
                         {
-                            if (Model.FirstOrDefault().OrderID == item.OrderID)
+                            foreach (var item in Model)
                             {
-                                <div class="accordion-item">
-                                    <a>@item.ProductName</a>
-                                    <div class="content">
-                                        <img src="@item.ProductPhotoS" />
-                                        <p>@item.ProductIntroduction</p>
-                                        <p>數量<span>@item.Quantity</span>份 &nbsp;&nbsp;&nbsp;$<span>@item.UnitPrice</span>元</p>
+                                if (Model.FirstOrDefault().OrderID == item.OrderID)
+                                {
+                                    <div class="accordion-item">
+                                        <a>@item.ProductName</a>
+                                        <div class="content">
+                                            <img src="@item.ProductPhotoS" />
+                                            <p>@item.ProductIntroduction</p>
+                                            <p>數量<span>@item.Quantity</span>份 &nbsp;&nbsp;&nbsp;$<span>@item.UnitPrice</span>元</p>
+                                        </div>
                                     </div>
-                                </div>
+                                }
                             }
                         }
                     </div>
-
                 </div>
                 <!--end accordion-->
-
             </div>
         </div>
 
@@ -63,49 +63,37 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>2019-05-04</td>
-                                <td>201901041642M0012</td>
-                                <!--<td>油醋燻鮭魚</td>-->
-                                <td>已取貨</td>
-                                <td class="td-dollar">$&nbsp;725</td>
-                            </tr>
-                            <tr>
-                                <td>2019-05-03</td>
-                                <td>201901041642M0012</td>
-                                <td>已取貨</td>
-                                <td class="td-dollar">$&nbsp;500</td>
-                            </tr>
-                            <tr>
-                                <td>2019-05-01</td>
-                                <td>201901041642M0012</td>
-                                <td>已取貨</td>
-                                <td class="td-dollar">$&nbsp;1250</td>
-                            </tr>
-                            <tr>
-                                <td>2019-04-20</td>
-                                <td>201901041642M0012</td>
-                                <td>已取貨</td>
-                                <td class="td-dollar">$&nbsp;1300</td>
-                            </tr>
-                            <tr>
-                                <td>2019-03-12</td>
-                                <td>201901041642M0012</td>
-                                <td>已取貨</td>
-                                <td class="td-dollar">$&nbsp;178</td>
-                            </tr>
-                            <tr>
-                                <td>2019-03-11</td>
-                                <td>201901041642M0012</td>
-                                <td>已取貨</td>
-                                <td class="td-dollar">$&nbsp;180</td>
-                            </tr>
-                            <tr>
-                                <td>2019-03-08</td>
-                                <td>201901041642M0012</td>
-                                <td>已取貨</td>
-                                <td class="td-dollar">$&nbsp;2500</td>
-                            </tr>
+                            @if (Model.FirstOrDefault() != null)
+                            {
+                                List<Order.Models.mMember.memberOrder> newList = new List<Order.Models.mMember.memberOrder>(Model);
+                                if (Model[0].OrderID != Model[1].OrderID)
+                                {
+                                    newList.Add(Model[0]);
+                                }
+                                for (int i = 0; i < Model.Count; i++)
+                                {
+                                    if (i != 0 && Model[i].OrderID != Model[i - 1].OrderID)
+                                    {
+                                        newList.Add(Model[i]);
+                                    }
+                                }
+
+                                int a = newList.Count;
+
+                                foreach (var item in newList)
+                                {
+                                    <tr>
+                                        <td>@string.Format("{0:yyyy/MM/dd}", item.OrderDate)</td>
+                                        @{DateTime? dt = item.OrderDate;
+                                            string sDt = string.Format("{0:yyyyMMddHHmm}M{1:D4}", dt, a);
+                                            a--; }
+                                        <td>@sDt</td>
+                                        <!--<td>油醋燻鮭魚</td>-->
+                                        <td>已取貨</td>
+                                        <td class="td-dollar">$&nbsp; @item.TotalPrice</td>
+                                    </tr>
+                                }
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -130,10 +118,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
     </div>
 </div>
 
@@ -145,15 +129,12 @@
     //測試用手風琴======================================
     const items = document.querySelectorAll(".accordion a");
 
-
     items.forEach(item => item.addEventListener('click', toggleAccordion));
 
     function toggleAccordion() {
         this.classList.toggle('active');
         this.nextElementSibling.classList.toggle('active');
     }
-
-
 
     //分頁Lab使用==============================================
     function openLab(evt, labTabs) {
@@ -179,14 +160,7 @@
         //})
         ////自動打開 手風琴Lab
         //$('.accordion').click();
-
-
-
-
     })
     //自動打開 第一頁分頁的Lab
     document.getElementById("defaultOpen").click();
-
-
-
 </script>

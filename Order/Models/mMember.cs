@@ -28,7 +28,8 @@ namespace Order.Models
             if (m == null)
             {
                 return "guest";
-            }else
+            }
+            else
             {
                 return m.UserID;
             }
@@ -104,5 +105,54 @@ namespace Order.Models
             db.SaveChanges();
         }
 
+        public class OrderInfo
+        {
+            public int? MemberID { get; set; }
+            public int OrderDetailID { get; set; }
+            public string OrderID { get; set; }
+            public int? ProductID { get; set; }
+            public string ProductName { get; set; }
+            public int? Quantity { get; set; }
+            public int? UnitPrice { get; set; }
+            public DateTime? OrderDate { get; set; }
+            public int? TotalPrice { get; set; }
+            public string ProductPhotoS { get; set; }
+            public string ProductIntroduction { get; set; }
+        }
+
+        public List<OrderInfo> getOrderInfo(Member m)
+        {
+            var obj = from od in db.OrderDetails
+                      join o in db.Orders
+                      on od.OrderID equals o.OrderID
+                      join p in db.Products
+                      on od.ProductID equals p.ProductID
+                      where od.MemberID == m.MemberID
+                      orderby od.OrderDetailID descending,o.OrderDate descending
+                      select new OrderInfo()
+                      {
+                          MemberID=od.MemberID,
+                          OrderDetailID=od.OrderDetailID,
+                          OrderID=od.OrderID,
+                          ProductID=od.ProductID,
+                          ProductName=od.ProductName,
+                          Quantity=od.Quantity,
+                          UnitPrice=od.UnitPrice,
+                          OrderDate=o.OrderDate,
+                          TotalPrice=o.TotalPrice,
+                          ProductPhotoS=p.ProductPhotoS,
+                          ProductIntroduction=p.ProductIntroduction
+                      };
+            return obj.ToList();
+        }
+
+        public List<Order> getMemberOrder(Member m)
+        {
+            var query = from o in db.Orders
+                        where o.MemberID == m.MemberID
+                        orderby o.OrderDate descending
+                        select o;
+            return query.ToList();
+        }
     }
 }

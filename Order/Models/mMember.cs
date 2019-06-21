@@ -128,7 +128,7 @@ namespace Order.Models
                       join p in db.Products
                       on od.ProductID equals p.ProductID
                       where od.MemberID == m.MemberID
-                      orderby od.OrderDetailID descending
+                      orderby od.OrderDetailID descending,o.OrderDate descending
                       select new memberOrder()
                       {
                           MemberID=od.MemberID,

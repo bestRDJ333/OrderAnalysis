@@ -58,38 +58,53 @@
                                 <th class="cn-col-3">訂購日期</th>
                                 <th class="cn-col-3">訂單編號</th>
                                 <!--<th>商品名稱</th>-->
-                                <th class="cn-col-3">狀態</th>
-                                <th class="cn-col-3">總金額</th>
+                                <th class="cn-col-3">狀態 @Model[13].OrderID</th>
+                                <th class="cn-col-3">總金額 @Model[14].OrderID</th>
                             </tr>
                         </thead>
                         <tbody>
                             @if (Model.FirstOrDefault() != null)
                             {
-                                List<Order.Models.mMember.memberOrder> newList = new List<Order.Models.mMember.memberOrder>(Model);
-                                if (Model[0].OrderID != Model[1].OrderID)
-                                {
-                                    newList.Add(Model[0]);
-                                }
-                                for (int i = 0; i < Model.Count; i++)
-                                {
-                                    if (i != 0 && Model[i].OrderID != Model[i - 1].OrderID)
+                                List<Order.Models.mMember.memberOrder> newList = new List<Order.Models.mMember.memberOrder>();
+                                //if (Model[0].OrderID != Model[1].OrderID)
+                                //{
+                                //    newList.Add(Model[0]);
+                                //}
+                                for (int i = 0; i < Model.Count - 1; i++)
+                                {//0 1 2 3 4 5--6個 跑5次
+                                 //1 2 3 4 5 X
+                                    if (Model[i].OrderID != Model[i + 1].OrderID)
                                     {
                                         newList.Add(Model[i]);
                                     }
                                 }
 
-                                int a = newList.Count;
+
+
+
+
+                                //foreach (var item in Model)
+                                //{
+                                //    for (int i = 0; i < Model.Count; i++)
+                                //    {
+                                //        if ()
+                                //        {
+
+                                //        }
+                                //    }
+                                //}
+                                //int a = newList.Count;
+                                int a = 0;
 
                                 foreach (var item in newList)
                                 {
+                                    DateTime? dt = item.OrderDate;
+                                    string sDt = string.Format("{0:yyyyMMddHHmm}M{1:D4}", dt, a);
+                                    a++;
                                     <tr>
                                         <td>@string.Format("{0:yyyy/MM/dd}", item.OrderDate)</td>
-                                        @{DateTime? dt = item.OrderDate;
-                                            string sDt = string.Format("{0:yyyyMMddHHmm}M{1:D4}", dt, a);
-                                            a--; }
                                         <td>@sDt</td>
-                                        <!--<td>油醋燻鮭魚</td>-->
-                                        <td>已取貨</td>
+                                        <td>已取貨 @item.OrderDetailID</td>
                                         <td class="td-dollar">$&nbsp; @item.TotalPrice</td>
                                     </tr>
                                 }

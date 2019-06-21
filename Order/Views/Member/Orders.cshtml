@@ -1,9 +1,8 @@
-﻿
+﻿@model Order.Models.orderVM
 @{
     ViewBag.Title = "Orders";
     Random rnd = new Random();
 }
-@model List<Order.Models.Product>
 <!--     此網站的css-->
 <link rel="stylesheet" href="~/css/OrderDetail.css">
 <!--start 訂單明細 content -->
@@ -25,23 +24,28 @@
                 <!--start accordion-->
                 <div class="container">
                     <div class="accordion">
-                        @for (int i = 0; i < 3; i++)
+                        @if (Model.Orders.FirstOrDefault() != null)
                         {
-                            int idx = rnd.Next(1, 20);
-                            <div class="accordion-item">
-                                <a>@Model[idx].ProductName</a>
-                                <div class="content">
-                                    <img src="@Model[idx].ProductPhotoS" />
-                                    <p>@Model[i].ProductIntroduction</p>
-                                    <p>數量1份 &nbsp;&nbsp;&nbsp;$<span>@Model[idx].UnitPrice</span>元</p>
-                                </div>
-                            </div>
+                            foreach (var item in Model.OrderInfo)
+                            {
+
+                                if (Model.OrderInfo.FirstOrDefault().OrderID == item.OrderID)
+                                {
+                                    int? sumPrice = item.Quantity * item.UnitPrice;
+                                    <div class="accordion-item">
+                                        <a>@item.ProductName</a>
+                                        <div class="content">
+                                            <img src="@item.ProductPhotoS" />
+                                            <p>@item.ProductIntroduction</p>
+                                            <p>數量<span>@item.Quantity</span>份 &nbsp;&nbsp;&nbsp;$<span>@sumPrice</span>元</p>
+                                        </div>
+                                    </div>
+                                }
+                            }
                         }
                     </div>
-
                 </div>
                 <!--end accordion-->
-
             </div>
         </div>
 
@@ -60,49 +64,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>2019-05-04</td>
-                                <td>201901041642M0012</td>
-                                <!--<td>油醋燻鮭魚</td>-->
-                                <td>已取貨</td>
-                                <td class="td-dollar">$&nbsp;725</td>
-                            </tr>
-                            <tr>
-                                <td>2019-05-03</td>
-                                <td>201901041642M0012</td>
-                                <td>已取貨</td>
-                                <td class="td-dollar">$&nbsp;500</td>
-                            </tr>
-                            <tr>
-                                <td>2019-05-01</td>
-                                <td>201901041642M0012</td>
-                                <td>已取貨</td>
-                                <td class="td-dollar">$&nbsp;1250</td>
-                            </tr>
-                            <tr>
-                                <td>2019-04-20</td>
-                                <td>201901041642M0012</td>
-                                <td>已取貨</td>
-                                <td class="td-dollar">$&nbsp;1300</td>
-                            </tr>
-                            <tr>
-                                <td>2019-03-12</td>
-                                <td>201901041642M0012</td>
-                                <td>已取貨</td>
-                                <td class="td-dollar">$&nbsp;178</td>
-                            </tr>
-                            <tr>
-                                <td>2019-03-11</td>
-                                <td>201901041642M0012</td>
-                                <td>已取貨</td>
-                                <td class="td-dollar">$&nbsp;180</td>
-                            </tr>
-                            <tr>
-                                <td>2019-03-08</td>
-                                <td>201901041642M0012</td>
-                                <td>已取貨</td>
-                                <td class="td-dollar">$&nbsp;2500</td>
-                            </tr>
+                            @if (Model.Orders.FirstOrDefault() != null)
+                            {
+                                //int a = newList.Count;
+                                int a = Model.Orders.Count();
+
+                                foreach (var item in Model.Orders)
+                                {
+                                    DateTime? dt = item.OrderDate;
+                                    string sDt = string.Format("{0:yyyyMMddHHmm}M{1}{2:D3}", dt,item.MemberID, a);
+                                    a--;
+                                    <tr>
+                                        <td>@string.Format("{0:yyyy/MM/dd}", item.OrderDate)</td>
+                                        <td>@sDt</td>
+                                        <td>已取貨</td>
+                                        <td class="td-dollar">$&nbsp; @item.TotalPrice</td>
+                                    </tr>
+                                }
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -127,10 +106,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
     </div>
 </div>
 
@@ -142,15 +117,12 @@
     //測試用手風琴======================================
     const items = document.querySelectorAll(".accordion a");
 
-
     items.forEach(item => item.addEventListener('click', toggleAccordion));
 
     function toggleAccordion() {
         this.classList.toggle('active');
         this.nextElementSibling.classList.toggle('active');
     }
-
-
 
     //分頁Lab使用==============================================
     function openLab(evt, labTabs) {
@@ -176,14 +148,7 @@
         //})
         ////自動打開 手風琴Lab
         //$('.accordion').click();
-
-
-
-
     })
     //自動打開 第一頁分頁的Lab
     document.getElementById("defaultOpen").click();
-
-
-
 </script>

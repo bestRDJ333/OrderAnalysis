@@ -399,6 +399,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OrderModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\orderVM.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>OrderModel.tt</DependentUpon>
     </Compile>
@@ -431,8 +432,8 @@
     <Content Include="Views\Shop\CheckOut.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Introduction.cshtml" />
+    <Content Include="Views\Member\oldOrders.cshtml" />
     <Content Include="Views\Member\Orders.cshtml" />
-    <Content Include="Views\Member\Orders2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -128,7 +128,8 @@ namespace Order.Controllers
         }
         #endregion 會員資料
 
-        public ActionResult Orders()
+        //此為亂數版，如果新版有錯再變回來
+        public ActionResult oldOrders()
         {
             string who = Session["who"].ToString();
             if (who == "guest")
@@ -144,18 +145,25 @@ namespace Order.Controllers
                 .ToList();
             return View(products);
         }
-        public ActionResult Orders2()
+
+        //新版訂單查詢
+        public ActionResult Orders()
         {
+            orderVM model = new orderVM();
+            
             string who = Session["who"].ToString();
             if (who == "guest")
             {
                 return Redirect("/Member/Login");
             }
             Member m= mb.memberProfile(who);
-            List<mMember.memberOrder> memberOrder=mb.getMemberOrder(m);
+            model.OrderInfo = mb.getOrderInfo(m);
+            model.Orders = mb.getMemberOrder(m);
+          //  List<mMember.memberOrder> memberOrder=mb.getMemberOrder(m);
             int mID = sc.GetMemberID(who);
             TempData["ShopCart"] = sc.GetCartItem(mID);
-            return View(memberOrder);
+            
+            return View(model);
         }
     }
 }

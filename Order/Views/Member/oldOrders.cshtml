@@ -3,7 +3,7 @@
     ViewBag.Title = "Orders";
     Random rnd = new Random();
 }
-@model List<Order.Models.mMember.memberOrder>
+@model List<Order.Models.Product>
 <!--     此網站的css-->
 <link rel="stylesheet" href="~/css/OrderDetail.css">
 <!--start 訂單明細 content -->
@@ -25,26 +25,23 @@
                 <!--start accordion-->
                 <div class="container">
                     <div class="accordion">
-                        @if (Model.FirstOrDefault() != null)
+                        @for (int i = 0; i < 3; i++)
                         {
-                            foreach (var item in Model)
-                            {
-                                if (Model.FirstOrDefault().OrderID == item.OrderID)
-                                {
-                                    <div class="accordion-item">
-                                        <a>@item.ProductName</a>
-                                        <div class="content">
-                                            <img src="@item.ProductPhotoS" />
-                                            <p>@item.ProductIntroduction</p>
-                                            <p>數量<span>@item.Quantity</span>份 &nbsp;&nbsp;&nbsp;$<span>@item.UnitPrice</span>元</p>
-                                        </div>
-                                    </div>
-                                }
-                            }
+                            int idx = rnd.Next(1, 20);
+                            <div class="accordion-item">
+                                <a>@Model[idx].ProductName</a>
+                                <div class="content">
+                                    <img src="@Model[idx].ProductPhotoS" />
+                                    <p>@Model[i].ProductIntroduction</p>
+                                    <p>數量1份 &nbsp;&nbsp;&nbsp;$<span>@Model[idx].UnitPrice</span>元</p>
+                                </div>
+                            </div>
                         }
                     </div>
+
                 </div>
                 <!--end accordion-->
+
             </div>
         </div>
 
@@ -58,57 +55,54 @@
                                 <th class="cn-col-3">訂購日期</th>
                                 <th class="cn-col-3">訂單編號</th>
                                 <!--<th>商品名稱</th>-->
-                                <th class="cn-col-3">狀態 @Model[13].OrderID</th>
-                                <th class="cn-col-3">總金額 @Model[14].OrderID</th>
+                                <th class="cn-col-3">狀態</th>
+                                <th class="cn-col-3">總金額</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if (Model.FirstOrDefault() != null)
-                            {
-                                List<Order.Models.mMember.memberOrder> newList = new List<Order.Models.mMember.memberOrder>();
-                                //if (Model[0].OrderID != Model[1].OrderID)
-                                //{
-                                //    newList.Add(Model[0]);
-                                //}
-                                for (int i = 0; i < Model.Count - 1; i++)
-                                {//0 1 2 3 4 5--6個 跑5次
-                                 //1 2 3 4 5 X
-                                    if (Model[i].OrderID != Model[i + 1].OrderID)
-                                    {
-                                        newList.Add(Model[i]);
-                                    }
-                                }
-
-
-
-
-
-                                //foreach (var item in Model)
-                                //{
-                                //    for (int i = 0; i < Model.Count; i++)
-                                //    {
-                                //        if ()
-                                //        {
-
-                                //        }
-                                //    }
-                                //}
-                                //int a = newList.Count;
-                                int a = 0;
-
-                                foreach (var item in newList)
-                                {
-                                    DateTime? dt = item.OrderDate;
-                                    string sDt = string.Format("{0:yyyyMMddHHmm}M{1:D4}", dt, a);
-                                    a++;
-                                    <tr>
-                                        <td>@string.Format("{0:yyyy/MM/dd}", item.OrderDate)</td>
-                                        <td>@sDt</td>
-                                        <td>已取貨 @item.OrderDetailID</td>
-                                        <td class="td-dollar">$&nbsp; @item.TotalPrice</td>
-                                    </tr>
-                                }
-                            }
+                            <tr>
+                                <td>2019-05-04</td>
+                                <td>201901041642M0012</td>
+                                <!--<td>油醋燻鮭魚</td>-->
+                                <td>已取貨</td>
+                                <td class="td-dollar">$&nbsp;725</td>
+                            </tr>
+                            <tr>
+                                <td>2019-05-03</td>
+                                <td>201901041642M0012</td>
+                                <td>已取貨</td>
+                                <td class="td-dollar">$&nbsp;500</td>
+                            </tr>
+                            <tr>
+                                <td>2019-05-01</td>
+                                <td>201901041642M0012</td>
+                                <td>已取貨</td>
+                                <td class="td-dollar">$&nbsp;1250</td>
+                            </tr>
+                            <tr>
+                                <td>2019-04-20</td>
+                                <td>201901041642M0012</td>
+                                <td>已取貨</td>
+                                <td class="td-dollar">$&nbsp;1300</td>
+                            </tr>
+                            <tr>
+                                <td>2019-03-12</td>
+                                <td>201901041642M0012</td>
+                                <td>已取貨</td>
+                                <td class="td-dollar">$&nbsp;178</td>
+                            </tr>
+                            <tr>
+                                <td>2019-03-11</td>
+                                <td>201901041642M0012</td>
+                                <td>已取貨</td>
+                                <td class="td-dollar">$&nbsp;180</td>
+                            </tr>
+                            <tr>
+                                <td>2019-03-08</td>
+                                <td>201901041642M0012</td>
+                                <td>已取貨</td>
+                                <td class="td-dollar">$&nbsp;2500</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -133,6 +127,10 @@
                 </div>
             </div>
         </div>
+
+
+
+
     </div>
 </div>
 
@@ -144,12 +142,15 @@
     //測試用手風琴======================================
     const items = document.querySelectorAll(".accordion a");
 
+
     items.forEach(item => item.addEventListener('click', toggleAccordion));
 
     function toggleAccordion() {
         this.classList.toggle('active');
         this.nextElementSibling.classList.toggle('active');
     }
+
+
 
     //分頁Lab使用==============================================
     function openLab(evt, labTabs) {
@@ -175,7 +176,14 @@
         //})
         ////自動打開 手風琴Lab
         //$('.accordion').click();
+
+
+
+
     })
     //自動打開 第一頁分頁的Lab
     document.getElementById("defaultOpen").click();
+
+
+
 </script>

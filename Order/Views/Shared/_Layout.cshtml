@@ -194,9 +194,17 @@
             if ("@Session["who"]" == "guest") {
                 window.location.href = "/Member/Login";
             }
+
+            // 分辨是 modal 還是 productCart 的按鍵，用來確認送出的產品數量正確。
+            var action;
+            if (this.id.indexOf("product")!=-1) {
+                action = "@Url.Action("addCart")?pID=" + getIndex(this.id);
+            } else {
+                action = "@Url.Action("addCart")?pID=" + getIndex(this.id) + "&amt=" + $("#quantity_" + getIndex(this.id)).val();
+            }
             $.ajax({
                 type: "GET",
-                url: "@Url.Action("addCart")?pID=" + getIndex(this.id) + "&amt=" + $("#quantity_" + getIndex(this.id)).val(),
+                url: action,
                 success: (response) => {
                     swal("加入購物車成功", {
                         icon: "success",

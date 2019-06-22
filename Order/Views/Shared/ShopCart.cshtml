@@ -33,10 +33,7 @@
             </div>
         </a>
         <span class="ItemQuantity">@pAmt 份</span>
-        <form action="/Shop/DelCart" method="get">
-            <input type="number" name="pID" value="@pID" hidden />
-            <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
-        </form>
+        <button id="DelBtn_@pID" class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
     </div>
 }
 
@@ -47,3 +44,25 @@
     @sum
 }
 
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(function () {
+        $(".DelBtn").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "/Shop/DelCart?pID=" + getIndex(this.id),
+                success: function (response) {
+
+                }
+            });
+        });
+    });
+
+
+
+    function getIndex(rawId) {
+        var reg = /\d{1,2}/;
+        var id = reg.exec(rawId);
+        return id;
+    }
+</script>

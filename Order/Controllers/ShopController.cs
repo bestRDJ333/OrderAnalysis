@@ -33,11 +33,6 @@ namespace Order.Controllers
         // GET: AddCart
         public ActionResult addCart(int pID, int? amt)
         {
-            if (Session["who"].ToString() == "guest")
-            {
-                return RedirectToRoute(new { controller = "Member", action = "Login" });
-            }
-
             addItem(pID, amt);
             setCart();
             return PartialView("ShopCart");
@@ -46,11 +41,6 @@ namespace Order.Controllers
         // GET: DelCart
         public ActionResult DelCart(int pID)
         {
-            if (Session["who"].ToString() == "guest")
-            {
-                return RedirectToRoute(new { controller = "Member", action = "Login" });
-            }
-
             delItem(pID);
 
             return RedirectToAction("Product");

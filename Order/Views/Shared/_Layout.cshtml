@@ -148,7 +148,7 @@
                 // Stop acting like a button
                 e.preventDefault();
 
-                var id = getIndex(this.id)
+                var id = getIndex(this.id);
 
                 // Get the field name
                 var quantity = parseInt($('#quantity_' + id).val());
@@ -157,17 +157,17 @@
                 $('#quantity_' + id).val(quantity + 1);
 
                 // Query string
-                var src = $("#productBtn_" + id).attr('href')
-                $("#addCart_" + id).attr('href', src)
-                src = $("#addCart_" + id).attr('href') + "&amt=" + $('#quantity_' + id).val()
-                $("#addCart_" + id).attr('href', src)
+                var src = $("#productBtn_" + id).attr('href');
+                $("#addCart_" + id).attr('href', src);
+                src = $("#addCart_" + id).attr('href') + "&amt=" + $('#quantity_' + id).val();
+                $("#addCart_" + id).attr('href', src);
             });
 
             $('.quantity-left-minus').click(function (e) {
                 // Stop acting like a button
                 e.preventDefault();
 
-                var id = getIndex(this.id)
+                var id = getIndex(this.id);
 
                 // Get the field name
                 var quantity = parseInt($('#quantity_' + id).val());
@@ -177,35 +177,40 @@
                     $('#quantity_' + id).val(quantity - 1);
                 }
                 // Query string
-                var src = $("#productBtn_" + id).attr('href')
-                $("#addCart_" + id).attr('href', src)
-                src = $("#addCart_" + id).attr('href') + "&amt=" + $('#quantity_' + id).val()
-                $("#addCart_" + id).attr('href', src)
+                var src = $("#productBtn_" + id).attr('href');
+                $("#addCart_" + id).attr('href', src);
+                src = $("#addCart_" + id).attr('href') + "&amt=" + $('#quantity_' + id).val();
+                $("#addCart_" + id).attr('href', src);
             });
         });
 
         function getIndex(rawId) {
-            var reg = /\d{1,2}/
-            var id = reg.exec(rawId)
-            return id
+            var reg = /\d{1,2}/;
+            var id = reg.exec(rawId);
+            return id;
         }
 
         $('.addCartBtn').click(function () {
             //使用 Sweet alert.js
+            if ("@Session["who"]" == "guest") {
+                window.location.href = "/Member/Login";
+            }
             $.ajax({
                 type: "GET",
                 url: "@Url.Action("addCart")?pID=" + getIndex(this.id),
                 success: (response) => {
                     $("#shopCartContent").html(response);
+                    swal("加入購物車成功", {
+                        icon: "success",
+                        buttons: false,
+                        timer: 1000,
+                    });
                 }
             });
-            swal("加入購物車成功", {
-                icon: "success",
-                buttons: false,
-                timer: 1000,
-            });
+
 
         });
+
 
 
         $('.seeFoodDetail').click(function () {
@@ -272,6 +277,7 @@
         }
 
 
+            alert("hi");
 
 
 

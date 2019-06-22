@@ -3,7 +3,7 @@
 <div class="shopCart">
     <p></p>
     <div id="shopCartContent">
-        <p class="noItem" style="display: none">購物車內目前沒有商品</p>
+        <p class="noItem">購物車內目前沒有商品</p>
         <!--購物內容 1-->
         @{if (TempData["ShopCart"] != null)
             {
@@ -64,5 +64,23 @@
         var reg = /\d{1,2}/;
         var id = reg.exec(rawId);
         return id;
+    }
+
+
+    NoItemCart();
+    //無商品的購物車--------------------------------
+    function NoItemCart() {
+        var cartCount = document.getElementsByClassName("shopCartItem");
+
+        if (cartCount.length <= 0) {
+            //購物車無商品
+            $('.noItem').show();
+            $('.shopCartFooter').hide();
+        }
+        else {
+            //購物車有商品
+            $('.noItem').hide();
+            $('.shopCartFooter').show();
+        }
     }
 </script>

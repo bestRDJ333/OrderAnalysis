@@ -89,24 +89,7 @@
         <div class="container-fluid">
             <div class="shopCart">
                 @{ Html.RenderAction("ShopCart");}
-                <p></p>
-                <div id="shopCartContent">
-                    <p class="noItem">購物車內目前沒有商品</p>
-                    <!--購物內容 1-->
-                    @{if (TempData["ShopCart"] != null)
-                        {
-                            foreach (var item in TempData["ShopCart"] as IEnumerable<ShopCart>)
-                            {
-                                @getCartItem(item.ProductName, item.ProductImage, item.UnitPrice, item.Quantity, item.pID);
-                            }
-                        } }
-                </div>
 
-
-                <div class="shopCartFooter row">
-                    <p>合計：$ @ViewBag.sumPrice</p>
-                    <a href="/Shop/CheckOut">立即結帳</a>
-                </div>
             </div>
 
         </div>
@@ -369,30 +352,7 @@
     </script>
 
 
-    @helper getCartItem(string pName, string pImg, int? pPrice, int? pAmt, int? pID)
-    {
-        <div class="shopCartItem">
-            <a href="#">
-                <img src="@pImg" />
-                <div>
-                    <p>@pName</p>
-                    <span>$ @sumPrice(pPrice, pAmt)</span>
-                </div>
-            </a>
-            <span class="ItemQuantity">@pAmt 份</span>
-            <form action="/Shop/DelCart" method="get">
-                <input type="number" name="pID" value="@pID" hidden />
-                <button class="DelBtn btn btn-outline-secondary"><span class="fas fa-trash-alt"></span></button>
-            </form>
-        </div>
-    }
 
-    <!-- 單一商品總價 -->
-    @helper sumPrice(int? pPrice, int? pAmt)
-    {
-        int? sum = pPrice * pAmt;
-        @sum
-    }
     @{
         var LogOutMsg = TempData["LogOut"] ?? string.Empty;
         var LogInMsg = TempData["LogIn"] ?? string.Empty;

@@ -14,6 +14,7 @@ namespace Order.Controllers
 
         public ActionResult ShopCart()
         {
+            setCart();
             return PartialView();
         }
 

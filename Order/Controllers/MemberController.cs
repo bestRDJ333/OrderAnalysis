@@ -7,7 +7,7 @@ using Order.Models;
 
 namespace Order.Controllers
 {
-    public class MemberController : Controller
+    public class MemberController : BaseController
     {
         Models.SMIT09Entities db = new SMIT09Entities();
         mMember mb = new mMember();

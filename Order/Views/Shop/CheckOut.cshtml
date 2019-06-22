@@ -163,7 +163,6 @@
 
 <p></p>
 <!--end 結帳 content-->
-
 <!--此網站的js-->
 <!--Sweet alert-->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -244,8 +243,11 @@
 
             $.ajax({
                 method: "GET",
-                url: "@Url.Action("DelCart")?pID=" + id
-            })
+                url: "@Url.Action("DelCart")?pID=" + id,
+                success: function (response) {
+                    $("#shopCartContent").html(response);
+                }
+            });
 
         });
 

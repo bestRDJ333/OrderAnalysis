@@ -16,16 +16,12 @@ namespace Order.Controllers
         // GET: Menu
         public ActionResult Menu()
         {
-            setCart();
-
             return View();
         }
 
         // GET: Product
         public ActionResult Product()
         {
-            setCart();
-
             return View(getProduct());
         }
 

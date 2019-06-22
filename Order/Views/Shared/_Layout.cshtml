@@ -87,10 +87,8 @@
         <!--//end 訂單細節、修改會員資料-->
         <!--start 購物車-->
         <div class="container-fluid">
-            <div class="shopCart">
-                @{ Html.RenderAction("ShopCart");}
+            @{ Html.RenderAction("ShopCart");}
 
-            </div>
 
         </div>
         <!--end 購物車-->
@@ -197,8 +195,9 @@
             $.ajax({
                 type: "GET",
                 url: "@Url.Action("addCart")?pID=" + getIndex(this.id),
-                sucess: () => {
-                    alert("OK");
+                success: (response) => {
+                    console.log("ok");
+                    $("#shopCartContent").html(response);
                 }
             });
             swal("加入購物車成功", {

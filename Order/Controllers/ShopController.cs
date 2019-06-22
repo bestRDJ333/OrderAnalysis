@@ -39,8 +39,8 @@ namespace Order.Controllers
             }
 
             addItem(pID, amt);
-
-            return RedirectToAction("Product");
+            setCart();
+            return PartialView("ShopCart");
         }
 
         // GET: DelCart

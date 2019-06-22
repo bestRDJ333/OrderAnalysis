@@ -1,24 +1,26 @@
 ﻿@using Order.Models;
 
-<p></p>
-<div id="shopCartContent">
-    <p class="noItem">購物車內目前沒有商品</p>
-    <!--購物內容 1-->
-    @{if (TempData["ShopCart"] != null)
-        {
-            foreach (var item in TempData["ShopCart"] as IEnumerable<ShopCart>)
+<div class="shopCart">
+    <p></p>
+    <div id="shopCartContent">
+        <p class="noItem">購物車內目前沒有商品</p>
+        <!--購物內容 1-->
+        @{if (TempData["ShopCart"] != null)
             {
-                @getCartItem(item.ProductName, item.ProductImage, item.UnitPrice, item.Quantity, item.pID);
-            }
-        } }
+                foreach (var item in TempData["ShopCart"] as IEnumerable<ShopCart>)
+                {
+                    @getCartItem(item.ProductName, item.ProductImage, item.UnitPrice, item.Quantity, item.pID);
+                }
+            } }
+    </div>
+
+
+    <div class="shopCartFooter row">
+        <p>合計：$ @ViewBag.sumPrice</p>
+        <a href="/Shop/CheckOut">立即結帳</a>
+    </div>
+
 </div>
-
-
-<div class="shopCartFooter row">
-    <p>合計：$ @ViewBag.sumPrice</p>
-    <a href="/Shop/CheckOut">立即結帳</a>
-</div>
-
 
 @helper getCartItem(string pName, string pImg, int? pPrice, int? pAmt, int? pID)
 {

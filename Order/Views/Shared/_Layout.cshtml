@@ -194,6 +194,13 @@
 
         $('.addCartBtn').click(function () {
             //使用 Sweet alert.js
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("addCart")?pID=" + getIndex(this.id),
+                sucess: () => {
+                    alert("OK");
+                }
+            });
             swal("加入購物車成功", {
                 icon: "success",
                 buttons: false,

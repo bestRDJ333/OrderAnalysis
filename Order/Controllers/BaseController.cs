@@ -33,7 +33,6 @@ namespace Order.Controllers
 
             // 取得購物車總額
             ViewBag.sumPrice = sc.SumTotal(mID);
-            ViewBag.itemAmt = sc.GetCartItem(mID).Count();
         }
 
         protected void addItem(int pID, int? amt)

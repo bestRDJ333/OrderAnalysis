@@ -55,9 +55,8 @@
         </div>
         <a href="~/Home/Index"><p id="navTitleFont">Incontra Itallia</p></a>
         <div class="navlinkGroup">
-            <a class="navShopCart a-trigger" href="#"><i class="fas fa-shopping-cart"></i>[@ViewBag.itemAmt]</a>
+            <a class="navShopCart a-trigger" href="#"><i class="fas fa-shopping-cart"></i><span class="itemAmt"></span></a>
             <a class="navMember a-trigger"><i class="fas fa-user"></i>會員</a>
-
             <a class="a-trigger" href="~/Shop/Menu"><i class="fas fa-utensils"></i>菜單</a>
             <a class="a-trigger" href="~/Home/Index#aboutUs"><i class="fas fa-store"></i>簡介</a>
             <button id="rwdMenu" onclick="toggleClass()">
@@ -72,7 +71,7 @@
             <a class="a-trigger col-sm-3" href="~/Home/Index#aboutUs"><i class="fas fa-store"></i>簡介</a>
             <a class="a-trigger col-sm-3" href="~/Shop/Menu"><i class="fas fa-utensils"></i>菜單</a>
             <a class="navMember a-trigger col-sm-3"><i class="fas fa-user"></i>會員</a>
-            <a class="navShopCart a-trigger col-sm-3" href="#"><i class="fas fa-shopping-cart"></i>[@ViewBag.itemAmt]</a>
+            <a class="navShopCart a-trigger col-sm-3" href="#"><i class="fas fa-shopping-cart"></i><span class="itemAmt"></span></a>
         </div>
     </div>
     <!--end  navbar-->
@@ -141,7 +140,7 @@
 
         //數量鍵的使用=======================================
         $(document).ready(function () {
-
+            $(".itemAmt").text("[" + $(".shopCartItem").length + "]");
             var quantitiy = 0;
             $('.quantity-right-plus').click(function (e) {
 
@@ -197,14 +196,16 @@
             }
             $.ajax({
                 type: "GET",
-                url: "@Url.Action("addCart")?pID=" + getIndex(this.id),
+                url: "@Url.Action("addCart")?pID=" + getIndex(this.id) + "&amt=" + $("#quantity_" + getIndex(this.id)).val(),
                 success: (response) => {
-                    $("#shopCartContent").html(response);
                     swal("加入購物車成功", {
                         icon: "success",
                         buttons: false,
                         timer: 1000,
                     });
+                    $("#shopCartContent").html(response);
+                    $(".itemAmt").text("[" + $(".shopCartItem").length + "]");
+                    $("#quantity_" + getIndex(this.id)).val(1);
                 }
             });
 
@@ -212,11 +213,9 @@
         });
 
 
-
         $('.seeFoodDetail').click(function () {
             //顯示 food modal
             $('#imagemodal').modal();
-
         });
 
 
@@ -275,10 +274,6 @@
             });
 
         }
-
-
-            alert("hi");
-
 
 
         $(function () {

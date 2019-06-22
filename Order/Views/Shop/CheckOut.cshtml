@@ -246,6 +246,7 @@
                 url: "@Url.Action("DelCart")?pID=" + id,
                 success: function (response) {
                     $("#shopCartContent").html(response);
+                    $(".itemAmt").text("[" + $(".shopCartItem").length + "]");
                 }
             });
 

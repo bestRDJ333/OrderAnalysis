@@ -44,7 +44,6 @@
     @sum
 }
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script>
     $(function () {
         $(".DelBtn").click(function () {
@@ -53,6 +52,7 @@
                 url: "/Shop/DelCart?pID=" + getIndex(this.id),
                 success: function (response) {
                     $("#shopCartContent").html(response);
+                    $(".itemAmt").text("[" + $(".shopCartItem").length + "]");
                 }
             });
         });

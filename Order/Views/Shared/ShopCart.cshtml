@@ -3,7 +3,7 @@
 <div class="shopCart">
     <p></p>
     <div id="shopCartContent">
-        <p class="noItem">購物車內目前沒有商品</p>
+        <p class="noItem" style="display: none">購物車內目前沒有商品</p>
         <!--購物內容 1-->
         @{if (TempData["ShopCart"] != null)
             {
@@ -46,3 +46,4 @@
     int? sum = pPrice * pAmt;
     @sum
 }
+

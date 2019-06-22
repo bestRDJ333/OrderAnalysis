@@ -196,7 +196,6 @@
                 type: "GET",
                 url: "@Url.Action("addCart")?pID=" + getIndex(this.id),
                 success: (response) => {
-                    console.log("ok");
                     $("#shopCartContent").html(response);
                 }
             });
@@ -314,23 +313,23 @@
             NoItemCart();
         }
 
+    //無商品的購物車--------------------------------
+    function NoItemCart() {
+        var cartCount = document.getElementsByClassName("shopCartItem");
 
-
-        //無商品的購物車--------------------------------
-        function NoItemCart() {
-            var cartCount = document.getElementsByClassName("shopCartItem");
-
-            if (cartCount.length <= 0) {
-                //購物車無商品
-                $('.noItem').show();
-                $('.shopCartFooter').hide();
-            }
-            else {
-                //購物車有商品
-                $('.noItem').hide();
-                $('.shopCartFooter').show();
-            }
+        if (cartCount.length <= 0) {
+            //購物車無商品
+            $('.noItem').show();
+            $('.shopCartFooter').hide();
         }
+        else {
+            //購物車有商品
+            $('.noItem').hide();
+            $('.shopCartFooter').show();
+        }
+    }
+
+
         //  ---scroll切換動畫----------------
         $(function () {
             $(window).scroll(function () {

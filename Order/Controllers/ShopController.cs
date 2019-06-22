@@ -42,8 +42,8 @@ namespace Order.Controllers
         public ActionResult DelCart(int pID)
         {
             delItem(pID);
-
-            return RedirectToAction("Product");
+            setCart();
+            return PartialView("ShopCart");
         }
 
         // GET: CheckOut

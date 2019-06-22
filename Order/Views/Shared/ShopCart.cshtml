@@ -52,7 +52,7 @@
                 type: "GET",
                 url: "/Shop/DelCart?pID=" + getIndex(this.id),
                 success: function (response) {
-
+                    $("#shopCartContent").html(response);
                 }
             });
         });

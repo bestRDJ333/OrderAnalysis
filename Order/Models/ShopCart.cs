@@ -18,6 +18,8 @@ namespace Order.Models
 
         SMIT09Entities db = new SMIT09Entities();
 
+
+
         public int GetMemberID(string uID)
         {
             int mID = db.Members

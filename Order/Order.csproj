@@ -429,6 +429,7 @@
     <Content Include="Views\Home\Introduction.cshtml" />
     <Content Include="Views\Member\oldOrders.cshtml" />
     <Content Include="Views\Member\Orders.cshtml" />
+    <Content Include="Views\Shared\ShopCart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

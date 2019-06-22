@@ -12,6 +12,11 @@ namespace Order.Controllers
         private SMIT09Entities db = new SMIT09Entities();
         private ShopCart sc = new ShopCart();
 
+        public ActionResult ShopCart()
+        {
+            return PartialView();
+        }
+
         protected List<Product> getProduct()
         {
             return db.Products.ToList();

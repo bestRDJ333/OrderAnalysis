@@ -440,10 +440,18 @@ ul.social-network {
     .bottomMenu {
         display: block;
     }
+
+    /*nav會員的下拉式選單*/
+    .nav-member-content {
+        padding-top: 0;
+        bottom: 45px;
+        right: 100px;
+        width: 100px;
+    }
 }
 
-/* width<420*/
-@media (max-width:420px) {
+/* width<480*/
+@media (max-width:480px) {
     /*--- fix底部的nav ---*/
     .bottomMenu .row {
         margin-left: 0.6rem;
@@ -454,6 +462,13 @@ ul.social-network {
         padding: 0.5rem 0;
         font-size: 1rem;
         border-right: 1px solid #b3b3b3;
+    }
+    /*nav會員的下拉式選單*/
+    .nav-member-content {
+        padding-top: 0;
+        bottom: 45px;
+        right: 25px;
+        width: 100px;
     }
 }
 
@@ -467,7 +482,7 @@ ul.social-network {
     .nav-member-content {
         padding-top: 0;
         bottom: 45px;
-        right: 10px;
+        right: 0px;
         width: 100px;
     }
 
@@ -494,6 +509,7 @@ ul.social-network {
         margin-left: 0;
         flex-wrap: nowrap;
     }
+
     .bottomMenu a {
         padding: 0.5rem 0;
         font-size: 1rem;
